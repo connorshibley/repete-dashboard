@@ -2,47 +2,127 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <title>trading-agent dashboard</title><style>
-body{font-family:-apple-system,Segoe UI,sans-serif;margin:0;background:#f5f6f8;
-     color:#1c1e21}
+:root{--bg:#0b0e14;--surf:#131722;--surf2:#1a2130;--line:#232b3b;
+      --ink:#e6e9f0;--ink2:#9aa4b5;--mut:#6b7482;--blue:#3987e5;
+      --green:#0ca30c;--red:#d03b3b;--amber:#c98500}
+*{box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,sans-serif;margin:0;background:var(--bg);
+     color:var(--ink);line-height:1.5}
 .wrap{max-width:1000px;margin:0 auto;padding:24px 16px 60px}
-h1{font-size:22px}h2{font-size:16px;margin:28px 0 8px;border-bottom:1px solid
-   #d8dbe0;padding-bottom:4px}
-.small{color:#5f6673;font-size:12px}
-.cards{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
-.card{background:#fff;border:1px solid #e2e5ea;border-radius:8px;
-      padding:10px 14px;min-width:120px}
-.card .v{font-size:20px;font-weight:600}.card .k{font-size:11px;color:#5f6673}
-table{border-collapse:collapse;width:100%;background:#fff;font-size:13px}
-th,td{border:1px solid #e2e5ea;padding:6px 8px;text-align:left;
-      vertical-align:top}
-th{background:#eef0f4;font-size:12px}
-a.x{color:#2463eb;text-decoration:none;font-weight:600;font-size:14px}
+h1{font-size:21px;margin:0 0 4px}
+h2{font-size:16px;margin:30px 0 10px;border-bottom:1px solid var(--line);
+   padding-bottom:6px}
+.small{color:var(--ink2);font-size:12px}
+a.x{color:var(--blue);text-decoration:none;font-weight:600;font-size:13px}
 a.x:hover{text-decoration:underline}
-.win{color:#0a7d33}.loss{color:#b3261e}
+.hero{background:linear-gradient(160deg,var(--surf) 0%,var(--surf2) 100%);
+      border:1px solid var(--line);border-radius:14px;padding:22px 26px;
+      margin:18px 0}
+.hero .hk{font-size:12px;letter-spacing:.14em;color:var(--ink2);
+          text-transform:uppercase}
+.hero .hv{font-size:46px;font-weight:700;margin:4px 0 2px;
+          font-variant-numeric:tabular-nums}
+.hero .hv.win{color:var(--green);text-shadow:0 0 22px rgba(12,163,12,.35)}
+.hero .hv.loss{color:var(--red);text-shadow:0 0 22px rgba(208,59,59,.35)}
+.hero .hs{color:var(--ink2);font-size:13px}
+.cards{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:10px;
+      padding:10px 14px;min-width:118px;flex:1 1 120px;
+      transition:transform .12s,border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--blue)}
+.card .v{font-size:19px;font-weight:600;font-variant-numeric:tabular-nums}
+.card .k{font-size:11px;color:var(--ink2)}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;background:var(--surf);font-size:13px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;
+      vertical-align:top}
+th{background:var(--surf2);font-size:12px;color:var(--ink2)}
+tr:hover td{background:var(--surf2)}
+.win{color:var(--green)}.loss{color:var(--red)}
 .badge{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11px;
-       background:#e8eaf0}
-.veto{background:#fbd8d5}.downsize{background:#fdeeC8}.approve{background:#d9f0e0}
-svg{background:#fff;border:1px solid #e2e5ea;border-radius:8px}
-.reason{color:#434851;font-size:12px}
+       background:var(--surf2);border:1px solid var(--line)}
+.veto{color:var(--red)}.downsize{color:var(--amber)}.approve{color:var(--green)}
+svg{background:var(--surf);border:1px solid var(--line);border-radius:10px;
+    display:block;margin:8px 0}
+.reason{color:var(--ink2);font-size:12px}
+details{margin:6px 0}
+details>summary{cursor:pointer;color:var(--ink2);font-size:13px;
+                user-select:none;margin:6px 0}
+.chip{display:inline-block;padding:3px 12px;margin:0 6px 10px 0;cursor:pointer;
+      border:1px solid var(--line);border-radius:14px;font-size:12px;
+      color:var(--ink2);background:var(--surf)}
+.chip:hover{border-color:var(--blue)}
+.chip.on{color:var(--ink);border-color:var(--blue);background:var(--surf2)}
+#tip{position:absolute;display:none;background:var(--surf2);
+     border:1px solid #2e3950;color:var(--ink);padding:6px 10px;
+     border-radius:6px;font-size:12px;pointer-events:none;z-index:10;
+     box-shadow:0 4px 14px rgba(0,0,0,.5);max-width:280px}
 </style></head><body>
 <div class=wrap>
 <h1>trading-agent <span class=small>[PAPER] — generated
-2026-07-17 20:20 UTC</span>
+2026-07-17 21:27 UTC</span>
 &nbsp; <a class=x href="https://x.com/Repete2026" target="_blank"
 rel="noopener">@Repete2026 on X ↗</a>
 &nbsp; <a class=x href="journal.html">trade journal →</a>
 &nbsp; <a class=x href="blog.html">blog →</a></h1>
+<div class=hero><div class=hk>Total P/L — paper account</div><div class="hv loss" data-count="-77.45" data-prefix="$">-$77.45</div><div class=hs>-0.08% on $100,000.00 starting capital · account equity $99,922.55</div></div>
 <div class=cards><div class=card><div class=v>2</div><div class=k>days of history</div></div><div class=card><div class=v>362</div><div class=k>decisions</div></div><div class=card><div class=v>0</div><div class=k>closed trades</div></div><div class=card><div class=v>6</div><div class=k>open positions</div></div><div class=card><div class=v>n/a</div><div class=k>win rate</div></div><div class=card><div class=v>n/a</div><div class=k>profit factor</div></div><div class=card><div class=v>$0.00</div><div class=k>realized P&L</div></div><div class=card><div class=v>2</div><div class=k>LLM vetoes</div></div><div class=card><div class=v>76</div><div class=k>rail rejections</div></div><div class=card><div class=v>+1138.7 bps med / 6 fills</div><div class=k>slippage</div></div></div>
-<h2>Equity</h2><p class=small>Not enough data points yet — the curve grows one point per completed cycle.</p>
-<h2>Open positions</h2><table><tr><th>Symbol</th><th>Strategy</th><th>Qty</th><th>Entry</th><th>Stop</th><th>Age</th><th>Entry reason</th></tr><tr><td>SPY</td><td>tsmom</td><td>1</td><td>$689.30</td><td>$672.07</td><td>1d</td><td class=reason>63-bar momentum +3.1% with price above SMA200 — trend intact</td></tr><tr><td>QQQ</td><td>tsmom</td><td>1</td><td>$609.24</td><td>$588.61</td><td>1d</td><td class=reason>63-bar momentum +0.7% with price above SMA200 — trend intact</td></tr><tr><td>DIA</td><td>tsmom</td><td>2</td><td>$494.86</td><td>$482.23</td><td>1d</td><td class=reason>63-bar momentum +6.5% with price above SMA200 — trend intact</td></tr><tr><td>IWM</td><td>tsmom</td><td>3</td><td>$261.41</td><td>$251.03</td><td>1d</td><td class=reason>63-bar momentum +6.6% with price above SMA200 — trend intact</td></tr><tr><td>XLV</td><td>tsmom</td><td>6</td><td>$160.20</td><td>$156.33</td><td>1d</td><td class=reason>63-bar momentum +0.9% with price above SMA200 — trend intact</td></tr><tr><td>NVDA</td><td>meanrev</td><td>5</td><td>$177.19</td><td>$164.67</td><td>1d</td><td class=reason>RSI2 at 7 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend</td></tr></table>
-<h2>Per-strategy</h2><p class=small>No closed trades yet.</p>
+<h2>📈 P/L over time</h2><p class=small>The P/L curve appears after two cycles of history — one point per completed cycle.</p>
+<h2>🪙 Trade scoreboard</h2><p class=small>No closed trades yet — one bar appears per closed trade, green for wins, red for losses.</p>
+<h2>💰 Equity</h2><p class=small>Not enough data points yet — the curve grows one point per completed cycle.</p>
+<h2>💼 Open positions</h2><div class=tblwrap><table><tr><th>Symbol</th><th>Strategy</th><th>Qty</th><th>Entry</th><th>Stop</th><th>Age</th><th>Entry reason</th></tr><tr><td>SPY</td><td>tsmom</td><td>1</td><td>$689.30</td><td>$672.07</td><td>1d</td><td class=reason>63-bar momentum +3.1% with price above SMA200 — trend intact</td></tr><tr><td>QQQ</td><td>tsmom</td><td>1</td><td>$609.24</td><td>$588.61</td><td>1d</td><td class=reason>63-bar momentum +0.7% with price above SMA200 — trend intact</td></tr><tr><td>DIA</td><td>tsmom</td><td>2</td><td>$494.86</td><td>$482.23</td><td>1d</td><td class=reason>63-bar momentum +6.5% with price above SMA200 — trend intact</td></tr><tr><td>IWM</td><td>tsmom</td><td>3</td><td>$261.41</td><td>$251.03</td><td>1d</td><td class=reason>63-bar momentum +6.6% with price above SMA200 — trend intact</td></tr><tr><td>XLV</td><td>tsmom</td><td>6</td><td>$160.20</td><td>$156.33</td><td>1d</td><td class=reason>63-bar momentum +0.9% with price above SMA200 — trend intact</td></tr><tr><td>NVDA</td><td>meanrev</td><td>5</td><td>$177.19</td><td>$164.67</td><td>1d</td><td class=reason>RSI2 at 7 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend</td></tr></table></div>
+<h2>🧭 Per-strategy</h2><p class=small>No closed trades yet.</p>
 <p class=small>Exits — none yet</p>
-<h2>Recent decisions (last 30)</h2><table><tr><th>When (UTC)</th><th>Sym</th><th>Action</th><th>Strategy</th><th>Judge</th><th>Status</th><th>Reasoning</th></tr><tr><td>2026-07-17 19:47</td><td>NFLX</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr><td>2026-07-17 19:47</td><td>GS</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:47</td><td>GS</td><td>buy</td><td>tsmom</td><td><span class="badge veto">veto</span></td><td>LLM veto</td><td class=reason>63-bar momentum +18.8% with price above SMA200 — trend intact<br><i>judge: Long momentum entry against a down-trending index (SPY below SMA) warrants extra skepticism, and GS is outside the backtested universe with no realized trade ev</i></td></tr><tr><td>2026-07-17 19:47</td><td>TSM</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 1 strategies</td></tr><tr><td>2026-07-17 19:47</td><td>TSM</td><td>buy</td><td>meanrev</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>RSI2 at 0 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend<br><i>judge: The setup itself is clean: RSI2 at 0.4 with price well above SMA200, matching the mean-reversion-in-uptrend template. However, TSM is a news-nominated symbol ou</i></td></tr><tr><td>2026-07-17 19:46</td><td>TSM</td><td>buy</td><td>tsmom</td><td><span class="badge veto">veto</span></td><td>LLM veto</td><td class=reason>63-bar momentum +9.5% with price above SMA200 — trend intact<br><i>judge: TSM is a news-nominated symbol outside the backtested universe with zero realized trade evidence, and the nomination rests on an analyst price-target headline r</i></td></tr><tr><td>2026-07-17 19:46</td><td>DIS</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>KO</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>KO</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +8.4% with price above SMA200 — trend intact<br><i>judge: Signal is internally consistent (momentum +8.4% with price above SMA200), but the index regime is down (SPY below its SMA), which warrants extra skepticism towa</i></td></tr><tr><td>2026-07-17 19:46</td><td>HD</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>PG</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>PG</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +4.8% with price above SMA200 — trend intact<br><i>judge: The signal is internally consistent (positive momentum, price above SMA200), but the broader regime is down-trending (SPY below its SMA), and long momentum entr</i></td></tr><tr><td>2026-07-17 19:46</td><td>XOM</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>XOM</td><td>buy</td><td>ma_crossover</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>SMA10 (142.3) crossed above SMA30 (142.22) — momentum turning up<br><i>judge: The crossover is extremely thin (SMA10 barely above SMA30 by 0.08) while price at 147.38 is already ~3.5% extended above both averages, suggesting a late/chasin</i></td></tr><tr><td>2026-07-17 19:46</td><td>JNJ</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>JNJ</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +8.1% with price above SMA200 — trend intact<br><i>judge: The signal itself is coherent (strong 63-bar momentum, price well above SMA200), but the regime is down/low with SPY below its SMA, and long momentum entries ag</i></td></tr><tr><td>2026-07-17 19:46</td><td>UNH</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>UNH</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +35.4% with price above SMA200 — trend intact<br><i>judge: The signal itself is coherent (strong 63-bar momentum, price well above SMA200), but the market regime is down (SPY below its SMA), and long momentum entries ag</i></td></tr><tr><td>2026-07-17 19:46</td><td>V</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>V</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +13.7% with price above SMA200 — trend intact<br><i>judge: The signal itself is internally consistent (strong 63-bar momentum, price well above SMA200), but the current regime is down (SPY below its SMA), and long momen</i></td></tr><tr><td>2026-07-17 19:46</td><td>JPM</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:46</td><td>JPM</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +10.0% with price above SMA200 — trend intact<br><i>judge: The signal is internally consistent (momentum +10% with price well above SMA200), but the broader regime is down-trending (SPY below its SMA), and long momentum</i></td></tr><tr><td>2026-07-17 19:45</td><td>AMD</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 1 strategies</td></tr><tr><td>2026-07-17 19:45</td><td>AMD</td><td>buy</td><td>meanrev</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>RSI2 at 9 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend<br><i>judge: The signal is internally consistent: RSI2 at 9 with price well above SMA200 fits the oversold-dip-in-uptrend setup, and the stock&#x27;s long-term trend is clearly i</i></td></tr><tr><td>2026-07-17 19:45</td><td>AMD</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +77.9% with price above SMA200 — trend intact<br><i>judge: Signal is mechanically valid (strong momentum, price well above SMA200), but the market regime is down-trending, which warrants extra skepticism for long moment</i></td></tr><tr><td>2026-07-17 19:45</td><td>TSLA</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr><td>2026-07-17 19:45</td><td>META</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr><td>2026-07-17 19:45</td><td>GOOGL</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr><td>2026-07-17 19:45</td><td>GOOGL</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +2.7% with price above SMA200 — trend intact<br><i>judge: The signal itself is coherent (positive momentum, price well above SMA200), but the index regime is down (SPY below its SMA), and long momentum entries against </i></td></tr><tr><td>2026-07-17 19:45</td><td>AMZN</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr></table>
-<h2>Lesson book</h2><p class=small>Empty — hypotheses generate from closed trades.</p>
+<h2>⚖️ Recent decisions (last 30)</h2>
+<details open><summary>every signal, the judge's verdict, and what
+happened — filter with the chips</summary>
+<span class="chip on" data-f="all">All</span><span class="chip" data-f="r-exec">Executed</span><span class="chip" data-f="r-approve">Approved</span><span class="chip" data-f="r-downsize">Downsized</span><span class="chip" data-f="r-veto">Vetoed</span><span class="chip" data-f="r-skip">Skipped</span><div class=tblwrap><table id=dtable><thead><tr><th>When (UTC)</th><th>Sym</th><th>Action</th><th>Strategy</th><th>Judge</th><th>Status</th><th>Reasoning</th></tr></thead><tbody><tr class="r-skip"><td>2026-07-17 19:47</td><td>NFLX</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr class="r-skip"><td>2026-07-17 19:47</td><td>GS</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-veto"><td>2026-07-17 19:47</td><td>GS</td><td>buy</td><td>tsmom</td><td><span class="badge veto">veto</span></td><td>LLM veto</td><td class=reason>63-bar momentum +18.8% with price above SMA200 — trend intact<br><i>judge: Long momentum entry against a down-trending index (SPY below SMA) warrants extra skepticism, and GS is outside the backtested universe with no realized trade ev</i></td></tr><tr class="r-skip"><td>2026-07-17 19:47</td><td>TSM</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 1 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:47</td><td>TSM</td><td>buy</td><td>meanrev</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>RSI2 at 0 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend<br><i>judge: The setup itself is clean: RSI2 at 0.4 with price well above SMA200, matching the mean-reversion-in-uptrend template. However, TSM is a news-nominated symbol ou</i></td></tr><tr class="r-skip r-veto"><td>2026-07-17 19:46</td><td>TSM</td><td>buy</td><td>tsmom</td><td><span class="badge veto">veto</span></td><td>LLM veto</td><td class=reason>63-bar momentum +9.5% with price above SMA200 — trend intact<br><i>judge: TSM is a news-nominated symbol outside the backtested universe with zero realized trade evidence, and the nomination rests on an analyst price-target headline r</i></td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>DIS</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>KO</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:46</td><td>KO</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +8.4% with price above SMA200 — trend intact<br><i>judge: Signal is internally consistent (momentum +8.4% with price above SMA200), but the index regime is down (SPY below its SMA), which warrants extra skepticism towa</i></td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>HD</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>PG</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:46</td><td>PG</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +4.8% with price above SMA200 — trend intact<br><i>judge: The signal is internally consistent (positive momentum, price above SMA200), but the broader regime is down-trending (SPY below its SMA), and long momentum entr</i></td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>XOM</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:46</td><td>XOM</td><td>buy</td><td>ma_crossover</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>SMA10 (142.3) crossed above SMA30 (142.22) — momentum turning up<br><i>judge: The crossover is extremely thin (SMA10 barely above SMA30 by 0.08) while price at 147.38 is already ~3.5% extended above both averages, suggesting a late/chasin</i></td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>JNJ</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:46</td><td>JNJ</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +8.1% with price above SMA200 — trend intact<br><i>judge: The signal itself is coherent (strong 63-bar momentum, price well above SMA200), but the regime is down/low with SPY below its SMA, and long momentum entries ag</i></td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>UNH</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:46</td><td>UNH</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +35.4% with price above SMA200 — trend intact<br><i>judge: The signal itself is coherent (strong 63-bar momentum, price well above SMA200), but the market regime is down (SPY below its SMA), and long momentum entries ag</i></td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>V</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:46</td><td>V</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +13.7% with price above SMA200 — trend intact<br><i>judge: The signal itself is internally consistent (strong 63-bar momentum, price well above SMA200), but the current regime is down (SPY below its SMA), and long momen</i></td></tr><tr class="r-skip"><td>2026-07-17 19:46</td><td>JPM</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:46</td><td>JPM</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +10.0% with price above SMA200 — trend intact<br><i>judge: The signal is internally consistent (momentum +10% with price well above SMA200), but the broader regime is down-trending (SPY below its SMA), and long momentum</i></td></tr><tr class="r-skip"><td>2026-07-17 19:45</td><td>AMD</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 1 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:45</td><td>AMD</td><td>buy</td><td>meanrev</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>RSI2 at 9 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend<br><i>judge: The signal is internally consistent: RSI2 at 9 with price well above SMA200 fits the oversold-dip-in-uptrend setup, and the stock&#x27;s long-term trend is clearly i</i></td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:45</td><td>AMD</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +77.9% with price above SMA200 — trend intact<br><i>judge: Signal is mechanically valid (strong momentum, price well above SMA200), but the market regime is down-trending, which warrants extra skepticism for long moment</i></td></tr><tr class="r-skip"><td>2026-07-17 19:45</td><td>TSLA</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr class="r-skip"><td>2026-07-17 19:45</td><td>META</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr><tr class="r-skip"><td>2026-07-17 19:45</td><td>GOOGL</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 2 strategies</td></tr><tr class="r-skip r-downsize"><td>2026-07-17 19:45</td><td>GOOGL</td><td>buy</td><td>tsmom</td><td><span class="badge downsize">downsize</span></td><td>risk rejection: max open positions reached (5)</td><td class=reason>63-bar momentum +2.7% with price above SMA200 — trend intact<br><i>judge: The signal itself is coherent (positive momentum, price well above SMA200), but the index regime is down (SPY below its SMA), and long momentum entries against </i></td></tr><tr class="r-skip"><td>2026-07-17 19:45</td><td>AMZN</td><td>hold</td><td></td><td></td><td>—</td><td class=reason>no entry from 3 strategies</td></tr></tbody></table></div></details>
+<h2>🧠 Lesson book</h2>
+<details open><summary>falsifiable hypotheses the bot is testing from its
+own closed trades</summary><p class=small>Empty — hypotheses generate from closed trades.</p></details>
 <p class=small>YOUR RECENT CALIBRATION: (no resolved judgments yet)</p>
 <p class=small>Paper trading. Generated from memory/ledger.jsonl — the
 append-only audit trail is the source of truth, this page is a view.
 The bot narrates its trades and reasoning at
 <a class=x href="https://x.com/Repete2026" target="_blank"
 rel="noopener">x.com/Repete2026</a>.</p>
-</div></body></html>
+</div><script>
+(function(){
+var tip=document.createElement('div');tip.id='tip';
+document.body.appendChild(tip);
+function move(e){tip.style.left=(e.pageX+14)+'px';
+                 tip.style.top=(e.pageY-12)+'px';}
+document.querySelectorAll('[data-tip]').forEach(function(el){
+  el.addEventListener('mouseenter',function(e){
+    tip.textContent=el.getAttribute('data-tip');
+    tip.style.display='block';move(e);});
+  el.addEventListener('mousemove',move);
+  el.addEventListener('mouseleave',function(){tip.style.display='none';});
+});
+document.querySelectorAll('[data-count]').forEach(function(el){
+  var end=parseFloat(el.getAttribute('data-count'))||0;
+  var pre=el.getAttribute('data-prefix')||'';
+  function fmt(v){
+    var s=Math.abs(v).toLocaleString('en-US',
+      {minimumFractionDigits:2,maximumFractionDigits:2});
+    return (v<0?'-':'+')+pre+s;}
+  var t0=null;
+  function step(ts){
+    if(!t0)t0=ts;
+    var p=Math.min((ts-t0)/900,1),e=1-Math.pow(1-p,3);
+    el.textContent=fmt(end*e);
+    if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+});
+document.querySelectorAll('.chip').forEach(function(c){
+  c.addEventListener('click',function(){
+    document.querySelectorAll('.chip').forEach(function(x){
+      x.classList.remove('on');});
+    c.classList.add('on');
+    var f=c.getAttribute('data-f');
+    document.querySelectorAll('#dtable tbody tr').forEach(function(r){
+      r.style.display=(f==='all'||r.classList.contains(f))?'':'none';});
+  });
+});
+})();
+</script></body></html>
