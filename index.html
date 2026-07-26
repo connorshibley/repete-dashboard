@@ -26,6 +26,15 @@ a.x:hover{text-decoration:underline}
       margin:18px 0;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 .hero .htext{flex:1 1 260px}
 .robotbox{display:flex;align-items:center;gap:10px;flex:0 1 auto}
+/* Repete on the swing. 240px is exactly half the 480px asset, so it lands on
+   whole device pixels at 2x. The pivot sits above the frame because that is
+   where the chains converge -- rotating about the image's own centre reads as
+   a wobble, not a swing. */
+.swing{width:240px;max-width:40vw;height:auto;display:block;
+       transform-origin:50% -22%;will-change:transform;
+       animation:swingarc 4.6s ease-in-out infinite}
+@keyframes swingarc{0%,100%{transform:rotate(-3.5deg)}
+                    50%{transform:rotate(3.5deg)}}
 .robot{animation:bob 3.4s ease-in-out infinite}
 .robot .eye{transform-origin:center;transform-box:fill-box;
             animation:blink 4.2s infinite}
@@ -33,12 +42,24 @@ a.x:hover{text-decoration:underline}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%,97%{transform:scaleY(.08)}}
 @keyframes tippulse{0%,100%{opacity:.55}50%{opacity:1}}
-.bubble{position:relative;background:var(--surf2);border:1px solid var(--line);
+/* White, not --surf2. The bubble used to sit beside a 62px robot, well inside
+   the light end of the hero gradient. The swing illustration pushes it to the
+   far right, where the gradient IS --surf2 -- same fill on same fill, and the
+   bubble lost its shape entirely. White reads at every point along it. */
+.bubble{position:relative;background:#ffffff;border:1px solid var(--line);
         border-radius:12px;padding:8px 12px;font-size:12.5px;color:var(--ink2);
         max-width:210px;min-height:38px;display:flex;align-items:center;
         transition:opacity .45s}
 .bubble:before{content:"";position:absolute;left:-7px;top:50%;margin-top:-6px;
         border:6px solid transparent;border-right-color:var(--line)}
+/* Narrow viewports: the illustration and a 210px bubble side by side need
+   ~430px, which pushed the bubble off the right edge of a phone. Stack them
+   and drop the tail, which points at nothing once the bubble is underneath. */
+@media (max-width:620px){
+  .robotbox{flex-wrap:wrap;justify-content:center}
+  .swing{width:200px;max-width:70vw}
+  .bubble{max-width:none;flex:1 1 100%}
+  .bubble:before{display:none}}
 .tape{overflow:hidden;border:1px solid var(--line);border-radius:10px;
       background:var(--surf);margin:14px 0;white-space:nowrap;position:relative}
 .tape:before,.tape:after{content:"";position:absolute;top:0;bottom:0;width:26px;
@@ -157,7 +178,7 @@ td.pending .pendingn{display:inline;margin-left:6px}
 #boot .skip{font-size:10px;letter-spacing:.22em;color:var(--mut);
   text-transform:uppercase}
 @media (prefers-reduced-motion: reduce){
-  .tape-track,.robot,.robot .eye,.robot .tip,.livedot,
+  .tape-track,.robot,.robot .eye,.robot .tip,.livedot,.swing,
   #boot .mark b,#candles i,#boot .bl.on.cur:after{animation:none}}
 .hero .hk{font-size:12px;letter-spacing:.14em;color:var(--ink2);
           text-transform:uppercase}
@@ -221,13 +242,13 @@ details>summary{cursor:pointer;color:var(--ink2);font-size:13px;
 </svg><div class=sys>autonomous swing desk</div><div class=mark><b style="animation-delay:0.15s,1.40s">R</b><b style="animation-delay:0.22s,1.50s">E</b><b style="animation-delay:0.29s,1.60s">P</b><b style="animation-delay:0.36s,1.70s">E</b><b style="animation-delay:0.43s,1.80s">T</b><b style="animation-delay:0.50s,1.90s">E</b></div><div class=tagline>the market brain is waking</div><div class=log><div class=bl>power on · repete os v2.1 <span class=ok>[paper]</span></div><div class=bl>mounting the append-only ledger… <span class=ok>ok</span></div><div class=bl>waking the judge… <b>bull and bear reporting in</b></div><div class=bl>arming the risk rails… <span class=ok>all deterministic</span></div><div class=bl>book: <b>5 positions</b> · scanning <b>38 names</b></div><div class=bl>market brain online <span class=ok>✓</span></div></div><div id=candles><i class=r style="height:13px;animation-delay:0.40s"></i><i class=r style="height:26px;animation-delay:0.53s"></i><i class=g style="height:15px;animation-delay:0.66s"></i><i class=g style="height:28px;animation-delay:0.79s"></i><i class=r style="height:17px;animation-delay:0.92s"></i><i class=g style="height:30px;animation-delay:1.05s"></i><i class=g style="height:19px;animation-delay:1.18s"></i><i class=r style="height:8px;animation-delay:1.31s"></i><i class=g style="height:21px;animation-delay:1.44s"></i><i class=g style="height:10px;animation-delay:1.57s"></i><i class=r style="height:23px;animation-delay:1.70s"></i><i class=r style="height:12px;animation-delay:1.83s"></i><i class=g style="height:25px;animation-delay:1.96s"></i><i class=g style="height:14px;animation-delay:2.09s"></i></div><div class=skip>click anywhere to skip</div></div>
 <div class=wrap>
 <h1>trading-agent <span class=small>[PAPER] — generated
-2026-07-26 18:03 UTC</span>
+2026-07-26 19:35 UTC</span>
 &nbsp; <a class=x href="https://x.com/Repete2026" target="_blank"
 rel="noopener">@Repete2026 on X ↗</a>
 &nbsp; <a class=x href="journal.html">trade journal →</a>
 &nbsp; <a class=x href="blog.html">blog →</a></h1>
 <p class=small><span class=livedot></span>live paper account · rebuilt
-after every cycle from the append-only ledger &nbsp;<span id=fresh class="fresh green" data-gen="2026-07-26T18:03:55.334350+00:00" data-hash="a7075030e1e19265">live</span></p>
+after every cycle from the append-only ledger &nbsp;<span id=fresh class="fresh green" data-gen="2026-07-26T19:35:24.469562+00:00" data-hash="a7075030e1e19265">live</span></p>
 <div id=rgn-tape><div class=tape><div class=tape-track><span class="tchip bot">🤖 REPETE · [PAPER]</span><span class="tchip dn">P/L <b>-$89.97</b> · eq $99,910.03</span><span class=tchip>HOLDING <b>SPY</b> $738.93 <b class=loss>-1.9%</b> · 10d</span><span class=tchip>HOLDING <b>QQQ</b> $684.23 <b class=loss>-4.0%</b> · 10d</span><span class=tchip>HOLDING <b>DIA</b> $1,037.52 <b class=loss>-1.6%</b> · 10d</span><span class=tchip>HOLDING <b>IWM</b> $873.51 <b class=loss>-1.9%</b> · 10d</span><span class=tchip>HOLDING <b>XLV</b> $975.42 <b class=win>+0.1%</b> · 10d</span><span class="tchip fun">regime <b>down/low</b></span><span class=tchip>win rate <b>100%</b> (1 closed)</span><span class=tchip>judge vetoes <b>2</b> · rail blocks <b>141</b></span><span class="tchip fun">scanning <b>38 names</b> for setups</span><span class=tchip>next decision <b>3:45 PM ET</b> 🔔</span><span class="tchip bot">🤖 REPETE · [PAPER]</span><span class="tchip dn">P/L <b>-$89.97</b> · eq $99,910.03</span><span class=tchip>HOLDING <b>SPY</b> $738.93 <b class=loss>-1.9%</b> · 10d</span><span class=tchip>HOLDING <b>QQQ</b> $684.23 <b class=loss>-4.0%</b> · 10d</span><span class=tchip>HOLDING <b>DIA</b> $1,037.52 <b class=loss>-1.6%</b> · 10d</span><span class=tchip>HOLDING <b>IWM</b> $873.51 <b class=loss>-1.9%</b> · 10d</span><span class=tchip>HOLDING <b>XLV</b> $975.42 <b class=win>+0.1%</b> · 10d</span><span class="tchip fun">regime <b>down/low</b></span><span class=tchip>win rate <b>100%</b> (1 closed)</span><span class=tchip>judge vetoes <b>2</b> · rail blocks <b>141</b></span><span class="tchip fun">scanning <b>38 names</b> for setups</span><span class=tchip>next decision <b>3:45 PM ET</b> 🔔</span></div></div></div>
 <div id=rgn-hero><div class=hero><div class=htext><div class=hk>Total P/L — paper account</div><div class="hv loss" data-count="-89.97" data-prefix="$">-$89.97</div><div class=hs>-0.09% on $100,000.00 starting capital · account equity $99,910.03</div></div><div class=robotbox><svg class=robot width="62" height="74" viewBox="0 0 62 74"
  style="background:none;border:none" aria-label="Repete the trading robot">
