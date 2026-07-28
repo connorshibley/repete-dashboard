@@ -18,14 +18,46 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-07-28 17:20 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-07-28 19:46 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a> ·
 <a href="https://x.com/Repete2026">@Repete2026 on X ↗</a></p>
-<article id="040d8352"><h2>BUY LLY — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-27 22:21 UTC · trade 040d8352</div><div class=body>This is a paper trading entry — no real capital involved. Trade log for LLY, a time-series momentum (tsmom) buy.
+<article id="017766fa"><h2>BUY GS — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-28 19:46 UTC · trade 017766fa</div><div class=body>**Paper trade — GS long, tsmom strategy**
+
+This is a simulated paper trade; no real capital is at risk.
+
+**The opportunity.** The deterministic trend-following model flagged GS after a 63-bar return of +10.6%, with price at 1037.26 sitting well above its 200-day SMA of 913.04 (roughly 13.6% above). That&#x27;s the entirety of the signal: a time-series momentum (tsmom) filter that buys assets whose intermediate-term trend is positive and confirmed by a long-term moving average. No discretionary chart reading, no news catalyst — just the two numbers crossing the strategy&#x27;s thresholds.
+
+**Why trade this setup at all.** Time-series momentum has decades of academic and practitioner evidence showing modest positive expectancy across asset classes, the logic being that trends persist longer than random walk would predict due to slow information diffusion, herding, and institutional flow. It&#x27;s traded here because it&#x27;s systematic, cheap to compute, and diversifying against mean-reversion strategies. The known failure modes are exactly what you&#x27;d expect: momentum crashes when trends reverse sharply (often after they&#x27;re already extended, as this one is — 10.6% in 63 bars isn&#x27;t cheap), and it performs worst in choppy or event-driven tapes where whipsaws generate a string of small losses before any real trend reasserts itself.
+
+**The judge&#x27;s view.** The AI risk reviewer agreed the trend signal itself was clean — strong momentum, price comfortably above SMA200 — but flagged context the deterministic model ignores: the broader regime is classified &quot;down/low,&quot; meaning SPY itself is below its own SMA, so this is a long entry against the tape&#x27;s dominant direction. It also noted two near-term catalysts (a Fed decision and mega-cap tech earnings) that could inject volatility unrelated to GS&#x27;s own fundamentals, plus an internal note that the existing book already holds 14 positions with mixed small losses, suggesting recent conditions have been choppy rather than trending. Verdict: downsize to 0.5x, confidence 0.55. The position was cut to 3 shares as a result — small enough to let the trend thesis play out without overcommitting into event risk the strategy doesn&#x27;t price.
+
+**The risk plan.** Entry at 1037.26, stop at 955.22 — roughly 7.9% below entry, which sits below SMA200, giving the trade room to breathe while still capping loss if the trend structure actually breaks. No take-profit is set; this is a trend-following position meant to run and be trailed or exited by the same logic that opened it. The trade is invalidated if price falls back through SMA200 and the stop, which would mean the +10.6% momentum reading was a late-stage exhaustion move rather than a durable trend — a common way these setups fail, especially against a down/low regime backdrop.</div></article><article id="0325ffca"><h2>CLOSE QQQ — tsmom <span class="badge close">close</span></h2><div class=meta>2026-07-28 19:45 UTC · trade 0325ffca</div><div class=body>**Paper trading account — trade closed, QQQ, tsmom strategy**
+
+**What the strategy saw**
+
+This was a time-series momentum (tsmom) signal on QQQ in an &quot;up/low&quot; regime (uptrend, low volatility). At entry, close was $609.24, 63-bar momentum was +0.67%, and price sat well above SMA200 ($586.16, roughly 4% above). The rule is mechanical: positive medium-term momentum plus price above a long moving average is read as &quot;trend intact,&quot; and the system takes a position in the direction of that trend. Nothing subjective went into this — it&#x27;s a threshold check on two numbers.
+
+**Why this setup gets traded, and how it fails**
+
+Trend-following systems like this exist because markets sometimes persist in a direction longer than mean-reversion models expect, and momentum has decades of academic and practical support as a factor with positive long-run expectancy. The known failure modes are well documented: whipsaws in choppy or transitioning regimes, late entries near local tops after the trend has already matured, and the fact that momentum signals say nothing about *how much* of the move is left. A momentum reading of +0.67% over 63 bars is a fairly mild signal — this wasn&#x27;t an extreme breakout, just confirmation that the slow trend was still up.
+
+**Risk review**
+
+The LLM risk-review layer was disabled/unavailable for this decision, so it fell back to rule-based execution with an automatic &quot;approve&quot; and full 1.0x scale. In other words, no independent judgment was applied here beyond the deterministic strategy logic — worth flagging plainly rather than glossing over.
+
+**The risk plan and what actually happened**
+
+Position size was 1 share (trivial, paper-trading scale), entered as a one-triggers-other order with a stop at $588.61 — about 3.4% below entry. The plan was straightforward: ride the uptrend, and if price broke down through $588.61, exit and take the loss as proof the trend thesis was wrong.
+
+What actually happened: price rallied to $674.23 before the stop_loss order triggered the exit — meaning the stop level itself must have been adjusted upward (trailing) rather than staying fixed, since the exit price is well above both entry and the original stop. Result: a $64.99 gain, +10.67% return on the position, and +12.46% alpha versus benchmark (-1.79%).
+
+**What this does and doesn&#x27;t prove**
+
+The trade worked, but it exited via &quot;stop_loss&quot; while showing a double-digit gain — an unusual combination worth scrutinizing rather than celebrating. The tentative hypothesis logged is that in this regime/strategy combination, the stop mechanism may be trailing gains upward rather than purely capping downside, which would be a different function than a traditional stop-loss. That&#x27;s a single observation (n=1) on paper capital with a 1-share position. It says nothing about whether this holds under different regimes, larger size, or unfavorable momentum readings. No conclusions, no forward predictions — just a data point logged for pattern review.</div></article><article id="040d8352"><h2>BUY LLY — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-27 22:21 UTC · trade 040d8352</div><div class=body>This is a paper trading entry — no real capital involved. Trade log for LLY, a time-series momentum (tsmom) buy.
 
 **The opportunity.** The strategy&#x27;s scan flagged LLY on a straightforward trend-following signal: 63-bar momentum of +35.5%, with price ($1,197.53) sitting well above its 200-day SMA ($1,017.89) — roughly 17.6% above that long-term average. The deterministic rule doesn&#x27;t care about narrative; it just sees a price series that has trended up strongly and consistently over the lookback window and infers the trend is more likely to persist than reverse in the near term.
 
