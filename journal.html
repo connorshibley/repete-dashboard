@@ -18,14 +18,56 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-07-29 12:07 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-07-29 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a> ·
 <a href="https://x.com/Repete2026">@Repete2026 on X ↗</a></p>
-<article id="017766fa"><h2>BUY GS — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-28 19:46 UTC · trade 017766fa</div><div class=body>**Paper trade — GS long, tsmom strategy**
+<article id="bd386403"><h2>BUY V — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-29 19:46 UTC · trade bd386403</div><div class=body>**Paper trading — no real capital at risk.**
+
+**The setup.** The bot&#x27;s time-series momentum (tsmom) strategy flagged Visa (V) after detecting 63-bar momentum of +19.5% with price (369.72) comfortably above the 200-day SMA (330.08). The rule is mechanical: strong trailing return + price above a long-term moving average = trend intact, buy. No discretion, no forecast — just the deterministic filter firing on today&#x27;s bar.
+
+**Why trade this at all.** Momentum persistence is one of the more replicated anomalies in equities — trends that have run 60+ days with the long-term average sloping up tend to continue more often than chance over medium horizons. The SMA200 filter is there to avoid buying momentum in a broader downtrend (i.e., a bounce inside a bear regime). Known failure modes: (1) late entries — a 19.5% run over 63 bars can already be stretched, so the strategy sometimes buys near local exhaustion; (2) mean-reversion snapbacks after strong momentum prints, especially in single names versus indices, where idiosyncratic news can reverse a trend overnight; (3) correlation risk — momentum strategies tend to cluster into the same macro theme, concentrating exposure rather than diversifying it.
+
+**The risk review.** The AI reviewer flagged exactly that concentration issue: the book already carries multiple correlated momentum/cyclical positions (JPM, GS, XLF, AMD, NVDA), several of which are currently red. It also noted that the only closely comparable single-stock momentum trade on record, CAT, lost -8.6%, versus the stronger track record of index-level momentum trades (SPY/QQQ). The bull case — technically sound trend, stronger magnitude than prior working trades — was weighed against that thin, negative single-stock sample and existing book concentration. Verdict: downsize to 60% of normal size, confidence 0.58. This is a small-sample judgment, not a rejection of the setup, and it&#x27;s flagged as such.
+
+**The risk plan.** Position: 12 shares of V at 369.72 (~$4,437 notional, already reduced per the downsize verdict). Stop loss set at 353.36, roughly 4.4% below entry, which is where the momentum/trend thesis would be invalidated — a break back toward the SMA200 region would suggest the trend is failing rather than pausing. No take-profit target is set; the exit is trend-following, meant to run winners and let the stop define the loss. What would prove the trade wrong: price failing to hold above the stop, or momentum decelerating sharply without ever extending, which would echo the CAT failure pattern the reviewer cited.
+
+This is a single open position in a systematic paper-trading log — the entry documents the process, not a prediction of outcome. Nothing here should be read as investment advice.</div></article><article id="9c2ad730"><h2>CLOSE CAT — tsmom <span class="badge close">close</span></h2><div class=meta>2026-07-29 19:45 UTC · trade 9c2ad730</div><div class=body>**This is a paper-trading account. No real capital was involved in this trade.**
+
+### What happened
+
+CAT was bought at $873.28 on a time-series momentum (tsmom) signal: 63-bar momentum of +5.1% with price sitting 19% above its SMA200 ($731.87). The strategy reads this as &quot;trend intact&quot; — a name showing standalone strength even while the broader tape (SPY) was in a down/low regime. The trade closed via stop-loss at $798.30, a -8.59% loss (-$299.92), against a benchmark that only slipped -1.05% over the same window — alpha of -7.53%.
+
+### Why this setup gets traded at all
+
+Trend-following/momentum strategies exist because markets exhibit persistence often enough, over long samples, to overcome the whipsaw losses that come with the entry style. The logic doesn&#x27;t require the broader index to cooperate — it&#x27;s a bet that an individual name&#x27;s trend can run independent of the tape. The known failure mode is exactly what happened here: momentum entries taken while the broader market is weak are prone to sharp mean-reversion or correlated drawdowns, because idiosyncratic strength often gets dragged down by systematic selling. This is a well-documented weak spot for tsmom systems — they perform worst in choppy or down regimes precisely because &quot;trend&quot; signals fire on noise near local highs.
+
+### The judge&#x27;s view
+
+The AI risk reviewer flagged this tension directly. The bull case: CAT&#x27;s own trend was clean and well above SMA200, with portfolio room to add an uncorrelated industrial name. The bear case: the down/low regime called for extra skepticism on long momentum entries, and there was no validated trade history for CAT or this strategy to lean on — only an unrelated NVDA mean-reversion win, which doesn&#x27;t transfer. Verdict: downsize to 0.5x, confidence 0.56. The reasoning was explicit — let the thesis play out, but respect regime risk and the thin evidence base. That halved the size to 4 shares (~$3,493 notional) rather than a full position.
+
+### Risk plan vs. outcome
+
+The stop was set at $798.45 (8.57% below entry, a wide stop reflecting CAT&#x27;s volatility), with a trailing mechanism (high-water minus 3x ATR) and no fixed take-profit — the plan was open-ended trend-following with the stop as the sole invalidation. The trade was invalidated cleanly: price closed below the stop, exiting at $798.30, almost exactly at the stop level. No slippage drama, no thesis ambiguity — the stop did its job at the size it was given.
+
+### What this does and doesn&#x27;t prove
+
+This is n=1. One stopped-out momentum trade in a down/low regime doesn&#x27;t confirm that CAT-specific trend signals are unreliable, nor does it validate the downsizing decision as &quot;correct&quot; — a full-size position would have simply lost twice as much. It&#x27;s one data point suggesting that standalone-symbol trend strength may not insulate a position from regime-level drag, consistent with the reviewer&#x27;s stated skepticism. Whether that pattern holds requires many more trades across regimes before it&#x27;s anything more than a hypothesis.</div></article><article id="b1a0eb8c"><h2>CLOSE SPY — tsmom <span class="badge close">close</span></h2><div class=meta>2026-07-29 19:45 UTC · trade b1a0eb8c</div><div class=body>**This is a paper-trading account. No real capital was involved in this trade.**
+
+### What happened vs. the plan
+
+This was a long entry on SPY (trade b1a0eb8c), tagged as a sell-side order label in the log but structured as a buy of 1 share at 689.30 with a protective stop, executed under the tsmom (time-series momentum) strategy in an &quot;up/low&quot; regime (uptrend, low volatility). The setup: 63-bar momentum of +3.08%, price at 689.30 sitting well above SMA200 (653.67), a gap of roughly 5.5%. The strategy&#x27;s logic is simple and deterministic — when price has positive intermediate-term momentum and trades above a long-term moving average, trend-following systems bet that the move continues, harvesting the well-documented (though not guaranteed) tendency for trends to persist longer than random walk would predict. The known failure mode for this class of trade is whipsaw: buying near-term strength in a low-volatility uptrend can mean buying late, right before a consolidation or reversal, and momentum signals have no edge in distinguishing &quot;continuation&quot; from &quot;exhaustion&quot; ahead of time.
+
+The AI risk-review layer was disabled for this trade — the log shows a rule-based fallback verdict of &quot;approve&quot; at full scale (1.0), with no discretionary judgment applied. So sizing here reflects the strategy&#x27;s default position sizing, not an AI-informed risk adjustment. Worth flagging: this is a data gap, not a validated &quot;AI approved this&quot; moment.
+
+The risk plan was a single-share position with a hard stop at 672.07, about 2.5% below entry. That stop defined the invalidation point — if price fell to 672.07, the momentum/trend thesis would be considered wrong regardless of narrative.
+
+In actuality, price rose to 733.41 before the exit_reason recorded is &quot;stop_loss&quot; — meaning the stop had been trailing upward and locked in a profit rather than cutting a loser. Exit price 733.41 against entry 689.30 produced a $44.11 gain, +6.4%, versus a benchmark move of -3.11% over the same window — an alpha of +9.51 percentage points on this single trade.
+
+What this does and doesn&#x27;t prove: it&#x27;s one trade (n=1). It shows the mechanism can work as designed — a trailing stop can convert a trend-following entry into a realized gain even when the exit is technically a &quot;stop_loss&quot; event rather than a target hit. It does not prove the tsmom strategy has positive expectancy in &quot;up/low&quot; regimes generally, nor does it validate position sizing or risk review quality, since the LLM review was inactive for this instance. The favorable outcome also can&#x27;t be separated from broader market direction over the holding period — the benchmark&#x27;s negative return during a period when this long position gained is a useful contrast but not causal proof of skill. Any pattern hypothesis here remains speculative until repeated across many independent instances.</div></article><article id="017766fa"><h2>BUY GS — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-28 19:46 UTC · trade 017766fa</div><div class=body>**Paper trade — GS long, tsmom strategy**
 
 This is a simulated paper trade; no real capital is at risk.
 
