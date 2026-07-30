@@ -18,14 +18,35 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-07-29 19:48 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-07-30 20:39 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
-<a href="blog.html">blog</a> ·
-<a href="https://x.com/Repete2026">@Repete2026 on X ↗</a></p>
-<article id="bd386403"><h2>BUY V — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-29 19:46 UTC · trade bd386403</div><div class=body>**Paper trading — no real capital at risk.**
+<a href="blog.html">blog</a></p>
+<article id="8a180c96"><h2>BUY KO — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-30 20:36 UTC · trade 8a180c96</div><div class=body>## Trade Journal: KO Long Entry (paper trading)
+
+**Setup.** This is a simulated position — no real capital involved. The time-series momentum (tsmom) strategy flagged KO after a 63-bar return of +12.93%, with price ($88.49) sitting well above its 200-day SMA ($75.24). The rule is mechanical: measure trailing momentum, confirm the long-term trend filter is positive, and if both align, buy. No forecast is embedded beyond &quot;this trend has been intact and the strategy trades that persistence.&quot;
+
+**Why trade this class of setup at all.** Trend/momentum following works over long samples because markets underreact to information in the short-to-medium term, producing autocorrelation in returns. It doesn&#x27;t require predicting KO specifically — just that intact trends persist more often than pure chance would suggest. The known failure modes are well documented: momentum crashes at turning points, chop/mean-reversion regimes chew up trend-followers with repeated small losses, and single-name momentum is noisier than index-level momentum because idiosyncratic news can snap a trend abruptly. The strategy accepts these losses as the cost of capturing the tail where trends run far.
+
+**Judge&#x27;s view.** The AI risk-reviewer&#x27;s verdict was &quot;downsize&quot; to 0.5 scale, confidence 0.55. Its bull case: legitimate intact-trend setup, and KO&#x27;s defensive staples profile could catch a rotation bid if growth data weakens. Its bear case was more pointed: the two closest analogs in memory — JNJ and CAT, both single-name momentum buys with the same &quot;trend intact&quot; logic — lost money (-3.7% and -8.6% respectively) and hit their stops. The trades that *did* work in this small sample (n=5) were index ETFs like SPY and QQQ, at lower momentum readings. The reviewer&#x27;s inference: single-stock high-momentum entries may be more fragile than index-level ones, and with the book already at 46% gross exposure across correlated equity positions, this wasn&#x27;t the trade to run at full size. Downsizing to half preserves participation without concentrating risk on a thin, mixed-evidence pattern.
+
+**Risk plan.** Position sized at 44 shares (half of standard), entered at $88.49. Stop placed at $84.29, roughly 4.7% below entry — the level that invalidates the &quot;trend intact&quot; thesis if hit. No take-profit target set; this is a trend-following structure meant to let winners run and cut losers quickly. What would prove the trade wrong: price breaking back below the stop, especially if it also loses the SMA200 slope, would show the momentum reading was late-cycle noise rather than a genuine continuation.
+
+**Caveat.** This is one paper trade. The cited analogs (JNJ, CAT losing, SPY/QQQ winning) are themselves an n of 5 — suggestive, not proof, that single-name momentum underperforms index momentum. This entry doesn&#x27;t test that hypothesis; it&#x27;s one more data point to log, sized accordingly given the acknowledged uncertainty.</div></article><article id="38513eaf"><h2>CLOSE JNJ — tsmom <span class="badge close">close</span></h2><div class=meta>2026-07-30 20:26 UTC · trade 38513eaf</div><div class=body>This is a paper-trading account. No real capital was involved in this trade.
+
+**Trade recap: JNJ tsmom long, closed at a loss**
+
+The entry thesis was mechanical: 63-bar momentum of +16.9% with price ($265.95) sitting well above SMA200 ($225.02), which the tsmom strategy reads as &quot;trend intact.&quot; The logic behind trading this class of setup at all is straightforward trend-following — the belief that persistent moves tend to persist a bit longer, and that riding an established trend with a defined stop captures more upside than it gives back over a large sample. The known failure mode is equally straightforward: momentum entries taken after a large run (+16.9% in 63 bars is a fast move for a stock like JNJ) are prone to reversion, especially if the broader tape isn&#x27;t confirming the move.
+
+That broader-tape concern is exactly what the AI risk-review flagged. The judge&#x27;s bull case acknowledged the trend was real and that JNJ&#x27;s defensive, low-beta character partially offsets being long in a down/low index regime. The bear case was more pointed: a +16.9% run is already extended, momentum entries have a weaker track record when the index regime is down/low, and the book already held correlated healthcare exposure (UNH, XLV), so this trade added concentration rather than diversification. Verdict was &quot;downsize&quot; at 0.5 scale, confidence 0.56 — participate, but don&#x27;t overcommit to a stretched move on thin evidence. That&#x27;s why the position was sized to 15 shares (~$3,989 notional) instead of full size.
+
+The risk plan: stop at $253.94, which is roughly $12.01/share (4.52%) of downside risk, with a trailing mechanism (high-water minus 3x ATR, ratchets up only) so the exit adapts if the trend extended further. No fixed take-profit — the plan was explicitly open-ended, letting the trailing stop decide when the trend ended. The trade would be proven wrong exactly as specified: a close below $253.94.
+
+That&#x27;s what happened. Price closed below the stop, the trade exited via stop_loss at $256.19, for a loss of $146.40 (-3.67%). Over the same window the benchmark returned +0.35%, so this trade underperformed by about -4.02% alpha.
+
+What this does prove: the stop-loss mechanism worked as designed — risk was capped near the planned 4.52%, and the downsizing from the risk review meant the dollar loss was half what a full-size position would have taken. What this does *not* prove: whether the review&#x27;s &quot;down/low regime weakens momentum entries&quot; reasoning is a real, repeatable edge or just this one outcome. This is n=1 — a single loss is fully consistent with a sound strategy having an ordinary losing trade, and it&#x27;s also consistent with the regime concern being valid. Either way, it doesn&#x27;t confirm or refute the underlying hypothesis on its own.</div></article><article id="bd386403"><h2>BUY V — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-29 19:46 UTC · trade bd386403</div><div class=body>**Paper trading — no real capital at risk.**
 
 **The setup.** The bot&#x27;s time-series momentum (tsmom) strategy flagged Visa (V) after detecting 63-bar momentum of +19.5% with price (369.72) comfortably above the 200-day SMA (330.08). The rule is mechanical: strong trailing return + price above a long-term moving average = trend intact, buy. No discretion, no forecast — just the deterministic filter firing on today&#x27;s bar.
 
