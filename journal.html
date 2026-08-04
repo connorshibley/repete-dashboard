@@ -18,13 +18,45 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-03 19:47 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-04 19:46 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="a1546b8b"><h2>BUY MA — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-31 19:49 UTC · trade a1546b8b</div><div class=body>This is a paper trading account. No real capital is involved, and nothing here should be read as investment advice.
+<article id="8cf799c5"><h2>BUY PG — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-04 19:46 UTC · trade 8cf799c5</div><div class=body>## Trade Journal: PG Long (tsmom) — Paper Trading
+
+**This is a paper trade.** No real capital is at risk; this entry documents a simulated position for record-keeping and strategy review purposes only.
+
+### The Setup
+
+The time-series momentum strategy flagged PG at $148.17 after a 63-bar return of +4.08%, with price sitting above the 200-day SMA ($145.89). The logic is mechanical: positive intermediate-term momentum plus a rising long-term trend filter (price &gt; SMA200) signals that the existing trend is &quot;intact&quot; rather than exhausted. No discretion involved — the rule fired, the order was generated.
+
+### Why Trade This Setup At All
+
+Time-series momentum is traded because markets exhibit persistence over multi-week horizons often enough to be exploitable after costs, particularly when momentum is moderate rather than extreme. The strategy&#x27;s own internal notes (cited lessons) suggest a pattern: low-single-digit momentum (0.7–3.1%) has coincided with past wins (SPY, QQQ, CVX), while blown-out momentum readings (17–35%) have coincided with losses — the classic mean-reversion-after-overextension failure mode. PG&#x27;s +4.1% sits just outside that &quot;clean win&quot; zone but well short of the danger zone, making it an ambiguous case rather than a textbook one. Known failure modes for this class of trade: false-start trend reversals, momentum crashes after low-volatility grinds, and correlation risk when multiple momentum signals fire on the same macro theme.
+
+### The Judge&#x27;s View
+
+The AI risk review returned a **downsize** verdict at 0.6 scale, confidence 0.58. The bull case: PG&#x27;s momentum magnitude resembles the winning trades more than the losing ones. The bear case: the book was already carrying 19 positions at 68% exposure, including several staples-adjacent names underwater (KO, JNJ, XLV), meaning PG adds correlated defensive exposure to an already crowded, moderately drawn-down book. The reviewer was explicit that the historical sample cited (three wins, three losses, n=1 each) is too thin to support full conviction either way. The 0.6 scale reflects that ambivalence — not a rejection, but a hedge against portfolio concentration risk and small-sample overfitting.
+
+### Risk Plan
+
+Position sized to 32 shares at $148.17 (~$4,741 notional), reduced from a full-size allocation per the downsize instruction. Stop-loss placed at $140.76, roughly 5% below entry, using an OTO order structure — this defines the max loss on this trade at approximately $237, or ~1% of the position&#x27;s ceiling risk. No take-profit target was set, consistent with letting a trend-following position run if it works.
+
+**What would prove this wrong:** a close below $140.76 (stop triggers), or more subtly, price stalling near SMA200 without the momentum reading ever accelerating — the &quot;modest momentum that fizzles&quot; pattern the bear case worried about. A single outcome here, win or loss, will not validate or invalidate the momentum-magnitude thesis; the strategy&#x27;s own review flagged n=1 samples as insufficient, and that caution applies equally to this trade&#x27;s result.</div></article><article id="fa0ab5bd"><h2>CLOSE CVX — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-04 19:45 UTC · trade fa0ab5bd</div><div class=body>**Paper trade — CVX, tsmom strategy — CLOSED**
+
+This is a paper-trading account. No real capital was involved.
+
+**The setup:** The tsmom strategy flagged CVX on a straightforward trend-continuation read: 63-bar momentum of +2.6%, with price at $190.00 sitting roughly 8.9% above its 200-day SMA ($174.57). The thesis was simple — trend intact, ride it. This class of setup is traded because sustained trends tend to persist longer than random walk would predict (the classic time-series momentum edge documented across asset classes). Its known failure modes are equally well understood: false starts where momentum stalls right after entry, whipsaws in choppy conditions, and — most relevant here — momentum signals firing against the grain of a broader downtrend, where the &quot;trend&quot; is really just noise inside a larger corrective regime.
+
+**The judge&#x27;s view:** The AI risk review flagged exactly that last failure mode. The broader regime was tagged down/low (SPY below its own SMA200), which sits awkwardly next to a long momentum entry. The bull case — CVX genuinely trending, adding uncorrelated energy exposure to a book at only 35% gross — was judged legitimate. But the bear case noted zero validated track record for this specific strategy/symbol pattern, plus the regime mismatch. Verdict: downsize to 0.6x, confidence 0.55. That scaling is why the position was sized at 25 shares (~$4,750) rather than full size.
+
+**The risk plan:** Stop was set at $182.50, a 3.95% risk per share ($7.50), with a trailing-stop structure (high-water mark minus 3x ATR, ratcheting only upward) instead of a fixed take-profit — the idea being to let the trade run if the trend held and exit only when momentum genuinely broke down or price closed below SMA200. Invalidation was clean: a close below $182.50.
+
+**What happened:** The trade closed almost immediately via strategy_sell at $190.085, a $2.13 gain (+0.04%). The stop was never tested — the exit came from the strategy&#x27;s own signal reversing, not from being stopped out. Meanwhile the benchmark (SPY) moved +4.62% over the same window, leaving this trade at -4.58% alpha.
+
+**What this does and doesn&#x27;t prove:** The trade didn&#x27;t lose money, and the downsizing decision didn&#x27;t get tested against a real drawdown since the stop was never approached. But the outcome is close to a non-event — momentum fired, then reversed almost immediately, netting near-zero while the market ran without it. This is one trade (n=1): it&#x27;s a data point suggesting tsmom entries in a down/low regime may exit quickly with little captured trend, but it&#x27;s far too thin a sample to call a pattern. The logged lesson_hypothesis reflects that — a hypothesis, not a conclusion, pending more instances.</div></article><article id="a1546b8b"><h2>BUY MA — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-07-31 19:49 UTC · trade a1546b8b</div><div class=body>This is a paper trading account. No real capital is involved, and nothing here should be read as investment advice.
 
 **The opportunity.** The tsmom (time-series momentum) strategy flagged MA on a straightforward trend signal: 63-bar momentum of +14.25% with price ($573.62) sitting well above the 200-day SMA ($526.33), roughly 9% above that long-term average. The rule is deterministic — strong recent momentum plus an intact long-term uptrend triggers a buy. There&#x27;s nothing discretionary in the entry logic itself.
 
