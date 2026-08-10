@@ -18,13 +18,45 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-06 19:46 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-10 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="0b266d4d"><h2>BUY BA — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-08-05 19:51 UTC · trade 0b266d4d</div><div class=body>**Paper trading entry — this is a simulated position, no real capital involved.**
+<article id="04de74e0"><h2>BUY ABBV — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-10 19:46 UTC · trade 04de74e0</div><div class=body># ABBV — TSMOM Buy (Paper Trade)
+
+**This is a paper trading account. No real capital is at risk.**
+
+## The Opportunity
+
+The deterministic time-series momentum (TSMOM) scanner flagged ABBV for a long entry: price at $247.09, sitting 63-bar momentum of +23.46% above its trailing window, and comfortably above its SMA200 of $222.14 (roughly 11% above the long-term average). The regime tag reads &quot;up/low,&quot; meaning the broader market backdrop is trending up with relatively low volatility — the kind of environment where trend-following systems are designed to perform.
+
+## Strategy Logic
+
+TSMOM trades the premise that assets already in a strong directional move tend to continue for some additional stretch — an empirically documented, if noisy, edge across asset classes. The strategy doesn&#x27;t try to predict *why* ABBV is up 23.5%; it simply reacts to the fact that price structure confirms trend (above SMA200) and momentum is strong. The known failure mode is exhaustion: strong momentum readings can mark a move that&#x27;s already mature, and entries at extended momentum levels are statistically more exposed to mean-reversion or a sharp pullback than early-stage trend entries.
+
+## The Judge&#x27;s View
+
+The AI risk-reviewer&#x27;s verdict was **downsize** (scale 0.5, confidence 0.53). The bull case leaned on the strategy&#x27;s own logic — trend intact, above SMA200, consistent with prior extended-momentum winners in the small reference sample (SPY, QQQ). The bear case was more specific: in that same limited sample, other high-momentum entries (JNJ +16.9%, LLY +35.5%, CAT +5.1%) all lost, suggesting extended readings like ABBV&#x27;s +23.5% skew toward exhaustion rather than continuation. The reviewer also flagged that the portfolio was already at 67% gross exposure across 19 positions, many in similar large-cap trend setups — a concentration concern independent of ABBV specifically. With no ABBV-specific edge evidence either way, the reviewer split the difference: approve the signal (it meets the strategy&#x27;s own criteria) but at half size.
+
+## Risk Plan
+
+Position sized at 16 shares (already reduced per the downsize verdict) at an entry of $247.09. A stop is set at $233.78 — roughly 5.4% below entry, placed under the recent trend structure. No take-profit target is set; the strategy relies on trailing/exit logic rather than a fixed target. The trade thesis is invalidated if price breaks below $233.78, which would suggest the momentum move has failed and mean-reversion is taking hold — exactly the failure mode the bear case warned about. This is a single instance; nothing here proves the strategy works or doesn&#x27;t on high-momentum, extended-trend setups — it&#x27;s one data point in an ongoing paper-trading track record.</div></article><article id="8cf799c5"><h2>CLOSE PG — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-10 19:46 UTC · trade 8cf799c5</div><div class=body>This is a paper-trading account. No real capital was involved in this trade.
+
+**What happened vs. the plan**
+
+The bot entered PG long on a time-series momentum signal: 63-bar momentum of +4.08%, price at $148.17, comfortably above SMA200 ($145.89). The thesis was &quot;trend intact&quot; — nothing exotic, just a standard trend-follow entry with a hard stop at $140.76 (5% risk per share, $7.41) and a trailing stop mechanism (high-water minus 3×ATR) rather than a fixed profit target.
+
+The trade closed via **strategy_sell** — not the hard stop, not the trailing stop being hit — meaning the strategy&#x27;s own exit logic (momentum turning negative or price closing below SMA200) fired first. Exit price was $145.76, for a loss of $77.12 (-1.63%), against a benchmark that was up +0.23% over the same window, so alpha was -1.85%. The stop was never touched; the trade simply lost its edge and the system pulled the plug on schedule, as designed.
+
+**What this does and doesn&#x27;t prove**
+
+The AI risk review had flagged this one for downsizing (scale 0.6, confidence 0.58) before entry, citing two concerns: PG&#x27;s momentum sat in the &quot;modest&quot; +0.7% to +3.1% zone historically associated with wins rather than the blown-out &gt;5% zone associated with losses, but the book was already crowded (19 positions, 68% exposure) with several correlated defensive/staples names already underwater (KO, JNJ, XLV). The reviewer explicitly noted the comparison sample was tiny — n=1 per prior trade — so any &quot;favorable momentum zone&quot; pattern was weak evidence, not a real edge estimate. Sizing at 60% was the mechanism for expressing that uncertainty rather than skipping the trade outright.
+
+The outcome — a small loss, exited by strategy logic rather than by stop — is consistent with the bear case (crowded, correlated defensive exposure) but doesn&#x27;t confirm it. One trade cannot distinguish between &quot;PG momentum in this zone tends to fade&quot; and ordinary noise around a strategy with a mixed historical hit rate. The system has now logged a hypothesis (n=1) that low-single-digit momentum in this defensive name may fade before the stop is reached — that&#x27;s a note for the learning loop, not a validated rule.
+
+What can be said cleanly: the downsizing worked as intended — a full-size position would have lost more dollars for the same percentage move, and the risk plan&#x27;s exit mechanism did its job by cutting the trade on signal decay rather than waiting for a 5%-away stop. What can&#x27;t be said: whether this reflects a real structural weakness in trading momentum on defensive/staples names, or just one ordinary losing trade in a strategy that wins and loses in roughly the proportions the reviewer already assumed. Further data is needed before treating this as a pattern.</div></article><article id="0b266d4d"><h2>BUY BA — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-08-05 19:51 UTC · trade 0b266d4d</div><div class=body>**Paper trading entry — this is a simulated position, no real capital involved.**
 
 ### The Setup
 BA triggered our deterministic moving-average crossover: SMA10 (221.44) crossed above SMA30 (219.5), flagging a shift from bearish to bullish momentum. By the time the order filled, price had already run to 240.92 — about 9% above the SMA30 and roughly 8.8% above SMA10. This is a textbook &quot;recent golden cross&quot; entry, but the extension between signal and fill is notable and worth flagging honestly rather than glossing over.
