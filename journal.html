@@ -18,13 +18,83 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-12 19:46 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-14 19:49 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="04de74e0"><h2>BUY ABBV — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-10 19:46 UTC · trade 04de74e0</div><div class=body># ABBV — TSMOM Buy (Paper Trade)
+<article id="0ad947b5"><h2>BUY QQQ — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-14 19:48 UTC · trade 0ad947b5</div><div class=body>**Paper trade — QQQ long, tsmom strategy**
+
+This is a simulated position; no real capital is at risk.
+
+**The opportunity**
+
+The tsmom scan flagged QQQ on a 63-bar momentum reading of +1.55%, with price ($730.16) well above the 200-day SMA ($649.52) — roughly 12.4% above the long-term average. That combination (positive intermediate momentum, price above trend filter) is the entire signal: the system isn&#x27;t predicting anything, it&#x27;s confirming that an established uptrend is still intact and hasn&#x27;t reversed.
+
+**Why trade this setup at all**
+
+Time-series momentum works on the premise that trends, once established, tend to persist longer than random chance would suggest, largely because of gradual information diffusion and flow-driven buying. It&#x27;s a well-documented factor with a long academic and practical track record across asset classes. The known failure modes are equally well known: momentum reverses sharply at turning points (the &quot;momentum crash&quot; problem), it produces whipsaw losses in choppy/range-bound regimes, and entries that occur after momentum has already become extended (double-digit readings) tend to underperform more modest, early-stage readings — which is one reason the AI review flagged this particular entry as more favorable than a &quot;hot&quot; chase.
+
+**The judge&#x27;s view**
+
+The LLM risk review rated this a &quot;downsize&quot; call with 0.58 confidence, scaling the position to 60% of normal size. The bull case leaned on pattern-matching: this modest +1.55% momentum reading resembles prior QQQ/SPY tsmom trades that worked (+10.7%, +6.4%), and low-single-digit momentum entries in this strategy&#x27;s history have generally outperformed extended double-digit readings. The bear case was about portfolio construction, not the trade itself: the book already holds SPY, DIA, IWM, plus heavy mega-cap tech (MSFT, AMD) — so QQQ adds correlated index/tech beta rather than diversification, at 71% gross exposure. There was also a noted headline risk around QQQ outflows and market breadth. The verdict didn&#x27;t override the signal but sized it down to respect that many &quot;different&quot; tickers in this book are really a handful of correlated bets.
+
+**The risk plan**
+
+Position: 6 shares at $730.16 (~$4,381 notional), reduced from full size per the review. Stop-loss set at $704.11, about 3.6% below entry — this is the level that invalidates the trend-intact thesis. No take-profit is set; the position is designed to be trimmed or exited based on trend continuation/reversal rather than a fixed target. What would prove this specific trade wrong: a break below the stop, or a fade in momentum back toward zero even without hitting the stop, which would suggest the trend confirmation was a false read. This is a single instance (n=1) — regardless of outcome, it says nothing definitive about the tsmom strategy&#x27;s edge going forward.</div></article><article id="bccd0afb"><h2>BUY DIS — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-14 19:47 UTC · trade bccd0afb</div><div class=body>**Paper trade — DIS long, 44 shares @ $106.96**
+
+This is a simulated position; no real capital is at risk.
+
+**The setup.** The bot&#x27;s time-series momentum (tsmom) model flagged DIS on a standard trend-following trigger: 63-bar (roughly one-quarter) momentum of +2.24%, with price ($106.96) sitting above the 200-day SMA ($103.45). The regime filter reads &quot;up/low&quot; — an established uptrend with low volatility — which is the exact condition tsmom is designed to act on. Nothing exotic here: modest positive momentum, trend intact, low-vol backdrop.
+
+**Why trade this class of setup at all.** Time-series momentum earns its edge from the tendency of trends to persist longer than random-walk assumptions would predict, plus the discipline of only buying strength in confirmed uptrends rather than guessing at reversals. Its known failure modes are well documented: whipsaws when momentum is weak or decelerating (which +2.2% arguably is — this is not a strong signal), false starts right after a trend &quot;confirms,&quot; and correlated drawdowns when the whole book is riding the same macro wave. Modest momentum readings like this one sit closer to the noise floor than to a high-conviction breakout.
+
+**The risk review.** The AI judge saw both sides. Bull case: the up/low regime and modest-momentum profile matches recent winners (AMZN, SPY, QQQ). Bear case: the book already carries 19 positions and 66% gross exposure concentrated in correlated large-cap/index names, and the closest analog by momentum size — PG — lost 1.6%. The judge&#x27;s read was that this is a coin-flip-edge trade being added to an already crowded, correlated book rather than a diversifying opportunity. Verdict: downsize, scale 0.6, confidence 0.56 — a lukewarm &quot;yes, but smaller&quot; rather than conviction sizing.
+
+**The risk plan.** Position was cut to 44 shares per the 0.6 scale-down. Stop is set at $102.43, which sits just below the SMA200 ($103.45) — a logical invalidation point, since a close below the 200-day average would undercut the trend-intact thesis this trade depends on. That&#x27;s roughly a 4.2% stop from entry. No take-profit leg is attached; this is a trend-following exit-on-stop-or-signal-decay structure, not a fixed-target trade. The trade is proven wrong not by a single red day but by DIS losing the SMA200 or momentum rolling negative — either would mean the &quot;trend intact&quot; premise has failed.
+
+No outcome yet to report — this is an open-position entry, not a close. Whatever happens next, one trade tells us nothing about whether downsizing correlated momentum adds was the right call; that&#x27;s a pattern to track across many instances, not a conclusion to draw here.</div></article><article id="c919818b"><h2>CLOSE HD — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-14 19:47 UTC · trade c919818b</div><div class=body>This is a paper-trading account. No real capital was involved in this trade.
+
+**What happened vs. the plan**
+
+The bot&#x27;s tsmom strategy bought HD at $353.27 on a signal of +12.8% 63-bar momentum with price comfortably above its SMA200 ($344.87) — a textbook &quot;trend intact&quot; entry. The position was closed via `strategy_sell` at $338.65, a -4.14% loss (-$190.06 on 13 shares), while the benchmark was up +0.83% over the same window, for -4.97% alpha. The stop was set at $335.06 (5.15% risk per share, trailing at high-water minus 3×ATR), and the exit came before that hard stop was touched — the strategy&#x27;s own trend-exit logic (momentum flipping negative or price closing below SMA200) ended the trade first, not a stop-out. So the risk plan technically worked as designed: the position was cut on a rule-based signal rather than run into deeper drawdown.
+
+**The setup and its logic**
+
+Time-series momentum (tsmom) exists because trends, once established, statistically persist more often than not — that&#x27;s the edge being harvested. It&#x27;s not a prediction of where HD goes next; it&#x27;s a systematic bet that after a strong 63-bar run above a rising SMA200, continuation is more likely than not. The known failure mode, flagged explicitly in this trade&#x27;s review, is exactly what happened: momentum readings that are &quot;extended&quot; (double digits, like HD&#x27;s +12.8%) sit closer to the mean-reversion zone than the clean, low-momentum continuations that make up most of the strategy&#x27;s winners.
+
+**The judge&#x27;s view**
+
+The AI risk-reviewer called this correctly ahead of time. It noted HD&#x27;s momentum was elevated relative to the sample&#x27;s clear winners (mostly &lt;5%) and closer in magnitude to two cited losers (JNJ +16.9%, LLY +35.5%) that both got stopped out. Verdict: &quot;downsize&quot; to 0.6x scale, confidence 0.56 — an explicitly ambiguous, non-high-conviction call. That downsizing meant the loss was $190 rather than a full-size position&#x27;s proportionally larger hit.
+
+**What this does and doesn&#x27;t prove**
+
+One trade proves very little. This is n=1: a single instance where an elevated-momentum tsmom entry underperformed and was cut by the exit rule. It&#x27;s mildly consistent with the reviewer&#x27;s stated concern about extended-momentum setups being more failure-prone, and the system has logged a `lesson_hypothesis` flagging that pattern for future tracking. But it does not confirm a reliable edge or anti-edge — it&#x27;s one data point in what needs to be a larger sample before any real conclusion about momentum-magnitude thresholds can be drawn. The downsizing decision, in hindsight, reduced damage on a trade that didn&#x27;t work, which is the process functioning as intended, independent of this single outcome.</div></article><article id="0c6a57f1"><h2>BUY XOM — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-14 19:46 UTC · trade 0c6a57f1</div><div class=body>This is a paper-trading entry — no real capital involved.
+
+**The opportunity:** The tsmom (time-series momentum) strategy flagged XOM after a 63-bar return of +5.43% with price ($159.99) sitting roughly 14% above its 200-day SMA ($140.32). This is a textbook trend-continuation signal: the rules require positive intermediate-term momentum plus a confirmed long-term uptrend (price &gt; SMA200) before entering long. The strategy read this as &quot;trend intact&quot; and generated a buy for 24 shares at 159.99.
+
+**Why this setup gets traded:** Time-series momentum is one of the more durable, well-documented anomalies — assets that have gone up over the past few months tend to keep going up more often than pure randomness would predict, especially when the long-term trend filter (SMA200) agrees with the short-term signal. The logic is mechanical, not predictive of news or fundamentals — it simply follows price. Known failure modes: momentum reverses sharply at turning points (it&#x27;s a lagging signal by construction), it does poorly in choppy/mean-reverting regimes, and single-name momentum can get overridden by sector-specific shocks that don&#x27;t show up in the price/SMA math until after the damage is done.
+
+**The judge&#x27;s view:** The AI risk review gave a &quot;downsize&quot; verdict with 0.5 scale and only 0.53 confidence. The bull case leaned on the regime (up/low) historically favoring tsmom buys in names like SPY/QQQ/AMZN. The bear case was more specific to this trade: the single closest historical XOM analog (same momentum/regime profile) lost -2.09%, and same-day news showed oil dropping ~4% on Hormuz Strait de-escalation hopes — directly undercutting the tailwind the momentum signal was implicitly pricing in for an energy name. The reviewer weighed the fresh commodity-specific headwind and the thin, unfavorable XOM-specific sample size heavier than the generic regime edge, and cut size in half rather than rejecting or fully sizing the trade.
+
+**The risk plan:** Position sized at 24 shares (half of standard sizing per the downsize verdict). Stop placed at 152.07, about 4.95% below entry — a level chosen to give the trade room within normal volatility while cutting losses if the trend genuinely breaks. No take-profit target is set; this is a trend-following approach that in principle lets winners run and exits on trend failure or a trailing/stop mechanism rather than a fixed target. The trade thesis is invalidated if price drops through the stop, if oil weakness persists and drags XOM below SMA200, or if the 63-bar momentum reading rolls over — any of which would signal the trend the strategy is relying on has already ended by the time it&#x27;s obvious.</div></article><article id="a5d0ca50"><h2>CLOSE UNH — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-14 19:45 UTC · trade a5d0ca50</div><div class=body>This is a paper-trading account. No real capital was involved in this trade.
+
+**What happened vs. the plan**
+
+The bot&#x27;s tsmom (time-series momentum) strategy flagged UNH on a straightforward signal: 63-bar momentum of +17.7% with price ($417.64) sitting well above its SMA200 ($343.52), a gap of roughly 21.7%. The rule is mechanical — strong trailing momentum plus price above the long-term moving average means &quot;trend intact,&quot; so the strategy bought 11 shares (~$4,594 notional).
+
+The logic behind trading this class of setup at all is simple: momentum has decades of academic and practical evidence of persisting over medium horizons, and a price well above SMA200 is a basic filter to avoid buying into a broken trend. Its known failure modes are equally well documented — extended momentum (a stock already up double digits over 63 bars) is prone to mean-reversion or sharp giveback, especially when the entry occurs against a hostile macro backdrop. That&#x27;s exactly the tension flagged here.
+
+The AI risk-review caught this tension directly. It acknowledged the bull case (UNH&#x27;s own trend structure looked fine, independent of the index) but weighed the bear case more heavily: the broader regime was down/low (SPY below its SMA200), external principles treat long momentum entries in a down-trending index as elevated risk, and there was no track record for this specific strategy/symbol pairing to lean on. Confidence came in at 0.55, and the verdict was &quot;downsize&quot; — cutting the position to 0.6x scale rather than rejecting the trade outright. That&#x27;s a middle-ground call: let the trend thesis run, but don&#x27;t over-commit capital into a macro headwind.
+
+The risk plan set a hard stop at $391.88 (6.17% risk per share, $25.76), with a trailing-stop mechanism designed to ratchet up with the high-water mark and never retreat. There was no fixed take-profit — the exit was designed to be trend-driven, either via momentum turning negative, price closing below SMA200, or the trailing stop. The trade&#x27;s invalidation condition was clear: a close below $391.88.
+
+That&#x27;s exactly what happened. Price drifted down to an average exit of $398.90, tripping the stop-loss for a loss of $206.11 (-4.49%) on the position. Over the same window, the benchmark (SPY) returned +5.02%, so this trade underperformed by 9.5 percentage points of alpha — a meaningful gap, and a case where being downsized clearly limited the damage.
+
+**What this does and doesn&#x27;t prove**
+
+This is a single closed trade — n=1. It&#x27;s consistent with the bear case the reviewer raised: extended momentum entries against a down-trending index carry real failure risk, and this one played out that way. But one loss doesn&#x27;t validate a rule; it&#x27;s one data point toward a *hypothesis* (noted in the system&#x27;s own lesson log) that this pattern — extended tsmom longs in a down/low regime — may tend to fail via stop-loss with moderate losses. That pattern would need many more occurrences, across different symbols and conditions, before it&#x27;s anything more than a plausible story attached to a single outcome.</div></article><article id="04de74e0"><h2>BUY ABBV — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-10 19:46 UTC · trade 04de74e0</div><div class=body># ABBV — TSMOM Buy (Paper Trade)
 
 **This is a paper trading account. No real capital is at risk.**
 
