@@ -18,13 +18,41 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-18 19:45 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-19 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="0b266d4d"><h2>CLOSE BA — ma_crossover <span class="badge close">close</span></h2><div class=meta>2026-08-18 19:45 UTC · trade 0b266d4d</div><div class=body>**This is a paper trade** — no real money is involved.
+<article id="12993c94"><h2>BUY PFE — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-19 19:48 UTC · trade 12993c94</div><div class=body>This is a paper-trading entry — no real capital involved. Logged for tracking a deterministic time-series momentum (tsmom) strategy.
+
+**The setup.** The system bought 99 shares of PFE at $28.215 on a straightforward tsmom trigger: 63-bar momentum of +11.88%, with price ($28.21) comfortably above SMA200 ($25.16). The rule is mechanical — when trailing momentum is strongly positive and the longer-term trend filter (price &gt; SMA200) confirms, the strategy interprets this as an intact uptrend worth riding.
+
+**Why trade this class of setup at all.** Time-series momentum is one of the more durable empirical anomalies — assets that have trended tend to keep trending over multi-week horizons, likely due to slow information diffusion, institutional flow, and behavioral underreaction. The strategy doesn&#x27;t try to pick tops or bottoms; it just leans on persistence. The known failure mode is entering *too late* in the move — buying extended momentum right before mean reversion. High momentum readings (+12% to +18% in this system&#x27;s own sample) have repeatedly marked exhaustion points rather than continuation points, especially when a name isn&#x27;t cheap relative to its own trend.
+
+**The judge&#x27;s view.** The AI risk-review flagged exactly that tension. It noted PFE&#x27;s regime (up/low) has historically been more favorable for trend-following than down/low regimes — the two prior up/low tsmom trades (SPY, QQQ) both worked. But it also matched PFE&#x27;s +11.9% momentum reading to a cluster of past reversals — HD (+12.8%, -4.1%), JNJ (+16.9%, -3.7%), UNH (+17.7%, -4.5%) — all of which gave back gains sharply after similarly &quot;extended&quot; entries. Additional concerns: PFE is a news-nominated symbol outside the backtested universe, with fresh Merck-related competitive pressure in the headlines, and correlation with existing healthcare exposure already in the book. Verdict: downsize, scale 0.35, confidence 0.52 — a mild-conviction reduction rather than a veto.
+
+**The risk plan.** Position was sized down substantially per the review&#x27;s 0.35 scale, landing at 99 shares. Stop is set at $26.97, roughly 4.4% below entry — a level that would trigger if the momentum thesis fails and PFE reverts toward the reversal pattern seen in HD/JNJ/UNH. No take-profit target is set; the plan is to let the trend run and manage the exit via structure/stop rather than a fixed target. What would prove this specific trade wrong: a break back below the stop, especially if it comes on continued competitive-pressure headlines or broader healthcare-sector selling, would confirm the bear case that this was another extended-momentum entry bought too late rather than a genuine continuation setup. Nothing here is a signal to act on — it&#x27;s one paper position being tracked to see how the process performs over many trades, not a prediction about PFE.</div></article><article id="431e1895"><h2>BUY HD — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-19 19:46 UTC · trade 431e1895</div><div class=body>## Trade Entry: HD (long) — Paper Trading
+
+**This is a simulated paper trade.** No real capital is involved; this entry documents the reasoning behind an automated strategy decision for tracking and review purposes.
+
+### The Opportunity
+
+The deterministic time-series momentum (tsmom) strategy flagged HD after a 63-bar return of +14.77%, with price ($344.51) sitting just above its 200-day SMA ($343.23). The regime filter classifies the environment as &quot;up/low&quot; (uptrend, low volatility), which is the condition this strategy is designed to trade. Mechanically, this is a clean signal: strong trailing momentum, trend filter confirmed, low-vol regime. Nothing exotic — a rules-based system doing exactly what it&#x27;s coded to do.
+
+### The Strategy&#x27;s Logic
+
+TSMOM exists because trends, on average and across long samples, persist more often than chance would suggest — it&#x27;s one of the more replicated anomalies in the academic literature. The logic here is simple: buy strength, confirm with a long-term trend filter, let it run. The known failure mode is equally well documented: momentum strategies get hurt by sharp reversals, especially when a move is already extended. A 63-bar gain approaching 15% is not &quot;just starting&quot; — it&#x27;s stretched, and stretched momentum is more prone to mean-reversion or air-pocket drawdowns than fresh breakouts.
+
+### The Judge&#x27;s View
+
+The AI risk-review did not block the trade but downsized it heavily (scale 0.4, confidence 0.52 — barely above coin-flip). Its reasoning: this is nearly an identical historical HD analog that previously lost -4.1%, and every other tsmom buy in the sample with &gt;12% stretched momentum (UNH, JNJ, CAT) also lost, while only modest-momentum entries won. That&#x27;s a small, unproven pattern, but directionally consistent enough to matter. The reviewer also flagged HD-specific noise — a CEO medical leave — as added idiosyncratic risk on top of the macro tailwinds (falling yields, risk-on tape, strong Target earnings) supporting the bull case. Net effect: take the trend signal, but respect the base rate on overextension by cutting size well below default.
+
+### The Risk Plan
+
+Position sized at 9 shares (entry $344.515), a stop set at $326.95 — roughly 5.1% below entry, near the level that would erase the &quot;trend intact&quot; premise entirely. No take-profit leg is attached; the exit is trend-following, not target-based. What would prove this wrong: a fast reversal back through SMA200 with momentum decaying, or price sliding toward the stop without follow-through — either would echo the exact pattern the judge cited from HD&#x27;s own prior instance and the other stretched-momentum losers (UNH, JNJ, CAT).
+
+This is one trade. Whether the &quot;stretched momentum tends to fail&quot; pattern is real or noise from a handful of correlated cases is not something this single entry can settle either way.</div></article><article id="0b266d4d"><h2>CLOSE BA — ma_crossover <span class="badge close">close</span></h2><div class=meta>2026-08-18 19:45 UTC · trade 0b266d4d</div><div class=body>**This is a paper trade** — no real money is involved.
 
 ### The setup
 The `ma_crossover` strategy signaled SELL BA at ~$240.92. Its stated reason: SMA10 (221.44) crossed above SMA30 (219.5) — momentum turning up.
