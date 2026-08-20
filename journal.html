@@ -18,13 +18,144 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-19 19:48 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-20 19:50 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="12993c94"><h2>BUY PFE — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-19 19:48 UTC · trade 12993c94</div><div class=body>This is a paper-trading entry — no real capital involved. Logged for tracking a deterministic time-series momentum (tsmom) strategy.
+<article id="a4ca7b2e"><h2>BUY XLK — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-08-20 19:49 UTC · trade a4ca7b2e</div><div class=body>**Paper trade — XLK long, RSI2 mean-reversion**
+
+This is a paper trading entry only; no real capital is at risk.
+
+**The setup.** The deterministic meanrev strategy flagged XLK after RSI2 dropped to 5.4 — deeply oversold on a 2-period reading — while price (183.22) sits well above SMA200 (157.97), confirming the longer-term uptrend is intact. Short-term price has pulled back from SMA5 (186.56), so this is a shallow dip relative to the recent average, not a breakdown. The strategy&#x27;s rule is mechanical: RSI2 &lt; 10 plus price above SMA200 triggers a buy, betting that sharp short-term oversold conditions inside an established uptrend tend to snap back rather than continue lower.
+
+**Why trade this class of setup at all.** RSI2 mean-reversion is a well-documented pattern — extreme short-term oversold readings in a bullish regime often resolve with a bounce because the pullback is more likely liquidity-driven or panic-driven than a genuine trend reversal. Its known failure mode is exactly the opposite: when the pullback is the start of a real regime change, or when broad market stress overwhelms individual technicals, &quot;buying the dip&quot; catches a falling knife. RSI2 says nothing about macro context, so it can fire right into a broad risk-off day.
+
+**The judge&#x27;s view.** The AI risk review rated this a &quot;downsize&quot; call at 0.56 confidence. The bull case: this exact strategy/regime combination has a small but clean track record (two prior NVDA trades, both winners), and XLK matches the pattern precisely. The bear case: the sample is tiny (n=2, single name), today&#x27;s macro backdrop is hostile — yields surging, the Dow down 600 — and the book already carries 21 correlated equity/index positions at 77% gross exposure. Adding more correlated long equity risk on a stress day was flagged as the real danger, not the setup itself. The reviewer cut size to 50% of the model position rather than rejecting the trade outright, treating the technical read as legitimate but under-hedged against macro and correlation risk.
+
+**Risk plan.** Position: 27 shares at 183.225 entry, roughly half of what an unadjusted signal would size, per the downsize verdict. Stop placed at 175.41 (about 4.3% below entry), which sits under the recent pullback structure — if price breaks there, the &quot;oversold bounce in an uptrend&quot; thesis is invalidated and the trade is closed for a loss. No take-profit is set yet; this is a mean-reversion trade expected to resolve within days, not a trend-follow.
+
+What would prove this wrong: XLK grinding lower through 175.41 despite the SMA200 uptrend, especially if broader equities keep selling off — that would confirm the bear case that macro stress and correlated exposure overrode a clean technical signal. A bounce back toward SMA5 would support the base case, but with n=2 prior samples and this being the first non-NVDA test, one outcome either way proves very little about the strategy&#x27;s real edge.</div></article><article id="63dd7d1d"><h2>BUY DIA — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-08-20 19:48 UTC · trade 63dd7d1d</div><div class=body>## Trade Entry: DIA long (paper trading)
+
+**This is a paper trade — no real capital is at risk. The following documents a simulated position only.**
+
+### The Opportunity
+
+The strategy&#x27;s meanrev logic flagged DIA after RSI2 dropped to 8.7 — deeply oversold on a 2-period RSI, comfortably under the sub-10 trigger threshold. Critically, this reading occurred against a backdrop of an intact longer-term uptrend: price at 527.59 sits well above SMA200 (492.91), a ~7% cushion. SMA5 (533.15) is above current price, confirming the short-term pullback that RSI2 is picking up. In plain terms: a fast, sharp dip inside a slower uptrend.
+
+### Strategy Logic
+
+RSI2 mean-reversion in an uptrend is a well-documented short-term edge — the idea being that healthy uptrends periodically get oversold on brief pullbacks and tend to snap back, while the SMA200 filter screens out setups where the &quot;dip&quot; is actually the start of a trend reversal. The known failure mode is exactly the inverse: sharp RSI2 readings can also mark the *beginning* of a larger breakdown, especially when the oversold condition is driven by a macro shock rather than routine noise. In those cases the SMA200 filter lags and doesn&#x27;t protect in time, and stops sized for normal volatility get run through.
+
+### Judge&#x27;s View
+
+The AI risk review rated this a &quot;downsize&quot; call at 0.58 confidence, cutting position scale to 50%. The bull case: RSI2-in-uptrend setups have a modest track record here (a couple of prior NVDA wins, one prior DIA momentum win), and the trend filter is intact. The bear case, which drove the sizing decision: the book already carries 72% gross exposure concentrated in correlated equity-index/mega-cap names (SPY, IWM, QQQ-proxy positions), and today&#x27;s tape featured a yield spike and a 600-point Dow drop — the exact kind of macro volatility that can blow through a stop calibrated for ordinary noise. The review didn&#x27;t veto the trade, but it explicitly treated today&#x27;s environment as elevated-risk and correlated exposure as already stretched.
+
+### Risk Plan
+
+- **Size:** 9 shares at 527.59 (~$4,748 notional) — half of what the raw setup would otherwise warrant, per the judge&#x27;s downsize verdict.
+- **Stop:** 518.18, roughly 1.8% below entry, structured as an OTO order tied to the position.
+- **Invalidation:** If DIA continues lower and takes out 518.18, the &quot;oversold bounce in an uptrend&quot; thesis is wrong — this would suggest the dip is participating in a broader risk-off move rather than a normal pullback, consistent with the bear case flagged by the review.
+- **What this trade would and wouldn&#x27;t prove:** A bounce back toward SMA5/above would be consistent with the mean-reversion edge working as intended, but it&#x27;s a single instance — it says nothing about how this setup performs in a genuine macro-driven downtrend versus routine noise. A stop-out would raise the question of whether the SMA200 filter is sufficient protection during volatility spikes, but n=1 can&#x27;t answer that either.</div></article><article id="0ad947b5"><h2>CLOSE QQQ — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-20 19:48 UTC · trade 0ad947b5</div><div class=body>This is a **paper trading** account — no real capital was involved in this trade.
+
+## What happened vs. the plan
+
+The trade closed via `strategy_sell` at $710.94, down from an entry of $730.16, for a loss of -2.63% (-$115.32 on 6 shares). The exit was not the hard stop — the stop was set at $704.11, and price never got there. Instead, the position was closed because the tsmom exit rule fired first: the strategy&#x27;s own trend/momentum condition (63-bar momentum turning negative and/or the trailing stop ratcheting down) ended the trade before the hard stop was tested. The benchmark (buy-and-hold QQQ over the same window) was down -1.72%, so this trade underperformed by -0.92% alpha — a modest amount of trend-following whipsaw, not a blowup.
+
+## Reading the outcome honestly
+
+At entry, the setup looked like the &quot;moderate momentum&quot; cluster the AI reviewer flagged as historically favorable — QQQ at $730.16, +1.55% 63-bar momentum, comfortably above SMA200 ($649.52). The bull case leaned on two prior QQQ/SPY tsmom wins with similar low-single-digit momentum readings. That pattern did not repeat here. This is exactly what &quot;n=1&quot; means in practice: a favorable historical cluster is a base rate, not a guarantee, and one more data point (a loss) doesn&#x27;t invalidate the cluster, but it also doesn&#x27;t add much confidence to it either. Two wins and one loss is still a tiny sample.
+
+## What this does and doesn&#x27;t prove
+
+It does not prove tsmom is broken, that low-momentum QQQ entries are actually bad, or that the &quot;downsize for correlation&quot; call was wrong. If anything, the downsize (scale 0.6, citing that QQQ overlapped heavily with existing SPY/DIA/IWM/mega-cap tech exposure) did its job: the dollar loss was contained relative to what a full-size position would have produced. The judge&#x27;s bear case — crowded, correlated index exposure at 71% gross, plus QQQ outflow/broadening-out headlines — turned out to be more relevant than the bull case&#x27;s pattern-match to prior wins.
+
+It also doesn&#x27;t prove the news-driven &quot;broadening out&quot; thesis was the actual cause; the exit reason was mechanical (strategy_sell on the trend rule), not a news-driven stop-out. Correlation between the bearish narrative and the loss is not established causation here.
+
+## Net takeaway
+
+One trade. A logged hypothesis now exists (low-momentum QQQ tsmom entries in up/low regimes may exit via strategy_sell with moderate losses despite prior wins) that needs more instances — wins and losses — before it&#x27;s treated as a real pattern rather than noise. The risk control (correlation-aware downsizing) worked as intended regardless of this single outcome.</div></article><article id="06c1f89f"><h2>BUY BAC — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-20 19:47 UTC · trade 06c1f89f</div><div class=body>This is a paper trading entry — no real capital is involved, and nothing here is investment advice.
+
+**The opportunity.** The tsmom strategy flagged BAC after a 63-bar rolling return of +21.7%, with price ($62.05) sitting well above its 200-day SMA ($54.02). That&#x27;s a textbook time-series momentum trigger: strong absolute return over the lookback window, confirmed by a rising long-term trend filter. The regime tag for this trade is &quot;up/low&quot; — trending market, low volatility bucket — which is the environment tsmom is designed to exploit.
+
+**Why trade this setup at all.** Time-series momentum is one of the more durable, well-documented anomalies: assets that have trended tend to keep trending over medium horizons, likely due to slow information diffusion and herding/anchoring effects among investors. It&#x27;s mechanical, rules-based, and doesn&#x27;t try to predict turning points — it just rides what&#x27;s already moving. The known failure mode is exactly the flip side of the edge: momentum crashes. When a trend gets extended and something breaks the narrative (a rate shock, an earnings miss, a sector-wide de-rating), reversals can be sharp and fast, because the same herding that built the trend unwinds violently. Extended momentum (&gt;20%) is statistically more prone to this than fresh, moderate momentum.
+
+**The judge&#x27;s view.** The AI review landed on &quot;downsize&quot; with 0.55 confidence, cutting size to half. The bull case leaned on regime analogs — prior up/low tsmom trades on SPY/QQQ/DIA in this sample were all winners, and BAC&#x27;s own prior momentum trade was a modest win. The bear case: 21.7% momentum is more stretched than the HD/JNJ/UNH trades that reversed -4% to -4.5%, and the trade is landing on a day with yields surging and the Dow down 600 points — a plausible catalyst for financials specifically to snap. It also flagged that the book already carries correlated bank/financial exposure, compounding concentration risk. Net verdict: not a veto, just less size.
+
+**The risk plan.** Position sized at 64 shares (half normal size per the downsize call), entry at $62.045. Stop placed at $59.99, roughly 3.3% below entry — a hard, mechanical exit, no discretionary override. What would prove this wrong: price closing below the stop, especially if driven by continued yield pressure or broad financial-sector weakness, would confirm the bear case that this momentum was already too extended to be tradeable safely. No take-profit is set yet; the trend-following logic lets winners run and lets the trailing/stop structure define the exit. This is one trade — it will prove nothing about tsmom&#x27;s edge either way, win or lose.</div></article><article id="125ff5ec"><h2>BUY GS — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-20 19:46 UTC · trade 125ff5ec</div><div class=body>**This is a paper trading trade log — no real capital is involved.**
+
+## The Setup
+
+The bot&#x27;s time-series momentum (tsmom) strategy flagged GS on a straightforward signal: 63-bar momentum of +2.61%, with price ($1003.35) sitting well above the 200-day SMA ($930.08), a gap of roughly 7.9%. The regime filter reads &quot;up/low&quot; — trending up, low volatility (at least by the regime classifier&#x27;s definition, notwithstanding the day&#x27;s headline volatility noted below). The strategy&#x27;s stated reason is simple: &quot;trend intact.&quot; No forecasting is happening here — tsmom is a rules-based follow-through strategy that buys strength when a longer-term trend filter (SMA200) confirms the direction and a shorter momentum window confirms recent continuation.
+
+## Why Trade This Setup At All
+
+Trend-following/momentum strategies exist because markets exhibit autocorrelation over medium horizons often enough to be exploitable, even though most individual signals are noise. The edge, if any, is statistical across many trades, not predictive of this one. The known failure modes are well understood: whipsaws in choppy conditions, late entries after a move has already run (extended momentum), and correlated drawdowns when several trend signals fire on the same macro factor rather than independent information. The bot&#x27;s own reasoning explicitly flagged that a +2.6% momentum reading is &quot;modest&quot; compared to prior GS/HD/CAT signals in the +10-35% range that didn&#x27;t work out — so this is a deliberate attempt to trade a less-extended version of the same setup.
+
+## The Judge&#x27;s View
+
+The AI risk-review&#x27;s bull case: momentum is moderate rather than overextended, and the up/low regime matches patterns that worked better historically (SPY, QQQ, DIA). The bear case: the book already holds JPM, MA, V, XLF plus broad index exposure — GS is not diversification, it&#x27;s another correlated financial-sector bet. Combined with a day marked by surging yields and the Dow down 600 points, the judge saw elevated odds of a volatility-driven stop-out even if the underlying setup is sound. Verdict: downsize, not reject — scale of 0.5, confidence 0.55. The trade wasn&#x27;t blocked because the technical logic held up, but size was cut to limit damage from a correlated, macro-driven false start.
+
+## The Risk Plan
+
+Position: 3 shares of GS at $1003.35 (~$3,010 notional), a small size consistent with the 0.5 scale-down. Stop-loss is set at $956.70, about 4.6% below entry, which would also put price close to reclaiming below the SMA200 zone — a level that would meaningfully undercut the &quot;trend intact&quot; thesis. There&#x27;s no fixed take-profit target on this order (tsmom typically expects to ride trends rather than cap them). What would prove the trade wrong: a close below $956.70, especially if driven by continued yield-driven risk-off pressure, would indicate the trend character the strategy relied on has broken, not just short-term noise.</div></article><article id="7f3c20d6"><h2>CLOSE BAC — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-20 19:46 UTC · trade 7f3c20d6</div><div class=body>**Paper trading — trade closed, BAC, tsmom strategy**
+
+This trade is now closed. All figures below are simulated paper-trading results, not real capital.
+
+**What the strategy saw:** BAC had run up 16.8% over a 63-bar lookback while trading well above its SMA200 (62.11 vs 53.15), and the trend-following (tsmom) module flagged this as an intact uptrend worth riding. The logic behind this class of setup is simple: momentum that has persisted for 63 bars with price structurally above a long moving average has historically had a better-than-random chance of continuing, at least long enough to justify a trailing-stop entry. The known failure mode is extended momentum — readings this large (mid-teens to mid-30s percent) can mark exhaustion rather than continuation, and mean-reversion whipsaws are common right after such stretches.
+
+**The judge&#x27;s view:** The AI risk-review flagged exactly this tension. It noted that single-digit momentum analogs (SPY, QQQ) had worked, but that BAC&#x27;s +16.8% reading sat much closer to a cohort of prior trades (JNJ, LLY, CAT) that all lost via stop-out despite similar &quot;above SMA200&quot; setups. Confidence was middling (0.53), and the verdict was &quot;downsize&quot; — cutting the position to half scale (64 shares, ~$3,975 notional) rather than skipping the trade outright, on the reasoning that the portfolio was already diversified across 17 names and could afford to let the trend thesis play out without full exposure to the extended-momentum failure pattern.
+
+**The risk plan:** Entry at $62.11, initial stop at $59.70 (risk of $2.41/share, ~3.9% of entry), with a trailing stop mechanism that ratchets up to high-water-mark minus 3x ATR and never retreats. No fixed profit target — the exit rule, not a preset price, was meant to decide when the trend ended. The trade would be invalidated by a close below the stop, or by momentum turning negative / price falling below SMA200.
+
+**What actually happened:** The position was stopped out (exit reason: stop_loss) at $62.3775, just above the entry price. Because the trailing stop had ratcheted upward before being hit, the trade closed with a small gain of $17.12 (+0.43%) rather than a loss — a mechanical quirk of the trailing-stop design rather than evidence the trend thesis played out. Over the same window the benchmark returned 2.15%, so this trade underperformed by 1.72 percentage points of alpha despite nominally being a &quot;win.&quot;
+
+**What this does and doesn&#x27;t prove:** This is a single trade (n=1). It offers a hint that extended-momentum tsmom entries in an up/low regime can exit via stop_loss while still posting a marginally positive pnl_pct, if the trailing stop has moved up before failing — consistent with the downsize caution flagged by the risk review. It does not validate or invalidate the broader tsmom approach, and one small mechanical win alongside negative alpha is not a signal to change sizing or filters going forward.</div></article><article id="017766fa"><h2>CLOSE GS — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-20 19:45 UTC · trade 017766fa</div><div class=body>This is a paper-trading account. No real capital was involved in this trade.
+
+**What happened vs. the plan**
+
+The trade closed via stop-loss. Entry was at $1,037.26, the hard stop sat at $955.22 (7.91% risk per share), but the position exited at $1,004.70 for a -3.14% loss (-$97.67 on 3 shares). The exit reason recorded is &quot;stop_loss,&quot; which given the ATR-based trailing-stop mechanism described in the plan (ratchets to high-water minus 3×ATR, never down) suggests the stop had ratcheted up from the initial $955.22 before price reversed and tagged it — the trade never got the chance to prove out the trend continuation thesis; it lost momentum quickly after entry and got stopped for a loss smaller than the initial 7.91% risk budget implied.
+
+**The setup, restated**
+
+The deterministic tsmom strategy flagged GS on a straightforward trend-following signal: 63-bar momentum of +10.6% with price ($1,037.26) well above SMA200 ($913.04). This is a classic time-series momentum entry — the class of trade exists because assets in an established uptrend have historically shown some tendency to keep trending over multi-week-to-month horizons, and the strategy is deliberately open-ended (no fixed target, exits only on momentum reversal, a SMA200 close-below, or the trailing stop). The known failure mode is exactly what happened here in miniature: momentum entries taken late in a run, especially against a broader down-trending tape, are prone to sharp mean-reversion or whipsaw, turning a &quot;trend continuation&quot; bet into an immediate drawdown.
+
+**The judge&#x27;s view**
+
+The AI risk-review agreed the trend signal itself was technically sound but flagged real context risk: the broader regime was down/low (SPY below its SMA), a Fed decision and mega-cap tech earnings were imminent, and the existing book already held 14 positions with mixed small losses, hinting at a choppy tape. Verdict was &quot;downsize&quot; at 0.5 scale with 0.55 confidence — small enough to let the trend edge play out without full exposure to a binary macro catalyst before the thesis proved itself. That downsizing is exactly why the position was only 3 shares (~$3,112 notional) rather than full size.
+
+**Risk plan and outcome**
+
+Max defined risk was $955.22/share (~7.9%), position sized at half-scale per the review. The invalidation condition was explicit: a close below the trailing/hard stop. That&#x27;s what triggered — the stop did its job, capping the loss well inside the pre-defined risk budget.
+
+**What this does and doesn&#x27;t prove**
+
+One trade is n=1. This loss is consistent with the review&#x27;s bear case — momentum entries against a down-trending broader regime carrying elevated whipsaw risk — but a single stopped-out trade doesn&#x27;t confirm that pattern, nor does it invalidate the tsmom strategy generally. It&#x27;s one data point being logged for the learning loop, nothing more.</div></article><article id="e28cdc47"><h2>CLOSE DIA — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-20 13:35 UTC · trade e28cdc47</div><div class=body>**Paper trading — trade closed. This is a simulated account; no real capital was involved.**
+
+**Trade:** DIA, tsmom strategy, trade_id e28cdc47, regime &quot;up/low&quot;
+
+### What the strategy saw
+
+The time-series momentum (tsmom) rule flagged DIA after a 63-bar lookback showed +6.55% momentum with price ($494.86) sitting well above SMA200 ($461.71, roughly 7.2% above). The rule is mechanical: positive intermediate-term momentum plus a rising long-term average is read as &quot;trend intact,&quot; triggering a long entry (booked here as qty 2, entry $494.86).
+
+### Why this setup gets traded at all
+
+TSMOM is traded because equity indices (and DIA as a DJIA proxy) exhibit persistence — trends that are underway have historically had modest positive autocorrelation over multi-week horizons, and being above a 200-day average is a crude but common filter for &quot;don&#x27;t fight the tape.&quot; The known failure modes are well documented: momentum strategies get chopped up in range-bound or whipsaw regimes, they enter late (after much of the move has happened), and they are vulnerable to sharp mean-reversion or gap-down shocks that blow through a trailing stop. A single +6.5% momentum reading also gives no information about how extended or fragile the move is.
+
+### Judge&#x27;s view
+
+The LLM risk-review layer was disabled/unavailable for this trade. The system defaulted to rule-based execution with an automatic &quot;approve&quot; verdict and full size scale (1.0). So there was no independent qualitative check on this entry — the risk plan below is entirely the deterministic system&#x27;s stop/sizing logic, not an AI judgment call.
+
+### Risk plan and what happened
+
+The order was structured as an OTO with a hard stop at $482.23 (about 2.6% below entry) and no fixed take-profit, letting the trend run until either the stop was hit or the strategy signal reversed. Position size was small (2 shares), consistent with a conservative, non-concentrated bet.
+
+In practice, price moved in the trade&#x27;s favor for an extended period, and the exit was triggered by &quot;stop_loss&quot; — but at $530.33, well above the entry, not below it. That implies the stop had been trailed upward as price rose, so the eventual stop-out locked in a gain rather than capping a loss. Result: +$70.94, +7.17%, versus a benchmark return of +1.62% over the same window — 5.55 points of alpha.
+
+### What this does and doesn&#x27;t prove
+
+This is one closed trade (n=1). It&#x27;s a clean example of a trailing-stop mechanism doing its job — protecting an unrealized gain rather than the more commonly assumed job of limiting a loss. It does not validate the tsmom entry rule itself, since the disabled risk-review means this trade got no independent scrutiny, and one winning trade says nothing about the strategy&#x27;s hit rate, drawdown behavior, or performance across regimes. The tentative pattern — &quot;stop_loss exits can still be net winners when stops trail an uptrend&quot; — is logged as a hypothesis to watch for recurrence, not a conclusion.</div></article><article id="12993c94"><h2>BUY PFE — tsmom <span class="badge buy">buy</span></h2><div class=meta>2026-08-19 19:48 UTC · trade 12993c94</div><div class=body>This is a paper-trading entry — no real capital involved. Logged for tracking a deterministic time-series momentum (tsmom) strategy.
 
 **The setup.** The system bought 99 shares of PFE at $28.215 on a straightforward tsmom trigger: 63-bar momentum of +11.88%, with price ($28.21) comfortably above SMA200 ($25.16). The rule is mechanical — when trailing momentum is strongly positive and the longer-term trend filter (price &gt; SMA200) confirms, the strategy interprets this as an intact uptrend worth riding.
 
