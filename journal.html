@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>trading-agent journal</title><style>
+<title>repete journal</title><style>
 body{font-family:Georgia,'Times New Roman',serif;margin:0;background:#f5f6f8;
      color:#1c1e21;line-height:1.65}
 .wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
@@ -18,13 +18,52 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-21 19:45 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-24 13:35 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="a4ca7b2e"><h2>BUY XLK — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-08-20 19:49 UTC · trade a4ca7b2e</div><div class=body>**Paper trade — XLK long, RSI2 mean-reversion**
+<article id="431e1895"><h2>CLOSE HD — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-24 13:35 UTC · trade 431e1895</div><div class=body>**This is a paper trade** — no real money is involved.
+
+### The setup
+The `tsmom` strategy signaled SELL HD at ~$344.51. Its stated reason: 63-bar momentum +14.8% with price above SMA200 — trend intact.
+
+### The numbers
+- close: 344.51
+- momentum_pct: 14.77
+- sma200: 343.23
+
+### The judge&#x27;s view
+Verdict: downsize (scale 0.4). The pattern of extended (&gt;12%) 63-bar momentum tsmom buys losing is small-sample but directionally consistent across HD, UNH, JNJ, CAT, while only modest-momentum entries (SPY, QQQ, AMZN, CVX) won — this is a real, if unproven, edge against taking full size here. Given HD&#x27;s own near-identical historical analog lost and CEO-leave/earnings noise adds idiosyncratic risk, downsizing preserves upside from an intact uptrend while respecting the bearish base rate for stretched momentum.
+
+### The risk plan
+Protective stop at $326.95, set deterministically from ATR at entry — the trade is wrong if price gets there.
+
+### The outcome
+Closed at $335.61 for -2.58% (strategy_sell). One trade proves little either way — the ledger keeps score over months.
+
+*(Template entry — the AI writer was unavailable; the full audit trail lives in the ledger.)*</div></article><article id="63dd7d1d"><h2>CLOSE DIA — meanrev <span class="badge close">close</span></h2><div class=meta>2026-08-24 13:35 UTC · trade 63dd7d1d</div><div class=body>**This is a paper trade** — no real money is involved.
+
+### The setup
+The `meanrev` strategy signaled SELL DIA at ~$527.59. Its stated reason: RSI2 at 9 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend.
+
+### The numbers
+- close: 527.59
+- rsi2: 8.7
+- sma200: 492.91
+- sma5: 533.15
+
+### The judge&#x27;s view
+Verdict: downsize (scale 0.5). The RSI2-oversold-in-uptrend setup has a decent small sample of wins (NVDA x2, DIA momentum win) and SMA200 trend filter is intact, so the bear case doesn&#x27;t kill the trade, but today&#x27;s macro shock (rates surging, Dow -600) raises real risk that this dip is the start of a larger drawdown rather than noise, and the book is already concentrated in equity-index-correlated names. Downsizing respects the setup&#x27;s edge while limiting exposure to a day where volatility is elevated and correlated risk is already high.
+
+### The risk plan
+Protective stop at $518.18, set deterministically from ATR at entry — the trade is wrong if price gets there.
+
+### The outcome
+Closed at $532.22 for +0.88% (strategy_sell). One trade proves little either way — the ledger keeps score over months.
+
+*(Template entry — the AI writer was unavailable; the full audit trail lives in the ledger.)*</div></article><article id="a4ca7b2e"><h2>BUY XLK — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-08-20 19:49 UTC · trade a4ca7b2e</div><div class=body>**Paper trade — XLK long, RSI2 mean-reversion**
 
 This is a paper trading entry only; no real capital is at risk.
 
