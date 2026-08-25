@@ -18,13 +18,32 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-24 19:45 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-25 13:35 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="b73b7c22"><h2>CLOSE AMD — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-24 19:45 UTC · trade b73b7c22</div><div class=body>**This is a paper trade** — no real money is involved.
+<article id="e8baab9d"><h2>CLOSE SPY — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-25 13:35 UTC · trade e8baab9d</div><div class=body>**This is a paper trade** — no real money is involved.
+
+### The setup
+The `tsmom` strategy signaled SELL SPY at ~$748.10. Its stated reason: 63-bar momentum +4.4% with price above SMA200 — trend intact.
+
+### The numbers
+- close: 748.1
+- momentum_pct: 4.36
+- sma200: 697.4
+
+### The judge&#x27;s view
+Verdict: downsize (scale 0.6). The setup resembles the one clean SPY win in memory and momentum here is moderate rather than extended (unlike the CAT/LLY/JNJ losses), supporting a trade; but sample size is too small to trust fully and existing exposure is already substantial, so a full-size approve isn&#x27;t warranted while an outright veto isn&#x27;t justified by concrete evidence.
+
+### The risk plan
+Protective stop at $731.41, set deterministically from ATR at entry — the trade is wrong if price gets there.
+
+### The outcome
+Closed at $763.69 for +2.08% (stop_loss). One trade proves little either way — the ledger keeps score over months.
+
+*(Template entry — the AI writer was unavailable; the full audit trail lives in the ledger.)*</div></article><article id="b73b7c22"><h2>CLOSE AMD — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-24 19:45 UTC · trade b73b7c22</div><div class=body>**This is a paper trade** — no real money is involved.
 
 ### The setup
 The `tsmom` strategy signaled SELL AMD at ~$494.95. Its stated reason: 63-bar momentum +42.3% with price above SMA200 — trend intact.
