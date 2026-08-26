@@ -18,13 +18,32 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-25 13:35 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-26 13:35 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="e8baab9d"><h2>CLOSE SPY — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-25 13:35 UTC · trade e8baab9d</div><div class=body>**This is a paper trade** — no real money is involved.
+<article id="0c6a57f1"><h2>CLOSE XOM — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-26 13:35 UTC · trade 0c6a57f1</div><div class=body>**This is a paper trade** — no real money is involved.
+
+### The setup
+The `tsmom` strategy signaled SELL XOM at ~$159.99. Its stated reason: 63-bar momentum +5.4% with price above SMA200 — trend intact.
+
+### The numbers
+- close: 159.99
+- momentum_pct: 5.43
+- sma200: 140.32
+
+### The judge&#x27;s view
+Verdict: downsize (scale 0.5). The momentum/SMA200 setup has some edge in up/low regimes generally, but XOM-specific evidence (1 prior loss) and fresh bearish oil news both point against full conviction; sizing down respects the signal while limiting exposure to a name whose commodity tailwind is currently reversing.
+
+### The risk plan
+Protective stop at $152.07, set deterministically from ATR at entry — the trade is wrong if price gets there.
+
+### The outcome
+Closed at $157.84 for -1.34% (stop_loss). One trade proves little either way — the ledger keeps score over months.
+
+*(Template entry — the AI writer was unavailable; the full audit trail lives in the ledger.)*</div></article><article id="e8baab9d"><h2>CLOSE SPY — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-25 13:35 UTC · trade e8baab9d</div><div class=body>**This is a paper trade** — no real money is involved.
 
 ### The setup
 The `tsmom` strategy signaled SELL SPY at ~$748.10. Its stated reason: 63-bar momentum +4.4% with price above SMA200 — trend intact.
