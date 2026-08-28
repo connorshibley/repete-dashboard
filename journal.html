@@ -18,13 +18,32 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-27 19:45 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-08-28 13:35 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="a4ca7b2e"><h2>CLOSE XLK — meanrev <span class="badge close">close</span></h2><div class=meta>2026-08-26 19:45 UTC · trade a4ca7b2e</div><div class=body>**This is a paper trade** — no real money is involved.
+<article id="edee99e4"><h2>CLOSE LLY — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-28 13:35 UTC · trade edee99e4</div><div class=body>**This is a paper trade** — no real money is involved.
+
+### The setup
+The `tsmom` strategy signaled SELL LLY at ~$1148.59. Its stated reason: 63-bar momentum +23.1% with price above SMA200 — trend intact.
+
+### The numbers
+- close: 1148.59
+- momentum_pct: 23.11
+- sma200: 1022.7
+
+### The judge&#x27;s view
+Verdict: downsize (scale 0.5). Sample sizes are too small (n=1 each) to be conclusive, but the directional pattern across LLY/JNJ/CAT single-stock momentum buys is consistently negative while only diversified index momentum buys won, so I discount the bull case without fully vetoing since price structure is still technically intact and this is a paper-trade risk check, not a hard stop rule violation.
+
+### The risk plan
+Protective stop at $1077.49, set deterministically from ATR at entry — the trade is wrong if price gets there.
+
+### The outcome
+Closed at $1174.31 for +2.24% (stop_loss). One trade proves little either way — the ledger keeps score over months.
+
+*(Template entry — the AI writer was unavailable; the full audit trail lives in the ledger.)*</div></article><article id="a4ca7b2e"><h2>CLOSE XLK — meanrev <span class="badge close">close</span></h2><div class=meta>2026-08-26 19:45 UTC · trade a4ca7b2e</div><div class=body>**This is a paper trade** — no real money is involved.
 
 ### The setup
 The `meanrev` strategy signaled SELL XLK at ~$183.22. Its stated reason: RSI2 at 5 (&lt; 10) with uptrend intact above SMA200 — oversold dip in an uptrend.
