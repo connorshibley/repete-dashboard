@@ -18,13 +18,113 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-01 13:36 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-01 19:49 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="125ff5ec"><h2>CLOSE GS — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-31 19:47 UTC · trade 125ff5ec</div><div class=body>### Paper Trade Journal: GS (Trade ID 125ff5ec)
+<article id="0527d634"><h2>BUY GS — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-01 19:48 UTC · trade 0527d634</div><div class=body>### Trade Journal Entry: GS Buy (Paper)
+
+**Date:** September 2026
+**Position:** Long 4 shares of Goldman Sachs (GS)
+**Entry Price:** $1,000.82
+**Status:** PAPER TRADING ONLY — No real capital at risk.
+
+This entry records the initiation of a mean-reversion buy position in GS, executed within a simulated paper trading account. The trade was triggered by the deterministic strategy identifying an extreme short-term oversold condition within a preserved long-term uptrend.
+
+#### The Opportunity
+The strategy detected an RSI(2) value of 3.7, well below the threshold of 10. In the context of the current &quot;up/low&quot; regime, where the SPY is trading above its SMA, this signaled a sharp, likely overextended pullback. Crucially, the long-term structure remained intact: GS closed at $1,000.82, comfortably above its 200-day Simple Moving Average (SMA200) of $935.42. While the 5-day SMA of $1,024.37 sits above the current price, indicating recent weakness, the distance between the current close and the SMA200 (approximately 7%) suggests the asset is still participating in a broader structural uptrend. The strategy interprets this dislocation between short-term momentum and long-term trend as a statistical opportunity for a snap-back to the mean.
+
+#### Strategy Logic and Failure Modes
+Mean-reversion trading in established uptrends relies on the premise that prices oscillate around a moving average and rarely sustain extreme deviations without a fundamental regime shift. The edge comes from buying fear during a period of confirmed strength. However, this setup has well-documented failure modes. The primary risk is that the &quot;dip&quot; is actually the beginning of a trend reversal. If the macro environment deteriorates sufficiently to push price below the SMA200, the &quot;oversold&quot; condition becomes a valid selling signal, and the position will continue to decline. Additionally, in high-volatility environments, RSI(2) can remain &quot;oversold&quot; for extended periods, leading to time-decay or &quot;whipsaw&quot; losses where price drifts lower before eventually reversing.
+
+#### The Judge’s View
+The AI risk-review analyzed the technical signal against the current macro backdrop. It noted that while the RSI(2) &lt; 4 signal is historically bullish for short-term reversion, the current market environment is characterized by geopolitical tensions and rising bond yields, which are traditionally headwinds for financial stocks like GS. The judge observed a prior -3.1% drop on August 20, suggesting significant downside momentum might not be fully exhausted.
+
+Consequently, the verdict was to **downsize** the position by 0.5x. The judge’s confidence was moderate at 0.55. The reasoning was that while the technical setup is strong, the macro context introduces uncertainty that warrants reduced exposure. This scaled-down size (4 shares instead of 8) allows the bot to participate in the potential rebound while mitigating the risk of the dip continuing in a risk-averse market.
+
+#### The Risk Plan
+The order is placed as a marketable buy with a strict invalidation level.
+*   **Stop Loss:** Set at $954.58. This is an ATR-based stop that defines the point where the thesis is proven wrong. If GS closes below this level, the mean-reversion premise has failed, and the position will be exited.
+*   **Position Size:** 4 shares (approx. $4,003 notional value). This represents a small fraction of the total equity, adhering to the &quot;size is the primary risk control&quot; principle.
+*   **Invalidation:** The trade is wrong if GS continues to drift lower, breaching the $954.58 support. The judge’s downsizing reflects the reality that this is a contrarian play against a volatile, risk-off tape. We are not predicting a V-shaped recovery; we are simply capping downside risk in exchange for the statistical probability of a short-term reversion.
+
+This is a single trade event (n=1). The outcome of this specific position will not prove the efficacy or futility of the mean-reversion strategy, but it will provide data on how the downsized sizing performed against the macro headwinds identified by the judge.</div></article><article id="87878038"><h2>BUY CAT — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-01 19:47 UTC · trade 87878038</div><div class=body>**Entry: CAT (Caterpillar) — Paper Trade**
+
+**The Opportunity**
+This is a paper trade executed by an automated swing-trading bot. The deterministic strategy identified a potential mean-reversion setup in Caterpillar (CAT). The trigger was an RSI2 value of 3.3, which signals extreme short-term oversold conditions relative to the two-day lookback period. Crucially, this dip occurred while the broader long-term trend remained intact: the closing price of $780.79 sits comfortably above the SMA200 of $767.35. The strategy interprets this divergence—a sharp, recent pullback (SMA5 at $803.49 is well above the close) within a structurally upward-trending asset—as a statistical probability of reversion toward the mean, rather than the start of a new downtrend.
+
+**The Strategy&#x27;s Logic**
+Mean-reversion strategies based on short-term RSI in uptrending large-cap industrials are traded on the assumption that short-term sentiment can overreact to noise, creating temporary mispricings. The core logic is that in a healthy uptrend, dips are buying opportunities for value. However, this class of setup has well-documented failure modes. The primary risk is that an &quot;oversold&quot; condition can persist or deepen if the pullback is driven by a fundamental shift or a broader market regime change, rather than simple volatility. In such cases, the price does not revert but continues to trend down, violating the &quot;uptrend intact&quot; assumption.
+
+**The Judge&#x27;s View**
+The AI risk-reviewer flagged a significant conflict between the technical signal and the current market environment. While the fundamentals are strong (recent earnings beat, raised outlook, and high price targets from analysts), the broader market is in a risk-off regime driven by geopolitical escalation and oil price spikes. The judge noted that high-beta industrials are often sold in such environments. Furthermore, the review highlighted a prior loss on CAT (-8.6%) under trend-following logic and the account’s current gross exposure of 62%, which limits risk capacity. Consequently, the judge ruled to **downsize** the position to 0.3x of the standard size. This resulted in a conservative purchase of 3 shares, reflecting a 0.55 confidence level that the technical setup will override the macro headwind.
+
+**The Risk Plan**
+Position size was strictly limited to 3 shares at an entry price of $780.79. The risk is defined by a stop-loss order placed at $731.26. This placement is designed to be outside normal daily noise, providing a buffer against volatility while defining a clear point of invalidation. If the price breaks below this level, the thesis that this is a dip in an uptrend is proven wrong, and the position will be exited to prevent further capital erosion. There is no take-profit limit order; instead, the bot will manage the exit based on strategy signals (such as RSI recovery or trend reversal). This is a paper trade, meaning no real capital is at risk, but the discipline of size and stop placement is tested to validate the strategy&#x27;s robustness before any potential live deployment. The outcome of this single trade (n=1) will not prove the efficacy of the mean-reversion logic but will provide data on how well the downsizing rule managed risk in a high-volatility regime.</div></article><article id="a2b63b06"><h2>BUY DIA — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-01 19:46 UTC · trade a2b63b06</div><div class=body>**PAPER TRADE JOURNAL: DIA Entry**
+*Date: 2026-09-01 | Status: Open*
+
+**The Opportunity**
+This is a simulated paper trade on the DIA ETF. The deterministic mean-reversion strategy identified a specific setup: a short-term oversold condition within a long-term uptrend. The 2-day Relative Strength Index (RSI2) printed at 3.8, well below the strategy’s 10-point threshold, signaling that recent selling pressure was extreme relative to the last two days. Crucially, this dip occurred with the close at $527.32 remaining comfortably above the 200-day Simple Moving Average (SMA200) of $495.08. The distance to the SMA5 of $532.68 indicates a pullback from recent highs, but the structural trend remains intact. The strategy interprets this divergence—deep short-term weakness against a bullish long-term backdrop—as a statistical anomaly likely to revert to the mean.
+
+**The Strategy&#x27;s Logic**
+Mean reversion strategies trade on the premise that prices extend too far, too fast, and must correct. By waiting for RSI2 to drop below 10, the system aims to catch &quot;air pockets&quot; in an uptrend. The logic assumes that as long as the price stays above the SMA200, the long-term institutional flow supports a rebound. The known failure mode for this specific setup is regime shift. If the &quot;dip&quot; is actually the beginning of a structural downtrend, the SMA200 support will eventually break, and the mean-reversion thesis fails into a trend-following loss. Additionally, in high-volatility environments, the initial dip can deepening before stabilizing, potentially triggering stop-losses prematurely.
+
+**The Judge&#x27;s View**
+The AI risk-reviewer (Qwen 3.8) assessed the signal with moderate confidence (0.62) but issued a &quot;downsize&quot; verdict with a 0.5 scale factor. The judge acknowledged that DIA has a strong historical record for this specific signal (2 wins, 0 losses in the immediate sample) and that the current book lacks DIA exposure, offering diversification. However, the judge flagged significant macro headwinds. Current market context includes geopolitical risk (Strait of Hormuz tensions), oil prices above $90, and a bond sell-off driving yields to multi-year highs. The judge noted that the bot’s recent approval accuracy in similar regimes was low (36%). Consequently, the judge chose to halve the intended size to mitigate the risk that the &quot;uptrend&quot; label is being eroded by broader inflationary and geopolitical stress.
+
+**The Risk Plan**
+Following the judge&#x27;s sizing recommendation, the bot entered a position for **9 shares** at **$527.32**.
+*   **Position Value:** ~$4,745.88.
+*   **Stop Loss:** Placed at **$519.70**. This stop is volatility-scaled and set at entry. It represents an invalidation level where the dip has deepened beyond the expected mean-reversion window. The stop distance is approximately 1.45% of the entry price.
+*   **Invalidation:** The trade is proven wrong if the price closes below $519.70, indicating that the &quot;oversold&quot; condition is a continuation of a broader sell-off rather than a temporary pullback.
+*   **Take Profit:** No fixed take-profit price is set, allowing the strategy to manage the exit based on subsequent RSI or trend signals.
+
+This entry reflects a cautious approach: taking a statistical edge while respecting the elevated macro risk environment by reducing capital at risk.</div></article><article id="d094bdb1"><h2>BUY SPY — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-01 19:46 UTC · trade d094bdb1</div><div class=body>This is a paper trading journal entry. No real capital is at risk.
+
+### The Opportunity: Technical Setup
+The deterministic strategy identified a mean-reversion entry in SPY. The core trigger was an extreme oversold reading on the 2-day Relative Strength Index (RSI2), which printed at 8.8. This is significantly below the strategy’s threshold of 10, indicating that short-term selling pressure has likely been exhausted. Crucially, this dip occurred within an intact long-term uptrend. The closing price of $761.05 remained well above the 200-day Simple Moving Average (SMA200) of $708.27, confirming that the broader secular trend is still bullish. While the 5-day SMA ($766.93) sits above the current price, signaling short-term weakness, the distance from the SMA200 provides a structural cushion. The strategy interprets this divergence—a short-term panic within a long-term rally—as a statistical anomaly that typically reverts to the mean.
+
+### Strategy Logic and Failure Modes
+This class of setup trades on the premise that broad market indices rarely experience sustained vertical drops during established bull markets. The &quot;oversold dip in an uptrend&quot; logic relies on the historical observation that sharp, multi-day declines in SPY often mark local bottoms. However, the known failure modes of this strategy are significant. The primary risk is that the &quot;dip&quot; is actually the inception of a new downtrend. If the macro environment shifts fundamentally, the price can remain below the RSI2 threshold for an extended period, or continue to decline until the SMA200 is breached. In the current context, the strategy operates in a &quot;high-stress&quot; regime where systemic risks, such as geopolitical conflicts and inflationary shocks, can invalidate simple technical reversion. A third failure mode is regime change: if the market volatility expands rapidly, the normal mean-reversion timeline may not materialize before the stop-loss is triggered.
+
+### The Judge&#x27;s View: Risk Review
+The AI risk review assessed the technical pattern against the current macro backdrop. It acknowledged the modest historical win rate for RSI2 &lt; 10 setups on broad indices, citing a 3/1 win rate in memory for similar conditions. However, the judge weighed the bear case heavily, noting that the current environment is defined by geopolitical conflict, an oil spike above $90, and surging bond yields. These factors create a systemic &quot;risk-off&quot; environment where technical dips are more likely to extend into trends. The review also flagged recent &quot;BAD_APPROVE&quot; records on correlated index trades (QQQ, HD), suggesting that the current volatility regime is punishing directional bets that rely on quick reversion. Consequently, the verdict was a &quot;downsize&quot; with a scale factor of 0.5. The judge’s confidence was moderate at 0.55, reflecting the uncertainty of the macro environment. This decision shaped the final position size, reducing exposure to this unproven edge in a high-stress regime while retaining participation in the potential recovery.
+
+### Risk Plan
+The risk plan is defined by a fixed stop-loss order placed at $750.50. This price level was determined by the strategy&#x27;s volatility-scaled stop logic at the time of entry and is not subject to widening. Position sizing is strictly controlled by the judge&#x27;s downscale directive, resulting in a buy order for 6 shares of SPY. The total notional value is approximately $4,566, which is a modest fraction of the account&#x27;s $99,552 equity. The trade is proven wrong if SPY closes below the $750.50 stop level. This invalidation implies that the oversold condition was not a temporary dip but the start of a deeper correction, violating the mean-reversion assumption. There is no take-profit price set, as the strategy typically manages exits via trailing stops or mean-reversion targets that are evaluated dynamically after entry. This trade represents a single data point (n=1) and does not predict future performance.</div></article><article id="8a180c96"><h2>CLOSE KO — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-01 19:45 UTC · trade 8a180c96</div><div class=body>**Trade Log: KO (Paper Trading)**
+
+**Date:** 2026-07-30
+**Status:** Closed (Loss)
+**Note:** This is a paper trading simulation. No real capital was risked.
+
+### The Opportunity
+The deterministic `tsmom` (Time Series Momentum) strategy identified a classic trend-following setup in Coca-Cola (KO). At the time of entry, the stock closed at $88.49. The 63-bar momentum indicator read +12.93%, indicating strong recent price strength. Furthermore, the price sat well above the 200-day Simple Moving Average (SMA200) of $75.24. For a trend-following system, this configuration signals an &quot;intact&quot; uptrend where the primary directional bias is positive. The strategy logic dictates that when momentum is positive and price is above the long-term mean, the probability of continued drift is higher than a reversal, warranting a long position.
+
+### The Strategy Logic
+Trend-following strategies capitalize on the empirical tendency of assets to persist in their direction of movement. The logic is not to predict peaks or bottoms, but to capture the &quot;meat&quot; of a move. However, this class of setup has known failure modes:
+1.  **Chop/Reversal:** In a &quot;down/low&quot; market regime, strong individual stock momentum can be a lagging indicator of a top. When the broader market turns, even strong names often pull back sharply to the mean.
+2.  **Overextension:** A +12.9% move in ~3 months can be considered extended. If the entry occurs near a local high, the risk-reward ratio deteriorates because the stop-loss is further away, while the immediate potential for a mean-reversion drop is high.
+
+### The Judge’s View
+The AI risk-review flagged a &quot;downsize&quot; verdict with a scale factor of 0.5 and moderate confidence (0.55). The review noted a critical historical pattern: previous single-name momentum trades with similar &quot;trend intact&quot; logic (specifically JNJ and CAT) had failed via stop-loss, yielding losses of -3.7% and -8.6%. In contrast, the successful trades in the memory bank were index ETFs (SPY, QQQ) with lower momentum readings, which are less prone to idiosyncratic volatility.
+
+The judge reasoned that high-momentum entries in single names are more fragile in a weak regime. Consequently, the position size was halved to limit exposure, acknowledging that while the signal was technically valid, the context (down/low regime + historical single-name failures) increased the risk of a quick stop-out.
+
+### The Risk Plan
+*   **Entry:** $88.49 (44 shares).
+*   **Stop-Loss:** $84.29. This represents a risk of $4.20 per share, or ~4.75% of the entry price.
+*   **Invalidation:** The trade is proven wrong if price closes below $84.29.
+*   **Exit Logic:** No fixed take-profit. The trailing stop was set to ratchet up as price rises, aiming to capture the trend until it breaks.
+
+### Outcome and Analysis
+The trade exited at $88.48, resulting in a minor loss of $0.44 (-0.01%). The exit reason was recorded as `stop_loss`, though the exit price ($88.48) is nearly identical to the entry price ($88.49). This suggests the stop was triggered by a momentary tick below the threshold or a specific intraday breach that closed the position, rather than a catastrophic collapse to the $84.29 level implied by the initial risk calculation.
+
+Against the benchmark, which gained 2.61%, the trade underperformed by 2.62% (alpha).
+
+**What this proves:**
+Nothing definitive. n=1. It demonstrates that a high-momentum single-name entry in a weak regime can fail to generate alpha even if the gross loss is negligible. It highlights the &quot;cost of waiting&quot; or the friction of the exit mechanism. The &quot;near-zero&quot; PnL despite a &quot;stop loss&quot; label indicates a potential edge-case in execution or a very tight stop placement relative to the entry volatility, or simply a flat market day where the stop was hit intraday. It does not prove the strategy is broken, but it supports the judge’s caution that single-name momentum trades in this regime may be &quot;dead money&quot; compared to index exposures.</div></article><article id="125ff5ec"><h2>CLOSE GS — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-31 19:47 UTC · trade 125ff5ec</div><div class=body>### Paper Trade Journal: GS (Trade ID 125ff5ec)
 
 **Disclaimer:** This is a **paper trading** journal entry. No real capital was at risk, and these results have no bearing on actual financial outcomes. This log records the behavior of an automated, deterministic swing-trading bot for educational and analytical purposes only.
 
