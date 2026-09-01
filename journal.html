@@ -18,13 +18,64 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-08-31 13:37 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-01 13:36 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="584cf90b"><h2>CLOSE IWM — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-28 19:45 UTC · trade 584cf90b</div><div class=body>**This is a paper trade** — no real money is involved.
+<article id="125ff5ec"><h2>CLOSE GS — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-31 19:47 UTC · trade 125ff5ec</div><div class=body>### Paper Trade Journal: GS (Trade ID 125ff5ec)
+
+**Disclaimer:** This is a **paper trading** journal entry. No real capital was at risk, and these results have no bearing on actual financial outcomes. This log records the behavior of an automated, deterministic swing-trading bot for educational and analytical purposes only.
+
+#### The Opportunity
+The Time-Series Momentum (tsmom) strategy identified a long opportunity in Goldman Sachs (GS) on August 20, 2026, at a closing price of **$1,003.35**. The decision engine operated under an &quot;up/low&quot; regime classification, indicating a generally favorable trend environment. The specific trigger was a 63-bar momentum reading of **+2.61%**, which signaled positive, albeit modest, price persistence. Crucially, the asset price remained significantly above the 200-day Simple Moving Average (SMA200) of **$930.08**, confirming that the long-term trend structure was intact and the pullback or consolidation had not broken the broader uptrend. The strategy interpreted this combination—price above the long-term mean with positive mid-term momentum—as a continuation setup.
+
+#### Strategy Logic and Failure Modes
+The tsmom strategy relies on the premise that assets with recent positive returns and a favorable long-term trend tend to continue moving in that direction. By entering only when price is above the SMA200, the strategy attempts to filter out counter-trend noise and &quot;catch falling knives.&quot; However, this approach has known failure modes. It is highly susceptible to whipsaws in high-volatility, range-bound markets where momentum reverses quickly. Furthermore, as seen in prior iterations, the strategy can suffer when momentum becomes overextended (e.g., +10-35%), leading to mean-reversion losses. This specific entry was notable for its *low* momentum magnitude (+2.61%), which the strategy views as a &quot;fresh&quot; start rather than an exhausted trend, though it is less aggressive than typical breakout entries.
+
+#### The Judge&#x27;s View
+The AI risk-reviewer acknowledged the technical soundness of the setup but issued a **downsize** verdict with a 0.5 scale factor. The &quot;bull case&quot; noted that the modest momentum avoided the overextension traps that previously caused losses in similar financial stocks (HD, CAT). However, the &quot;bear case&quot; highlighted a critical portfolio risk: the book already held significant exposure to JPM, MA, V, and XLF, along with broad index funds. Adding GS was classified as a &quot;highly correlated add&quot; rather than true diversification. With gross exposure already at 69% across 19 names, the judge argued that adding another correlated financial in a volatile macro backdrop (citing surging yields and a Dow drop of 600 points) increased the risk of a clustered stop-out. Consequently, the position was halved to 3 shares to mitigate correlation risk without rejecting the valid technical signal.
+
+#### Risk Plan and Outcome
+The risk plan established a protective stop at **$956.70**, representing a risk of $46.65 per share, or **4.65%** of the entry price. There was no fixed take-profit; the exit was defined by a trailing stop that ratchets up but never down, or if the 63-bar momentum turned negative.
+
+The trade was entered at $1,003.35 and eventually exited at **$1,026.775**, generating a profit of **$70.28** (2.33%). The exit reason was &quot;strategy_sell,&quot; indicating the trade followed its intended path until a predefined technical condition was met. The position outperformed the benchmark (0.58%) by 1.76% alpha. While this is a &quot;win,&quot; it is important to note that **n=1**. A single successful trade does not validate the strategy&#x27;s edge, nor does it prove that the downsizing logic was optimal. It simply confirms that this specific instance of the &quot;low momentum, above SMA200&quot; pattern resulted in a positive outcome in a high-correlation portfolio context.</div></article><article id="9e17da23"><h2>BUY LLY — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-08-31 19:46 UTC · trade 9e17da23</div><div class=body>**Disclaimer: This is a paper trading journal. No real capital is at risk.**
+
+### The Opportunity
+The deterministic mean-reversion strategy identified an extreme short-term oversold condition in Eli Lilly (LLY). The primary trigger was the 2-period RSI (RSI2) hitting 1.9, well below the threshold of 10. Crucially, this dip occurred while the long-term uptrend remained intact, with the closing price of $1,161.31 sitting significantly above the 200-day Simple Moving Average (SMA) of $1,057.58. The divergence between the short-term weakness (RSI2 &lt; 2) and the strong structural support (SMA200) presented a classic &quot;oversold dip in an uptrend&quot; setup.
+
+### Strategy Logic and Failure Modes
+The logic behind this trade class is that in established bull markets, sharp, short-term drops often exhaust themselves as sellers run out of ideas, leading to a quick reversion toward the prevailing trend. However, the failure mode is well-documented: a dip in an uptrend can signal the beginning of a longer correction if driven by sector-wide de-rating or macro shocks. The strategy is currently underperforming, with a recent approval accuracy of only 33%. The similar-trade history reflects this noise; while similar setups in NVDA and DIA yielded gains of +2.3% and +0.8% respectively, a comparable setup in XLK resulted in a loss. This suggests that while the setup is valid, the timing is fragile.
+
+### The Judge&#x27;s View
+The AI risk-review sided with caution, issuing a &quot;downsize&quot; verdict with a confidence score of 0.55. The judge noted that while the technicals are textbook, the broader market environment is risky due to renewed US-Iran hostilities and rising oil prices. These macro factors could trap a mean-reversion buy if the dip turns into a trend break. Consequently, the judge recommended scaling the position size to 50% of the standard allocation to account for the strategy&#x27;s poor recent calibration and the elevated volatility.
+
+### The Risk Plan
+The bot executed a paper buy of 4 shares of LLY at $1,161.31. This reflects the 50% downsize suggested by the risk-review. The position is protected by a stop-loss at $1,087.59, a distance of approximately $73.72 (6.4%) below entry. This stop is placed to account for the volatility of the name while staying outside normal daily noise. There is no take-profit order; the position will likely be held for a trend continuation or until a strategy-based exit signal triggers.
+
+The trade is proven wrong if LLY breaks below the $1,087.59 stop, indicating that the oversold condition was actually a trend reversal. It is proven right if the price reclaims the $1,187.02 5-day SMA. Given the 33% recent hit rate, this single trade is n=1 and does not validate or invalidate the strategy&#x27;s edge. The primary goal here is risk management, ensuring that a potential loss is bounded and small relative to the total equity.</div></article><article id="ea49cba9"><h2>BUY IWM — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-08-31 19:45 UTC · trade ea49cba9</div><div class=body>**Paper Trade Log: IWM Entry (ea49cba9)**
+
+**The Opportunity**
+The deterministic strategy identified a mean-reversion setup in the Russell 2000 ETF (IWM). The signal triggered because the 2-day RSI (RSI2) dropped to 7.7, a level below the strategy&#x27;s oversold threshold of 10. This dip occurred within a broader long-term uptrend, confirmed by the closing price of $293.82 remaining significantly above the 200-day Simple Moving Average (SMA200) at $270.82. The setup is a classic &quot;buy the dip&quot; scenario, leveraging short-term exhaustion against a longer-term directional bias.
+
+**Strategy Logic &amp; Failure Modes**
+Mean-reversion strategies trade on the statistical tendency for prices to revert to a mean after an exaggerated move. In an uptrend, a sharp, short-term pullback often creates an entry point with favorable risk/reward before the primary trend resumes. The core logic relies on the SMA200 acting as a floor of support; if price stays above it, the dip is likely noise rather than a reversal.
+
+However, this strategy has specific failure modes. The most dangerous is &quot;catching a falling knife&quot; where a dip in an uptrend actually signals the start of a trend reversal, causing price to fall below the SMA200 and the stop. Additionally, small-cap indices like IWM are highly sensitive to interest rate changes and liquidity conditions. In a high-volatility or tightening monetary regime, these dips can be deeper and less likely to recover quickly than historical averages suggest, leading to stop-outs even if the broader trend remains intact.
+
+**The Judge&#x27;s View**
+The AI risk-review assessed the technical setup as historically valid but flagged significant contextual risks. The bear case highlighted that small-caps are rate-sensitive and that the current portfolio is already 53% exposed to broad equity beta, creating correlated risk. Given the judge’s recent calibration—where approve accuracy was only 33%—the review recommended a strict downsize. The verdict was to reduce position size to 30% of the base calculation (scale 0.3), resulting in a final quantity of 9 shares. This decision prioritized capital preservation over capturing the full potential of the signal, reflecting skepticism about the current macro environment where geopolitical risks and rising mortgage rates are pressuring equity indices.
+
+**The Risk Plan**
+This is a paper trade. The entry price is $293.825 for 9 shares of IWM. The invalidation point is set via a volatility-scaled stop loss at $288.16, approximately a 1.9% distance from entry. This stop is designed to be outside normal daily noise but close enough to limit drawdown if the uptrend breaks. The position size is intentionally small to mitigate the correlated beta risk identified by the judge.
+
+What would prove this trade wrong?
+1.  **Stop Hit:** Price breaks below $288.16, indicating the dip is part of a larger correction.
+2.  **Trend Reversal:** Price falls below the SMA200 ($270.82), invalidating the &quot;uptrend intact&quot; premise.
+3.  **Time Decay:** If price stagnates without recovering, capital is tied up in a low-yield position, failing to meet the opportunity cost threshold.
+
+No take-profit target is set; the strategy will rely on a future exit signal (e.g., RSI recovery or trend continuation). This is n=1; the outcome of this single trade does not validate or invalidate the strategy&#x27;s edge, but it provides data for future calibration.</div></article><article id="584cf90b"><h2>CLOSE IWM — tsmom <span class="badge close">close</span></h2><div class=meta>2026-08-28 19:45 UTC · trade 584cf90b</div><div class=body>**This is a paper trade** — no real money is involved.
 
 ### The setup
 The `tsmom` strategy signaled SELL IWM at ~$261.41. Its stated reason: 63-bar momentum +6.6% with price above SMA200 — trend intact.
