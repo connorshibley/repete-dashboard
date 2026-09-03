@@ -18,13 +18,49 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-03 13:36 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-03 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="0527d634"><h2>BUY GS — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-01 19:48 UTC · trade 0527d634</div><div class=body>### Trade Journal Entry: GS Buy (Paper)
+<article id="d094bdb1"><h2>CLOSE SPY — meanrev <span class="badge close">close</span></h2><div class=meta>2026-09-03 19:47 UTC · trade d094bdb1</div><div class=body>**Paper Trade Journal: SPY Mean-Reversion Entry**
+
+*Disclaimer: This is an automated paper trading log. All positions are simulated; no real capital was at risk. Past performance of paper strategies does not guarantee future results.*
+
+### The Opportunity
+The deterministic mean-reversion strategy identified a setup in SPY on September 1, 2026, driven by a sharp short-term dip within a long-term uptrend. The primary trigger was the 2-day Relative Strength Index (RSI2) falling to **8.8**, a level below the strategy’s threshold of 10. This indicated a severe short-term oversold condition. Crucially, this signal fired while the asset remained in a structural uptrend, defined by the closing price of **$761.05** sitting comfortably above the 200-day Simple Moving Average (SMA200) of **$708.27**. The divergence between the weak short-term momentum (RSI2 &lt; 10) and the strong long-term trend (Price &gt; SMA200) is the classic &quot;catch the falling knife&quot; setup that this strategy is designed to exploit. At the time of entry, the 5-day SMA was **$766.93**, meaning the price was trading below its immediate mean, suggesting a high probability of a snap-back toward that average.
+
+### Strategy Logic and Failure Modes
+Mean-reversion strategies in uptrends operate on the premise that broad indices rarely sustain deviations from their short-term means for more than a few days without a catalyst. The logic posits that healthy pullbacks are corrections, not reversals. However, the known failure mode for this setup is &quot;catching a knife&quot; during a regime change. If the oversold condition is driven by fundamental deterioration or systemic risk rather than normal volatility, the price may not revert to the mean but instead break down, invalidating the uptrend assumption. In such cases, the strategy relies entirely on the stop-loss to limit damage, as there is no take-profit target to cap the risk.
+
+### The Judge’s View
+The AI risk reviewer flagged the trade with a &quot;downsize&quot; verdict and a confidence score of 0.55. While acknowledging the technical validity of the RSI2 signal and its historical win rate on similar index trades, the reviewer highlighted significant macro headwinds: geopolitical conflict, oil prices above $90, and surging bond yields. These factors created a &quot;risk-off&quot; environment where technical dips are more likely to fail. Consequently, the position size was reduced by 50% (scale factor 0.5) from its base calculation. This halved the exposure to reflect the heightened uncertainty and the recent &quot;BAD_APPROVE&quot; records on correlated assets like QQQ, ensuring the bot retained participation without over-exposing itself to a potential trend break.
+
+### Risk Plan and Outcome
+The risk plan was defined by a fixed stop-loss at **$750.50**, representing a risk of **$10.55 per share** (1.39% of the entry price). The position consisted of **6 shares**, resulting in a total position value of **$4,566.30**. The thesis was that the trade would be invalidated if the price closed below the stop. The exit was not based on a profit target but on the price closing back above the 5-day SMA, with a hard cap of 7 days.
+
+In this instance, the trade resolved successfully. The position exited at **$773.23** via a &quot;strategy_sell&quot; signal, capturing a profit of **$73.08** or **1.60%**. This outperformed the benchmark’s 1.50% return over the same period, yielding a negligible alpha of 0.10%. This result confirms the short-term mean-reversion thesis for this specific day, but it remains a single data point (n=1). One win does not prove the strategy’s edge, nor does it mitigate the macro risks cited by the reviewer. The trade successfully navigated the high-volatility environment, but future performance will depend on whether the structural uptrend holds against the cited macro headwinds.</div></article><article id="ea49cba9"><h2>CLOSE IWM — meanrev <span class="badge close">close</span></h2><div class=meta>2026-09-03 19:45 UTC · trade ea49cba9</div><div class=body>**Trade Event: IWM Mean Reversion (Paper Trade)**
+**Trade ID:** ea49cba9
+**Date:** 2026-08-31
+**Status:** Closed (Win)
+**Type:** PAPER TRADING (No real capital at risk)
+
+### The Opportunity
+The deterministic mean-reversion strategy identified a setup in IWM (iShares Russell 2000 ETF) characterized by a sharp short-term decline within a long-term uptrend. At the time of entry, the closing price was $293.82. The key trigger was the 2-day RSI (RSI2) dropping to 7.7, a value well below the strategy’s threshold of 10, signaling extreme oversold conditions on a micro-timeline. Crucially, the long-term trend remained intact, with the price trading significantly above the 200-day Simple Moving Average (SMA200) of $270.82. The 5-day SMA (SMA5) stood at $297.51, indicating that the recent dip had pulled the price away from its short-term mean. The strategy viewed this divergence—extreme short-term weakness against strong long-term momentum—as a statistical anomaly likely to revert quickly.
+
+### Strategy Logic and Failure Modes
+Mean reversion strategies in large-cap or index ETFs operate on the premise that prices rarely deviate significantly from their recent averages for extended periods. By buying when the RSI2 is critically low but the broader trend is up, the system aims to capture the &quot;snap back&quot; to the mean. The primary failure mode for this setup is the &quot;catching a falling knife&quot; scenario, where a technical dip is actually the beginning of a trend reversal or a broader market correction. In such cases, the RSI can remain oversold while the price continues to grind lower, invalidating the thesis. Additionally, small-cap indices like the Russell 2000 are highly sensitive to interest rate environments and liquidity conditions, making them more volatile than their large-cap counterparts.
+
+### The Judge&#x27;s View
+The AI risk-review flagged significant macro concerns. While the technical setup was valid, the judge noted that the portfolio was already 53% exposed to broad equity beta, creating correlated risk. Furthermore, the review cited rising mortgage rates and geopolitical instability as headwinds for small-cap assets. The judge’s confidence in the trade was moderate (0.55), and it cited recent calibration issues (33% approve accuracy) as a reason for strict risk control. Consequently, the judge issued a &quot;downsize&quot; verdict, scaling the position size to 30% of the standard allocation. This resulted in a position of 9 shares, limiting the maximum potential loss to a smaller dollar amount.
+
+### Risk Plan and Outcome
+The risk plan involved a fixed stop-loss at $288.16, representing a 1.93% risk from the entry price of $293.82. There was no fixed take-profit target; instead, the trade was designed to exit as soon as the price closed above the SMA5 or after a hard cap of 7 days. The thesis would be proven wrong if the price closed below the $288.16 stop.
+
+In this instance, the trade exited via the `strategy_sell` rule, implying the price recovered sufficiently to trigger the exit condition. The entry was executed at $293.825, and the exit occurred at $294.97. The gross profit was $10.31, or 0.39%.
+
+It is important to note that while this was a &quot;win&quot; for the trade, it underperformed the benchmark, which rose 0.81% over the same period (alpha of -0.42%). This single data point (n=1) suggests that while the mean-reversion signal worked directionally, the 30% downsize applied by the judge reduced the absolute return, causing it to lag the broader market index. This outcome does not prove the strategy is ineffective, nor does it prove the judge’s downsize was incorrect; it simply illustrates that in a rising market, reduced exposure to small-caps can result in lower relative performance despite a positive absolute gain. This is paper trading, and results are simulated.</div></article><article id="0527d634"><h2>BUY GS — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-01 19:48 UTC · trade 0527d634</div><div class=body>### Trade Journal Entry: GS Buy (Paper)
 
 **Date:** September 2026
 **Position:** Long 4 shares of Goldman Sachs (GS)
