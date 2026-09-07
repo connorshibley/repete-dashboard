@@ -18,13 +18,48 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-04 19:49 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-07 13:38 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="a2b63b06"><h2>CLOSE DIA — meanrev <span class="badge close">close</span></h2><div class=meta>2026-09-04 19:49 UTC · trade a2b63b06</div><div class=body>**Paper Trade Log: DIA Mean-Reversion Entry (2026-09-01)**
+<article id="ccf53018"><h2>BUY GS — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-07 13:37 UTC · trade ccf53018</div><div class=body>This entry is a PAPER TRADING record. No real capital is at risk; all actions are simulated.
+
+**The Opportunity**
+The `ma_crossover` strategy flagged a buy signal for Goldman Sachs (GS) based on a deterministic technical setup. The SMA10 (1028.95) crossed above the SMA30 (1028.33), indicating a shift in short-term momentum. At the time of entry, GS was trading at 1038.61. While the cross itself is valid, the separation between the two moving averages was negligible—only a 0.06% spread. This suggests the crossover occurred near a consolidation zone rather than after a decisive breakout, implying weak initial conviction in the new trend direction.
+
+**Strategy Logic &amp; Failure Modes**
+Moving average crossovers are traded on the hypothesis that price momentum persists once short-term averages diverge from long-term averages. However, in low-volatility regimes or during consolidation, these signals are highly susceptible to &quot;noise.&quot; A thin crossover margin often leads to false breakouts where price immediately reverts, triggering stops. The known failure mode here is entering a trend that lacks the velocity to pull away from the mean, resulting in a stop-out before meaningful displacement occurs.
+
+**The Judge’s View**
+The AI risk-review acknowledged the validity of the signal but flagged the marginal SMA separation as a primary risk factor. It noted that GS is a high-quality financial with recent positive catalysts, but emphasized that news headlines are often already priced in. Crucially, the judge referenced recent calibration data: the last three downsized &quot;tsmom&quot; trades in this specific &quot;up/low&quot; regime (XOM, DIS, QQQ) resulted in losses. Given the judge’s recent 45% accuracy rate for approvals, confidence was set low at 0.55. The verdict was a &quot;downsize&quot; to a scale of 0.5, reducing the position size to limit exposure to a low-edge setup.
+
+**Risk Plan**
+The final executed position was 3 shares of GS at an entry price of $1038.61. This small size reflects the 0.5 scale applied by the judge.
+*   **Stop Loss:** Set at $989.01. This is a hard invalidation level. If GS falls below this price, the thesis that momentum is turning up is considered disproven.
+*   **Take Profit:** None set. The strategy relies on trailing or time-based exits to capture trend continuation.
+*   **Invalidation:** A close below the SMA30 or a breach of the $989.01 stop would prove the trade wrong.
+
+This trade tests whether GS can sustain momentum above the 30-day average. The small size acknowledges that while the setup is statistically sound in isolation, the current market regime has shown a high failure rate for similar low-conviction crossovers. One trade result will not validate or refute the strategy, but it will provide a data point for the &quot;up/low&quot; regime&#x27;s behavior with marginal signals.</div></article><article id="94f6756f"><h2>BUY META — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-07 13:36 UTC · trade 94f6756f</div><div class=body>## Trade Journal Entry: META Buy (Paper Trading)
+
+**Disclaimer:** This is a **paper trading** simulation. No real capital was used, and this entry serves solely to document the logic, risk management, and outcome of a hypothetical automated strategy for educational and record-keeping purposes.
+
+### The Opportunity
+
+The deterministic momentum strategy identified a buy signal for META when the 10-day Simple Moving Average (SMA10) at $582.55 crossed above the 30-day SMA at $578.51. At the time of entry, the closing price was $616.77. This configuration indicates that short-term momentum has recently turned upward relative to the medium-term trend. The strategy interprets this as a &quot;golden cross&quot; of fast and slow averages, a classic indicator that the asset has shifted from a consolidation or decline phase into a sustained upward move.
+
+### Strategy Logic and Failure Modes
+
+Moving average crossovers are traded because they attempt to capture the &quot;body&quot; of a trend, entering when the probability of continued directional movement is statistically higher than during range-bound periods. However, this strategy has well-documented failure modes. The most significant risk is &quot;whipsaw,&quot; where the crossovers trigger frequent false signals in choppy, low-volatility markets, leading to a series of small, compounding losses. Furthermore, because moving averages are lagging indicators, they confirm a trend after it has already occurred. If the trend reverses quickly after the cross, the entry is often at a local high, and the stop-loss must be wide enough to account for the lag, resulting in a poor risk-to-reward ratio if the price retraces.
+
+### The Judge&#x27;s View
+
+The AI risk-review analyzed the setup and issued a &quot;downsize&quot; verdict with a 0.5 scale factor. The primary concern was the entry price extension. At $616.77, the stock was trading approximately 6% above the SMA10 ($582.55). The judge noted that entering a high-beta tech name when the price is this far extended from its recent average increases the vulnerability to mean reversion. Additionally, the review highlighted portfolio concentration risk. The existing book already holds significant positions in MSFT, AAPL, and other correlated tech and financial assets. Adding META, a high-beta communication services stock, amplifies the book&#x27;s sensitivity to macro tech-sector shocks rather than providing diversification. The judge’s 0.55 confidence level reflected a trade-off: the trend is intact, but the entry risk is elevated due to extension and correlation.
+
+### The Risk Plan
+
+The position was sized at 6 shares of META at an entry price of $616.77, reflecting the judge’s 50% reduction from the standard size. The stop-loss was placed at $579.37, which aligns closely with the SMA30 level ($578.51). This placement is critical; if the price closes below the 30-day average, the momentum thesis is invalid. The total risk per share is approximately $37.40. This trade is proven wrong if META fails to maintain momentum and reclaims the area around the SMA30, or if broader market volatility triggers a correction that breaks the support level. The lack of a take-profit order means the strategy will hold the position until a trailing stop or a sell signal is triggered, allowing the profits to run if the trend continues while capping downside loss at the stop price.</div></article><article id="a2b63b06"><h2>CLOSE DIA — meanrev <span class="badge close">close</span></h2><div class=meta>2026-09-04 19:49 UTC · trade a2b63b06</div><div class=body>**Paper Trade Log: DIA Mean-Reversion Entry (2026-09-01)**
 
 **The Opportunity**
 This paper trading system identified a specific mean-reversion setup in the SPDR Dow Jones Industrial Average ETF (DIA). The deterministic strategy triggered a long entry based on a short-term oversold condition within a long-term uptrend. At the time of entry, the closing price was $527.32. The 2-day Relative Strength Index (RSI2) had dropped to 3.8, well below the strategy’s threshold of 10, indicating extreme short-term selling pressure. Crucially, this dip occurred while the price remained significantly above the 200-day Simple Moving Average (SMA200) of $495.08, preserving the broader structural uptrend. The 5-day SMA was at $532.68, meaning the price was trading below its short-term mean, a typical precursor for a reversion move back toward that average.
