@@ -18,13 +18,116 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-08 13:37 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-08 19:50 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="04de74e0"><h2>CLOSE ABBV — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-08 13:35 UTC · trade 04de74e0</div><div class=body>**Paper Trade Journal: ABBV (tsmom) – Entry and Exit Review**
+<article id="9e17da23"><h2>CLOSE LLY — meanrev <span class="badge close">close</span></h2><div class=meta>2026-09-08 19:48 UTC · trade 9e17da23</div><div class=body># Paper Trade Journal: LLY Mean Reversion Short
+
+**Status:** PAPER TRADING ONLY. No real capital was at risk.
+**Trade ID:** 9e17da23
+**Symbol:** LLY (Eli Lilly)
+**Action:** Buy (Opened Long) → Sell (Closed Long)
+**Result:** Loss (-$152.28 / -3.28%)
+
+### The Opportunity: A Statistical Extreme in a Bull Market
+
+The deterministic strategy identified a classic mean-reversion setup on Eli Lilly (LLY). At the time of entry, the stock closed at $1,161.31. The primary signal was the 2-day Relative Strength Index (RSI2), which registered at 1.9. In mean-reversion logic, an RSI2 below 10 is considered an extreme oversold condition, suggesting that short-term selling pressure has exhausted itself more rapidly than historical norms.
+
+Crucially, this dip occurred within a confirmed long-term uptrend. The closing price of $1,161.31 remained significantly above the 200-day Simple Moving Average (SMA200) of $1,057.58. This divergence—extreme short-term weakness (RSI2 &lt; 2) against a strong long-term trend (Price &gt; SMA200)—is the core heuristic. The strategy assumes that price will revert to its short-term mean, specifically the 5-day SMA, which sat higher at $1,187.02. The setup suggested a &quot;catch a falling knife&quot; opportunity, betting that the dip was a temporary pause rather than a trend reversal.
+
+### Strategy Logic and Failure Modes
+
+The logic underpinning this trade is that equities in established uptrends tend to recover from sharp, short-term declines. The strategy targets the &quot;V-shape&quot; recovery, aiming to enter at the bottom of a 2-day flush and exit once momentum normalizes.
+
+However, this approach has well-known failure modes. The primary risk is that an &quot;oversold&quot; condition can persist or deepen, turning a dip into a breakdown. If the stock breaks below key support levels or the broader market regime shifts from &quot;up/low&quot; to a sustained decline, the mean-reversion thesis fails. The strategy is particularly vulnerable to gaps or low-liquidity events that push price through stop-loss levels before it can revert.
+
+### The Judge’s View and Sizing
+
+The AI risk review acknowledged the textbook nature of the technical setup but flagged significant contextual risks. The model noted that the strategy’s recent calibration had a poor approval accuracy of 33%. Furthermore, a similar-trade sample included a losing position in XLK, and geopolitical headlines suggested broad market volatility.
+
+The verdict was &quot;downsize&quot; with a confidence level of 0.55. Consequently, the position size was reduced by 50% (scale 0.5). The final execution involved buying 4 shares at $1,161.31, resulting in a total position value of $4,645.24. This halving of size was an attempt to balance the high-conviction RSI2 signal against the noisy recent performance of the strategy class.
+
+### Risk Plan and Outcome
+
+The risk plan included a fixed stop-loss at $1,087.59, which represented a risk of 6.35% per share ($73.72). There was no fixed take-profit target; instead, the plan dictated exiting when the price closed back above the SMA5, or if the stop was hit, or if the trade aged out after 7 days.
+
+The trade ended in a loss. The position was closed via &quot;strategy_sell&quot; at $1,123.24. This exit price was above the stop-loss level, meaning the stop was never triggered. However, the exit occurred before the price reclaimed the SMA5 ($1,187.02) or showed a definitive reversal. The loss of $152.28 (-3.28%) underperformed the benchmark, which saw a minor change of -0.07% over the same period, resulting in alpha of -3.21%.
+
+### Analysis: What This Proves
+
+This is a single data point (n=1). It does not prove that RSI2 mean-reversion strategies are broken. It does, however, illustrate that extreme oversold readings do not guarantee immediate reversion, especially when the broader market regime is volatile. The &quot;downsize&quot; adjustment protected the portfolio from a larger drawdown, but the trade still failed to capture the expected snap-back. The outcome suggests that in the &quot;up/low&quot; regime, even with a 50% size reduction, the risk of a continued slide into the 3-4% range outweighs the probability of an immediate return to the 5-day average. Future iterations of this logic must account for the possibility that &quot;oversold&quot; can become &quot;lower for longer&quot; without triggering a hard stop.</div></article><article id="a1546b8b"><h2>CLOSE MA — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-08 19:46 UTC · trade a1546b8b</div><div class=body>**Paper Trading Note: MA (Massive Inc) – TSMOM Entry and Exit**
+
+**Date:** 2026-07-31
+**Status:** Closed (Loss)
+**Type:** PAPER TRADE ONLY
+
+### The Opportunity
+The deterministic trend-following strategy (`tsmom`) flagged a long entry for Massive Inc (MA) based on a specific confluence of indicators. The strategy observed a 63-bar momentum increase of +14.25%, with the closing price of $573.62 sitting comfortably above the 200-day Simple Moving Average (SMA200) of $526.33. In this framework, price above SMA200 confirms a long-term uptrend, while positive momentum over the last 63 bars suggests short-to-medium-term acceleration. The strategy interpreted this as an &quot;intact trend&quot; suitable for a time-series momentum follow. This was a news-nominated entry, meaning the symbol was selected due to external catalysts rather than being part of the core backtested universe.
+
+### Strategy Logic and Failure Modes
+Time-series momentum (TSMOM) relies on the premise that assets with strong recent performance and alignment with long-term trend filters will continue to drift in that direction. The logic is sound for liquid, large-cap indices (like SPY or QQQ), where trends tend to persist without extreme whipsaws. However, the known failure mode for single-name equities, particularly growth stocks like MA, is volatility-driven stop-outs. A stock can maintain a technical uptrend (above SMA200) while experiencing sharp, deep pullbacks that trigger stops before the trend resumes. This setup is particularly vulnerable if the momentum is extended but the stock lacks the liquidity depth of an index to absorb selling pressure smoothly.
+
+### The Judge’s View
+The AI risk-review initially flagged this trade with a &quot;downsize&quot; verdict at a scale of 0.4, reflecting 52% confidence. The bull case noted the strong momentum and price above SMA200, similar to successful past trades in SPY/QQQ. However, the bear case was critical: MA is outside the validated backtesting universe, and historical analogs with similar momentum magnitudes (JNJ at +16.9%, LLY at +35.5%) had recently resulted in losses via stop-outs despite intact trends. Furthermore, the book was already 70% gross exposed. The judge decided against a full veto because the trend signal was technically valid but mandated a smaller position to respect the &quot;veto by default&quot; policy for out-of-universe symbols and to account for the higher probability of a stop-out in this volatility profile.
+
+### Risk Plan and Execution
+The plan was to buy 5 shares (reduced from a standard size) at the entry price of $573.62. The initial stop-loss was set at $548.56, representing a risk of $25.06 per share, or 4.37% of the entry price. There was no fixed take-profit; the position was intended to ride the trend until it broke (either via negative 63-bar momentum, closing below SMA200, or hitting the trailing stop).
+
+### Outcome vs. Plan
+The trade resulted in a loss. The position exited at $571.604, triggering the stop-loss logic (or a trailing stop adjustment that resulted in this price). The realized P&amp;L was -$10.08 (-0.35%). While the absolute dollar loss was small due to the downsized quantity, the trade underperformed the benchmark, which gained +2.65% over the same period, resulting in an alpha of -3.0%.
+
+This single trade (n=1) does not prove the strategy is flawed, nor does it validate the judge’s caution. It highlights that even with a downsize and a valid technical setup, high-momentum growth stocks can fail to hold their levels against the benchmark. The stop did its job protecting capital from a potentially larger drawdown, but the entry did not generate the desired trend continuation relative to the market. This data point adds to the learning loop regarding the efficacy of TSMOM in out-of-universe, news-nominated symbols.</div></article><article id="bd386403"><h2>CLOSE V — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-08 19:46 UTC · trade bd386403</div><div class=body>**Date:** July 29, 2026
+**Trade ID:** bd386403
+**Symbol:** V (Visa Inc.)
+**Action:** Close (Stop Loss Hit)
+**Status:** Paper Trading – No real capital at risk
+
+This entry records the closure of a paper-trading position in Visa (V). The trade was initiated on the same day under the &quot;tsmom&quot; (Time-Series Momentum) strategy and was exited immediately upon hitting the predetermined stop-loss level. This is a strictly paper-traded exercise; no actual funds were deployed.
+
+### The Opportunity and Strategy Logic
+The deterministic strategy identified a setup where V closed at $369.72, trading approximately 12% above its 200-day Simple Moving Average (SMA200) of $330.08. The core signal was a 63-bar momentum gain of +19.53%. The &quot;tsmom&quot; logic posits that assets maintaining price above their long-term mean with strong intermediate-term momentum are likely to continue trending, offering asymmetric reward relative to risk. The strategy is designed to catch the middle leg of a trend, avoiding both early entry (high noise) and late entry (exhaustion).
+
+However, this setup has known failure modes, particularly in a &quot;down/low&quot; market regime. While the trend filter (price &gt; SMA200) is designed to mitigate buying falling knives, single-stock momentum often decays faster than index momentum during broad risk-off events. The strategy assumes liquidity and trend persistence that may not hold when macro sentiment turns negative.
+
+### The Judge’s View and Sizing
+The AI risk-reviewer acknowledged the technical strength of the signal but issued a &quot;downsize&quot; verdict with a 0.6 scale factor. The judge’s reasoning was twofold. First, the portfolio was already overweight in correlated financial and cyclical momentum names (JPM, GS, XLF), creating concentration risk. Second, historical analogs were weak; the most similar single-stock trade, Caterpillar (CAT), had resulted in an -8.6% loss. The judge noted that while index momentum (SPY/QQQ) tends to be more robust, single-name momentum in a &quot;down/low&quot; regime carries higher idiosyncratic risk. Consequently, the position size was reduced to 12 shares (approx. $4,436 notional value) rather than the full recommended size, accepting a smaller potential return in exchange for lower drawdown exposure.
+
+### The Risk Plan and Execution
+The risk plan was rigid. The initial stop-loss was placed at $353.36, representing a 4.42% risk per share ($16.36). The exit criteria were clear: the trade would remain open until the 63-bar momentum turned negative, price closed below the SMA200, or the stop was triggered. There was no take-profit target; the exit was intended to be determined by the market, not a preset price.
+
+### Outcome and Reflection
+The trade resulted in a loss of $24.00 (-0.54%) against a benchmark return of +5.12%, yielding an alpha of -5.66%. The exit reason was &quot;stop_loss,&quot; indicating that price action closed below the $353.36 invalidation level shortly after entry.
+
+It is crucial to note that this is **n=1**. One losing trade does not prove the strategy is broken, nor does it prove that &quot;down/low&quot; regime entries are inherently flawed. The stop-loss functioned exactly as planned: it limited the loss to a small fraction of the account. The &quot;lesson&quot; is not that we should stop trading V, but that in high-volatility or bearish regimes, even technically sound momentum signals can fail quickly due to noise. The judge’s downsizing decision likely prevented a larger loss had the price action been more violent. We will continue to monitor the correlation between regime tags and single-stock momentum performance to refine our position sizing models.</div></article><article id="ad9161a7"><h2>CLOSE XLV — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-08 19:45 UTC · trade ad9161a7</div><div class=body>### Trade Entry: XLV Momentum Long (Paper Trading)
+
+**Date:** July 16, 2026
+**Symbol:** XLV (Health Care Select Sector SPDR Fund)
+**Action:** Buy 6 shares
+**Entry Price:** $160.20
+**Status:** **Paper Trading Only** (No real capital was deployed; this is a simulated execution for strategy validation).
+
+#### The Opportunity
+The deterministic Time-Series Momentum (TSmom) strategy identified a continuation setup in XLV during a market regime classified as &quot;down/low.&quot; At the time of entry, the 63-bar momentum indicator registered a modest positive value of +0.9%, signaling that recent price action had shifted slightly upward despite the broader context. Crucially, the closing price of $160.20 sat well above the 200-day Simple Moving Average (SMA200) of $143.79. This represents a significant technical premium of approximately 11.4% over the long-term trend anchor. The strategy interpreted this combination—price holding above the SMA200 with even a marginal positive momentum signal—as evidence that the secular uptrend remained intact, offering a &quot;buy the dip&quot; or trend-continuation opportunity within a potentially volatile sector.
+
+#### Strategy Logic and Failure Modes
+The core logic of TSmom is to capture persistent price trends, operating on the hypothesis that assets showing recent upward momentum are likely to continue moving in that direction. By requiring price to be above the SMA200, the strategy attempts to filter out &quot;falling knife&quot; scenarios, ensuring entries occur only within a dominant long-term uptrend.
+
+However, this class of setup has well-documented failure modes. First, a low momentum value (+0.9% here) suggests the trend is losing steam or consolidating rather than accelerating. Entering during a &quot;down/low&quot; regime label increases the probability of macroeconomic shocks (such as interest rate changes or sector-specific news) reversing the local uptrend. Second, the 11% premium to the SMA200 indicates the price is extended. If the market mean-reverts, a sharp correction could quickly erode the position. The primary risk is that the &quot;trend intact&quot; signal is a lagging indicator that fails to anticipate a sudden regime shift, trapping the position in a declining phase.
+
+#### Judge’s View
+The AI risk-review module was disabled or unavailable for this specific trade. Consequently, the verdict was recorded as &quot;approve&quot; with a scale factor of 1.0, defaulting to rule-based execution without qualitative oversight. This means the position size was determined purely by the strategy’s fixed parameters, lacking a discretionary layer that might have reduced exposure due to the low momentum signal or the extended distance from the SMA200.
+
+#### Risk Plan and Execution
+The trade was executed as a buy order for 6 shares at $160.20. A stop-loss order was placed at $156.33, representing a risk of approximately 2.4% from entry. The stop was set to protect against a break in the immediate support structure. No take-profit target was defined, allowing the position to run if the trend continued.
+
+**Outcome (Post-Entry):**
+The trade resulted in a **win**, exiting at $167.405 for a PnL of $43.23 (+4.5%). The exit reason is recorded as &quot;stop_loss,&quot; which appears contradictory in the data log (as the exit price is higher than the entry, it is likely the system tagged the *event* type as a stop-trigger event but calculated profit based on a trailing stop or manual close that hit the upside, or there is a data labeling error in the exit_reason field). Assuming the exit price of $167.405 is accurate, the trade captured a significant upside move, outperforming the benchmark PnL of 2.14% by 2.35% (alpha).
+
+**Analysis of Result:**
+This outcome demonstrates that the &quot;low momentum&quot; signal did not preclude a successful continuation trade. The premium to the SMA200 proved to be a support floor rather than a resistance ceiling in this instance. However, **n=1**. One profitable trade does not validate the strategy’s efficacy in down regimes. It only proves that in this specific instance, the health care sector outperformed despite the labeled &quot;down/low&quot; macro environment. The contradiction in the `exit_reason` field (stop_loss vs. positive PnL) requires further technical audit of the execution logs to ensure accurate attribution of risk management performance. This is paper trading; no real-world profit was realized.</div></article><article id="04de74e0"><h2>CLOSE ABBV — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-08 13:35 UTC · trade 04de74e0</div><div class=body>**Paper Trade Journal: ABBV (tsmom) – Entry and Exit Review**
 
 This entry documents a **paper trading** activity. No real capital was at risk. The bot executed a long position in AbbVie (ABBV) on the `tsmom` (time-series momentum) strategy, entering at $247.09 and exiting at $249.00. The trade resulted in a gross profit of $30.56 (+0.77%), while the benchmark fell -0.55% over the same period, yielding an alpha of +1.32%.
 
