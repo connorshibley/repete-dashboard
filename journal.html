@@ -18,13 +18,32 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-07 19:48 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-08 13:37 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="ccf53018"><h2>BUY GS — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-07 13:37 UTC · trade ccf53018</div><div class=body>This entry is a PAPER TRADING record. No real capital is at risk; all actions are simulated.
+<article id="04de74e0"><h2>CLOSE ABBV — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-08 13:35 UTC · trade 04de74e0</div><div class=body>**Paper Trade Journal: ABBV (tsmom) – Entry and Exit Review**
+
+This entry documents a **paper trading** activity. No real capital was at risk. The bot executed a long position in AbbVie (ABBV) on the `tsmom` (time-series momentum) strategy, entering at $247.09 and exiting at $249.00. The trade resulted in a gross profit of $30.56 (+0.77%), while the benchmark fell -0.55% over the same period, yielding an alpha of +1.32%.
+
+### The Opportunity: Deterministic Signal
+The strategy identified a classic trend-following setup. At the time of entry, ABBV’s 63-bar momentum stood at +23.46%, indicating a strong upward velocity over approximately three months. Simultaneously, the closing price of $247.09 sat comfortably above the 200-day Simple Moving Average (SMA200) of $222.14. This configuration—price well above the long-term average with positive intermediate momentum—satisfies the core `tsmom` entry criteria. The &quot;up/low&quot; regime tag recorded in the system further confirmed that the broader market environment was not presenting conflicting structural risks, allowing the strategy to proceed with its standard trend-riding logic.
+
+### Strategy Logic and Failure Modes
+Time-series momentum strategies operate on the premise that assets with strong recent price performance tend to continue moving in that direction. By entering when price is above the SMA200 and momentum is positive, the bot seeks to capture the continuation of established trends. The known failure mode for this setup is &quot;trend exhaustion&quot; or mean-reversion. When momentum becomes excessively high (extended), the probability of a pullback increases. In this specific trade, the +23.5% momentum reading placed ABBV in a zone where some analysts might argue the move was extended, creating a risk that the price had already priced in all good news, making a correction more likely than a continuation.
+
+### The Judge’s View and Sizing
+The AI risk-reviewer flagged a potential issue based on historical sample data within the bot’s memory. It noted that in similar instances, high-momentum entries (such as JNJ at +16.9% and LLY at +35.5%) had historically skewed toward losses, while lower-momentum entries skewed toward wins. Although the sample size is small (n=1 for this specific pattern), the judge determined that ABBV’s +23.5% momentum sat in that &quot;risky extended zone.&quot; Consequently, the reviewer issued a &quot;downsize&quot; verdict with a scale factor of 0.5. This reduced the position size from what would have been a full allocation to 16 shares, limiting the maximum potential loss while still participating in the trade. The confidence score was moderate at 0.53, reflecting the uncertainty inherent in small-sample pattern matching.
+
+### Risk Plan and Outcome
+The risk plan defined a hard stop-loss at $233.78, representing a 5.39% downside risk from the entry price of $247.09. The position was sized at 16 shares, totaling a position value of $3,953.44. The trade plan was open-ended, intending to hold the position until the trend broke (momentum turned negative or price closed below SMA200).
+
+However, the trade exited via the `stop_loss` mechanism. Despite the exit reason being labeled as a stop loss, the exit price of $249.00 was actually *above* the entry price of $247.09. This suggests the stop order was likely a trailing stop that ratcheted up as the price moved, or a data labeling artifact in the exit reason field versus the price action. In paper trading logs, an exit price higher than the entry price with a &quot;stop_loss&quot; reason often indicates a trailing stop that protected gains rather than a fixed initial stop being hit. The price touched $249.00, triggering the exit, and locking in a 0.77% gain.
+
+### Conclusion
+This single trade (n=1) does not prove the strategy&#x27;s efficacy or the judge&#x27;s caution. It does, however, illustrate the interaction between a deterministic signal and a probabilistic risk overlay. The judge&#x27;s decision to downsize did not prevent the trade from winning, but it also limited the profit to a modest $30.56. Had the position been full size, the profit would have been higher, but so would the risk if the price had dropped to the initial $233.78 stop. The result supports the idea that the downsize provided adequate protection for a successful, albeit small, trend continuation, but it is insufficient evidence to generalize to all ABBV trades or all extended-momentum scenarios.</div></article><article id="ccf53018"><h2>BUY GS — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-07 13:37 UTC · trade ccf53018</div><div class=body>This entry is a PAPER TRADING record. No real capital is at risk; all actions are simulated.
 
 **The Opportunity**
 The `ma_crossover` strategy flagged a buy signal for Goldman Sachs (GS) based on a deterministic technical setup. The SMA10 (1028.95) crossed above the SMA30 (1028.33), indicating a shift in short-term momentum. At the time of entry, GS was trading at 1038.61. While the cross itself is valid, the separation between the two moving averages was negligible—only a 0.06% spread. This suggests the crossover occurred near a consolidation zone rather than after a decisive breakout, implying weak initial conviction in the new trend direction.
