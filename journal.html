@@ -18,13 +18,43 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-08 19:50 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-09 13:39 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="9e17da23"><h2>CLOSE LLY — meanrev <span class="badge close">close</span></h2><div class=meta>2026-09-08 19:48 UTC · trade 9e17da23</div><div class=body># Paper Trade Journal: LLY Mean Reversion Short
+<article id="3ca6bfad"><h2>CLOSE JPM — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-09 13:35 UTC · trade 3ca6bfad</div><div class=body>### Trade Log: JPM | TSMOM Long (Paper)
+
+**Status:** PAPER TRADING ONLY
+**Trade ID:** 3ca6bfad
+**Date:** 2026-07-27
+**Result:** Loss (-2.08%)
+
+#### The Opportunity
+The deterministic `tsmom` strategy identified a long-term trend signal in JPMorgan Chase (JPM). At the time of entry, the stock closed at $356.20, sitting significantly above its 200-day Simple Moving Average (SMA200) of $310.92. The core trigger was a 63-bar momentum reading of +15.54%, indicating sustained upward price action over approximately three months. The strategy’s logic is simple: if price remains above the long-term mean and momentum is positive, the trend is &quot;intact&quot; and warrants participation.
+
+#### Strategy Logic and Failure Modes
+Time-series momentum (tsmom) strategies are designed to capture persistent price trends rather than short-term reversals. The underlying assumption is that assets with recent positive performance will continue to drift higher due to slow-moving institutional flows or behavioral inertia.
+
+However, this setup carries specific risks:
+1.  **Regime Mismatch:** The broader market regime was tagged as &quot;down/low,&quot; meaning the benchmark (SPY) was below its own SMA200. Long momentum positions in individual stocks during a bearish macro environment are statistically more fragile, as idiosyncratic strength often succumbs to systemic selling pressure.
+2.  **Mean Reversion Risk:** A +15.5% move over 63 bars can sometimes represent a mature trend phase where volatility expands, increasing the likelihood of sharp pullbacks.
+3.  **Lack of Base Rate Data:** The bot noted zero prior validated lessons or matched historical trades for this specific strategy on JPM or the financials sector. Without a robust local sample size, the probability of success is theoretical rather than empirical.
+
+#### Judge&#x27;s Review and Sizing
+The AI risk reviewer acknowledged the strength of JPM’s individual trend but flagged the conflicting macro regime. The review noted that while JPM’s internal metrics were healthy, the broader market weakness introduced uncertainty. Consequently, the judge issued a &quot;downsize&quot; verdict with a confidence score of 0.57. The position size was scaled to 50% (0.5x) of the standard allocation. This reduction was intended to allow the strategy to participate in the trend while limiting capital exposure to an untested setup in a soft macro environment.
+
+#### Risk Plan and Execution
+The order was executed as a buy for 11 shares at an entry price of $356.20, resulting in a position value of $3,918.20.
+*   **Initial Stop Loss:** Placed at $340.76, representing a 4.33% risk per share.
+*   **Trailing Stop:** The plan included a ratcheting trailing stop set at high-water mark minus 3.0x ATR, designed to protect gains without locking in early.
+*   **Invalidation Condition:** The trade was explicitly defined as wrong if price closed below the $340.76 stop level.
+
+#### Outcome and Analysis
+The trade was closed via stop-loss at $348.80, resulting in a net loss of $81.40 (-2.08%). This outcome was underperforming the benchmark, which gained 3.33% over the same period, resulting in an alpha of -5.4%.
+
+This single trade (n=1) demonstrates the risk of long momentum exposure during a &quot;down/low&quot; regime. The stop was hit, confirming that JPM’s idiosyncratic uptrend was not strong enough to decouple from the broader market weakness. It does not prove the `tsmom` strategy is flawed, but it highlights that trend-following signals require strict size management when the macro regime is adverse. The loss was contained within the planned risk parameters, but the trade failed to generate the intended trend-following alpha.</div></article><article id="9e17da23"><h2>CLOSE LLY — meanrev <span class="badge close">close</span></h2><div class=meta>2026-09-08 19:48 UTC · trade 9e17da23</div><div class=body># Paper Trade Journal: LLY Mean Reversion Short
 
 **Status:** PAPER TRADING ONLY. No real capital was at risk.
 **Trade ID:** 9e17da23
