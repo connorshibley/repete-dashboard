@@ -18,13 +18,42 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-10 13:39 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-10 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="1debe992"><h2>CLOSE MSFT — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-10 13:35 UTC · trade 1debe992</div><div class=body>### MSFT (1debe992): The Momentum Catch
+<article id="12993c94"><h2>CLOSE PFE — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-10 19:45 UTC · trade 12993c94</div><div class=body>### Trade Journal Entry: PFE tsmom (Paper)
+
+**Status:** CLOSED (Loss)
+**Date:** 2026-08-19
+**Position:** Long 99 shares PFE
+**Entry:** $28.215
+**Exit:** $27.46 (Stop Loss)
+**P&amp;L:** -$74.74 (-2.68%)
+
+*Note: This is a paper trading simulation. No real capital was at risk.*
+
+#### The Opportunity
+The deterministic `tsmom` strategy identified a classic trend-following setup in Pfizer (PFE). As of the entry timestamp, the stock closed at $28.21, trading significantly above its 200-day Simple Moving Average (SMA200) of $25.16. The primary trigger was a 63-bar momentum reading of +11.88%, indicating that the price had risen substantially over roughly three months. The regime was tagged as &quot;up/low,&quot; suggesting a broad market environment that, while volatile, was not in a deep downtrend. For the strategy, this combination of sustained momentum and price above the long-term trend anchor signaled an &quot;intact&quot; uptrend worth participating in.
+
+#### Strategy Logic and Failure Modes
+Time-series momentum (TSMOM) relies on the statistical persistence of trends: if an asset has moved strongly in one direction, it is more likely to continue than to reverse immediately. The logic is robust across asset classes and is designed to capture large, infrequent gains while avoiding the chop of mean-reverting ranges.
+
+However, TSMOM has well-documented failure modes, primarily **whipsaws** and **extended momentum reversals**. When momentum becomes &quot;extended&quot; (highly positive over a short window), the entry price is often near a local peak. If the trend pauses or reverses, the stop-loss is forced to trigger at a loss, often underperforming a flat benchmark. This trade entered at a high relative price level ($28.21 vs SMA $25.16), placing the stop-loss at a relatively tight distance below entry, increasing susceptibility to normal volatility-induced stops.
+
+#### The Judge&#x27;s View
+The AI risk review flagged this trade for a **downsize** (scale factor 0.35) rather than rejection. The reviewer noted that while the &quot;up/low&quot; regime is historically less punitive for TSMOM entries than &quot;down/low&quot; regimes, the specific momentum profile (+11.9%) mirrored previous losing trades in HD, JNJ, and UNH, which all experienced sharp reversals after similar extensions. Furthermore, PFE was deemed an &quot;out-of-universe&quot; name with fresh idiosyncratic risks (competitive pressure from Merck) and high correlation with existing healthcare positions in the book. The judge concluded that full size was unjustified given the overlap of these risks, reducing the position to 99 shares to limit downside exposure while allowing a small stake in the potential continuation.
+
+#### Risk Plan and Outcome
+The initial risk plan placed the hard stop at **$26.97**, representing a 4.41% risk per share ($1.25 below entry). The thesis was invalid if the price closed below this level, signaling a break in the trend structure. There was no fixed take-profit target; the trade was intended to trail via ATR-based stops as long as momentum remained positive.
+
+**What Actually Happened:**
+The trade did not play out in the strategy&#x27;s favor. The price failed to sustain the momentum surge and instead reversed, triggering the stop-loss exit at **$27.46**. This resulted in a loss of **$74.74** (-2.68%). The exit occurred above the initial hard stop ($26.97), likely due to a trailing stop adjustment or intraday execution mechanics, but the result was a net loss. The trade underperformed the benchmark by 1.24 percentage points (alpha -1.24%).
+
+**Lessons:**
+This single loss does not invalidate the TSMOM strategy, but it highlights the fragility of entering extended momentum in specific sector stocks (Healthcare) during a neutral regime. The &quot;up/low&quot; regime did not guarantee success, and the idiosyncratic news risk noted by the judge manifested as a quick reversal. The small size (0.35 scale) effectively limited the damage to a minor drawdown, demonstrating the value of the risk-review process in preventing larger losses on high-risk, high-momentum entries. This is n=1; one stop-out is not a pattern, but it reinforces the need for caution when momentum readings exceed ~10% in non-core universe names.</div></article><article id="1debe992"><h2>CLOSE MSFT — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-10 13:35 UTC · trade 1debe992</div><div class=body>### MSFT (1debe992): The Momentum Catch
 
 This is a paper trading record. No real capital was at risk. The automated bot initiated a long position in Microsoft (MSFT) on July 31, 2026, and closed it for a net profit of $274.04 (5.38%). This entry occurred within the `tsmom` (Time-Series Momentum) framework, which operates on the premise that price trends persist over specific lookback periods.
 
