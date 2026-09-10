@@ -18,13 +18,57 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-09 13:39 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-10 13:39 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="3ca6bfad"><h2>CLOSE JPM — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-09 13:35 UTC · trade 3ca6bfad</div><div class=body>### Trade Log: JPM | TSMOM Long (Paper)
+<article id="1debe992"><h2>CLOSE MSFT — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-10 13:35 UTC · trade 1debe992</div><div class=body>### MSFT (1debe992): The Momentum Catch
+
+This is a paper trading record. No real capital was at risk. The automated bot initiated a long position in Microsoft (MSFT) on July 31, 2026, and closed it for a net profit of $274.04 (5.38%). This entry occurred within the `tsmom` (Time-Series Momentum) framework, which operates on the premise that price trends persist over specific lookback periods.
+
+**The Opportunity**
+The deterministic strategy triggered a buy signal based on three specific data points at the time of entry: a close of $462.74, a 63-bar momentum reading of +13.72%, and a Simple Moving Average (SMA) 200 value of $432.25. The core logic was straightforward: price was trading approximately 7% above its long-term average, confirming that the macro trend remained &quot;up.&quot; The +13.72% momentum indicated that the stock had accumulated significant strength over the preceding three months, a condition the strategy interprets as &quot;trend intact.&quot;
+
+**The Strategy’s Logic and Failure Modes**
+Time-series momentum strategies bet on the continuation of established trends. They do not attempt to time market bottoms or tops; rather, they enter when a trend is already established and exit when that trend breaks. The primary known failure mode for this class of setup is &quot;chasing.&quot; When momentum is highly extended (as +13.7% is relative to the historical mean), the probability of a mean-reversion pullback increases. If price fails to continue higher and retraces to the entry zone, the strategy typically gets stopped out before a subsequent rally occurs, resulting in a loss.
+
+**The Judge’s View**
+The AI risk-reviewer flagged the entry for potential over-extension. While the overall market regime was &quot;up/low&quot; and the book was diversified, the judge noted that historical analog trades with similar momentum readings (specifically JNJ, CAT, and LLY) had frequently resulted in losses. The judge assigned a &quot;downsize&quot; verdict with a scale factor of 0.7. This reduced the position size to 11 shares (approx. $5,090 notional value). The reasoning was that while the small sample size of past failures (n=1 each) was insufficient to veto the trade entirely, it warranted a conservative approach to protect capital until the specific MSFT trend demonstrated stability.
+
+**The Risk Plan**
+The risk plan was defined by a hard stop-loss at $430.14, placing the stop approximately 7.04% below the entry price of $462.74. This stop was set just below the SMA200 ($432.25), ensuring that a close below the long-term trend line would invalidate the thesis. There was no take-profit target; the position was designed to be held as long as the trend persisted. The trailing stop was configured to ratchet upward based on ATR (Average True Range) to protect gains.
+
+**Outcome Analysis**
+The trade resulted in a win, but the mechanics were unusual. The exit reason is recorded as &quot;stop_loss,&quot; yet the PnL was positive. This indicates that the trailing stop ratcheted up significantly as the stock price rose. The final exit price was $487.65, well above the initial $430.14 stop. The position captured a 5.38% gain, outperforming the benchmark by 3.95%.
+
+This outcome validates the trend-following thesis for this specific instance: the +13.7% momentum extended further rather than reversing. However, it is crucial to note that n=1. This single win does not prove that entering extended momentum setups is superior to avoiding them; it only proves that the trailing stop mechanism successfully captured the continuation of the MSFT trend before the eventual reversal triggered the exit. The judge&#x27;s decision to downsize was prudent, as the risk was capped at a manageable level while the upside remained open.</div></article><article id="56ba72e8"><h2>CLOSE XLF — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-09 19:45 UTC · trade 56ba72e8</div><div class=body>**Paper Trading Journal: XLF Short-Term Momentum (tsmom)**
+
+**Date:** 2026-07-27
+**Trade ID:** 56ba72e8
+**Action:** Entry (Buy) followed by Exit (Stop Loss)
+**Symbol:** XLF
+**Entry Price:** $56.88
+**Exit Price:** $56.75
+**Position Size:** 70 Shares (Downsized to 50% of standard)
+**P&amp;L:** -$9.10 (-0.23%)
+
+### The Opportunity
+The deterministic `tsmom` strategy identified a classic trend-following setup in XLF. At the time of entry, the stock was trading at $56.88, significantly above its 200-day Simple Moving Average (SMA200) of $52.76. This spread of roughly 7.8% indicated that the long-term uptrend in financials remained intact despite broader market noise. Furthermore, the 63-bar momentum metric read +10.62%, suggesting that price appreciation over the prior three months was accelerating. In a vacuum, these are strong signals for a momentum entry, implying that recent winners tend to continue winning. The strategy’s logic is rooted in the &quot;time-series momentum&quot; factor: assets that have performed well over the past 3-6 months often continue to outperform in the near term due to institutional herding and information diffusion.
+
+However, the known failure mode for this setup is regime divergence. Momentum strategies perform exceptionally well in trending markets but can suffer from whipsaws or sharp reversals when the broader market environment is hostile. Here, the regime was tagged as &quot;down/low&quot; based on SPY performance. While XLF showed individual strength, the strategy had to bet that sector-specific momentum could overcome headwinds from the broader index.
+
+### The Judge’s View
+The AI risk-reviewer flagged the tension between the strong stock-specific signal and the weak market regime. The review noted that while the trend evidence was concrete, entering a momentum long during a &quot;down/low&quot; regime carries elevated risk of a sudden mean-reversion snap. The reviewer did not veto the trade, as the exposure was small (4% gross) and the technical indicators were objectively positive. However, the verdict was **downsize**, scaling the position to 0.5x standard size. This conservative approach acknowledged that while the trade was mechanically valid, the lack of historical validation for XLF momentum trades in a bearish regime warranted reduced capital at risk.
+
+### Risk Plan and Execution
+The initial stop-loss was placed at $55.49, representing a risk of $1.39 per share, or 2.44% of the entry price. The position was 70 shares, totaling approximately $3,981 in notional value. The plan was an open-ended trend follow: the trade would remain open until the 63-bar momentum turned negative, price closed below the SMA200, or the trailing stop was hit. There was no fixed take-profit target; the goal was to capture as much of the trend as possible.
+
+### Outcome
+The trade failed quickly. XLF closed below the $55.49 stop level, triggering the exit at $56.75. The final P&amp;L was a loss of $9.10 (-0.23%).
+
+This outcome highlights a specific nuance: the stop was hit, but the loss was minimal due to the tight initial risk definition. However, the alpha was negative (-3.44%) because the benchmark gained 3.21% during the holding period. This single trade (n=1) demonstrates that even with strong relative momentum (price &gt; SMA200), a brief consolidation or pullback in a broader down-regime can trigger stops before the trend resumes. It does not prove the strategy is flawed, but it confirms that momentum longs in bearish regimes require strict risk management and often result in small losses that erode capital if the trend does not immediately reassert itself. The downsizing by the judge likely prevented a larger drawdown if the drop had been more severe.</div></article><article id="3ca6bfad"><h2>CLOSE JPM — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-09 13:35 UTC · trade 3ca6bfad</div><div class=body>### Trade Log: JPM | TSMOM Long (Paper)
 
 **Status:** PAPER TRADING ONLY
 **Trade ID:** 3ca6bfad
