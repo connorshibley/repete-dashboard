@@ -18,13 +18,74 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-14 13:38 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-15 13:39 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="12993c94"><h2>CLOSE PFE — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-10 19:45 UTC · trade 12993c94</div><div class=body>### Trade Journal Entry: PFE tsmom (Paper)
+<article id="5295f553"><h2>CLOSE JNJ — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-15 13:35 UTC · trade 5295f553</div><div class=body>**Date:** 2026-07-31
+**Trade ID:** 5295f553
+**Symbol:** JNJ
+**Type:** PAPER TRADE (Simulation)
+
+### The Opportunity
+The deterministic `tsmom` (Time Series Momentum) strategy identified a setup in Johnson &amp; Johnson (JNJ) characterized by sustained positive momentum. At the time of evaluation, the stock closed at $257.44, sitting significantly above its 200-period Simple Moving Average (SMA200) of $224.80. The primary trigger was the 63-bar momentum indicator, which registered at +12.65%. In the context of the current &quot;up/low&quot; market regime, these values signaled an intact uptrend. The strategy’s logic is strictly mechanical: it does not predict future prices but rather follows the existing directional bias, assuming that assets exhibiting strong recent momentum and trend alignment are statistically more likely to continue in that direction over the short-to-medium term.
+
+### Strategy Logic and Failure Modes
+Time series momentum strategies trade the persistence of trends. The underlying hypothesis is that market inefficiencies, such as slow adjustment to new information or herding behavior, create drift that can be exploited. However, this class of setup has well-documented failure modes. The most significant risk is &quot;mean reversion&quot; or &quot;whipsaw,&quot; where a trend reverses sharply after an extension, trapping late entries. Additionally, entering a trade when momentum is already &quot;extended&quot; (in this case, +12.65%) increases the risk of buying a local top. If the trend stalls, the price can drop rapidly to the mean, triggering stop-losses. This strategy is not designed to pick bottoms or tops; it is designed to ride the middle segment of a trend, which requires accepting frequent small losses when the trend fails to persist.
+
+### The Judge’s View
+The AI risk-review flagged a specific historical precedent that contradicted the current bullish signal. The model noted that a prior JNJ trade with a nearly identical setup (momentum +16.9%, price above SMA200) resulted in a loss of -3.67%. Furthermore, other extended-momentum entries in individual stocks like CAT and LLY had been mixed-to-negative, whereas index ETFs (SPY, QQQ) had performed better. Despite the favorable current structure, the judge issued a &quot;downsize&quot; verdict with a scale factor of 0.5. This reduced the position from the standard size to 15 shares, reflecting a cautious stance due to the symbol-specific failure history and the mixed performance of non-ETF momentum entries. The confidence score was modest at 0.53, acknowledging the conflicting evidence between the current technical structure and the historical symbol performance.
+
+### Risk Plan
+The entry was executed at $257.44 for 15 shares, totaling a position value of $3,861.60. The initial stop-loss was placed at $244.05, representing a risk of $13.39 per share, or approximately 5.2% of the entry price. This stop was dynamic; the plan specified a trailing stop that ratchets up to a high-water mark minus 3.0 times the Average True Range (ATR), never moving down. The trade would be invalidated if the price closed below the stop level. There was no fixed take-profit target, as the strategy relies on the trend exit rules (momentum turning negative or price closing below the SMA200) to determine the exit.
+
+### Outcome
+The trade exited at $264.47 with a realized PnL of $105.38 (2.73%). This is classified as a win. It is critical to note that this is a **paper trade** and represents a single data point (n=1). The positive outcome does not prove that the strategy is reliable for JNJ, nor does it invalidate the judge’s concern regarding the prior losing trade. The alpha of 1.14% over the benchmark indicates the trade outperformed the broader market, but one trade’s success is not evidence of a persistent edge. The &quot;stop_loss&quot; exit reason in the metadata likely refers to the mechanical nature of the exit trigger (the trend breaking or the trailing stop activating) rather than a catastrophic loss, as the price closed higher. This result should be viewed as a single observation in a learning loop, not a validation of the model’s predictive power.</div></article><article id="f16d6cea"><h2>CLOSE GS — ma_crossover <span class="badge close">close</span></h2><div class=meta>2026-09-14 19:46 UTC · trade f16d6cea</div><div class=body>### Reconciling the Gap: A Paper Trade in Gold (GS)
+
+**Paper Trading Notice:** This entry documents a simulation on a paper trading account. No real capital was at risk. The figures below represent hypothetical outcomes based on simulated executions.
+
+**The Opportunity and Data Context**
+
+This trade, identified by `f16d6cea` for GS (Gold), was not initiated by a fresh signal but by a reconciliation process. The system detected a broker position dated 2026-09-01 that lacked a corresponding entry in the internal ledger. The strategy tagged this as `ma_crossover`, implying the position likely originated from a moving average cross logic, though the specific indicator values at entry are not retained in this event’s metadata. The entry price was $1040.69 for a quantity of 2 shares. The system’s primary action here was administrative: &quot;adopting&quot; the untracked position to bring the book into alignment with the broker’s reality. Because the `indicators` field is empty, we cannot verify the technical validity of the initial setup—only that the system accepted the position as part of its operational state.
+
+**Strategy Logic and Failure Modes**
+
+The `ma_crossover` strategy is a classic trend-following mechanism. It operates on the premise that when a short-term moving average crosses above a long-term one, momentum is shifting upward, and prices will continue to drift in that direction. Conversely, a sell signal occurs on a bearish cross. The logic is robust in trending markets but is notoriously prone to failure in choppy, sideways, or mean-reverting environments. Its primary failure mode is the &quot;whipsaw&quot;: entering a trade just as a trend reverses, leading to a rapid hit to the stop loss. This trade exemplifies that failure. The entry at $1040.69 was followed by a decline to $988.20, indicating that the momentum signal (if it existed) was either a false break or the market had already peaked before the position was fully tracked.
+
+**The Judge’s View and Risk Review**
+
+No AI risk-review was generated for this specific event (`llm_review` is null). This is consistent with the nature of the trade: it was an adoption of an existing position, not a new discretionary entry. The &quot;judge&quot; in this case was the deterministic reconciliation script, which flagged the discrepancy. Without an LLM review, there was no qualitative assessment of market regime or news flow to justify size or entry. The position size (2 shares) was likely determined by the original untracked order or by default adoption rules, not by a dynamic risk-sizing algorithm evaluating the specific risk profile of GS at that moment.
+
+**Risk Plan and Outcome Analysis**
+
+The risk plan was defined by the pre-set stop loss. The exit price of $988.20, triggered by a `stop_loss` event, implies a stop placed roughly 5% below the entry price. This is a standard volatility-adjusted stop for gold, but it proved insufficient to capture any value, as the trade exited at a loss of -$104.98 (-5.04%).
+
+The outcome was a loss. The trade underperformed the benchmark (GS) by 5.02% (benchmark PnL was -0.02%). This result highlights a critical distinction: the loss was not due to a new, flawed signal, but due to holding a position that the strategy had presumably already failed to protect or manage correctly before the ledger adoption. The fact that the exit was a stop loss, not a time-based exit, suggests the trade was actively managed against the downside, but the initial entry point was simply too high relative to the subsequent price action.
+
+**Lesson and Hypothesis**
+
+This is a single data point (n=1), so no statistical conclusion can be drawn. However, it raises a hypothesis: adopting untracked positions without full context can inherit prior risk without prior reward. The &quot;lesson&quot; is not about the technical setup of the MA crossover, but about operational integrity. If a position exists in the broker account that the strategy did not explicitly log, it may represent a manual override, a system error, or a signal from a different instance. In this instance, the market moved against the position, and the stop loss functioned as designed, limiting the loss to approximately 5%. The trade proves that even with a correct risk execution (hitting the stop), a poor entry price or timing can result in a negative outcome relative to the benchmark. Future entries should ensure that every position has a clear, documented signal origin to avoid adopting &quot;orphan&quot; trades.</div></article><article id="06c1f89f"><h2>CLOSE BAC — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-14 19:45 UTC · trade 06c1f89f</div><div class=body>**Trade 06c1f89f: Bank of America (BAC) — Short-Term Loss on Stop-Out**
+
+This entry documents a paper trading execution by an automated swing-trading bot. All actions were simulated; no real capital was at risk.
+
+### The Opportunity
+The deterministic `tsmom` (Time Series Momentum) strategy identified a setup in Bank of America (BAC) on August 20, 2026. The core signal was a 63-bar momentum reading of +21.73%, indicating significant recent price appreciation. The strategy’s entry condition requires the asset price to be trading above its 200-day Simple Moving Average (SMA200). At the time of the signal, BAC closed at $62.05, well above the SMA200 level of $54.02. The strategy interpreted this alignment—strong positive momentum combined with a long-term uptrend—as confirmation that the trend was intact and likely to persist.
+
+### Strategy Logic and Failure Modes
+Time series momentum strategies operate on the premise that assets that have performed well in the recent past tend to continue performing well in the near future. This &quot;trend following&quot; approach aims to capture the bulk of directional moves while avoiding range-bound chop. However, this class of strategy has well-documented failure modes. The primary risk is entering at the end of an extended move, just before a mean-reversion snap. When momentum readings become highly extended (in this case, +21.7% over 63 bars), the risk of a sharp correction increases significantly. Additionally, financial stocks like BAC are highly sensitive to macroeconomic variables, particularly interest rates. A sudden shift in yields can decouple bank stock performance from general market trends, leading to rapid reversals.
+
+### The Judge&#x27;s View
+The AI risk-reviewer evaluated the setup against the strategy&#x27;s historical performance data and the current market context. The reviewer noted a &quot;bull case&quot;: previous BAC trades in an &quot;up/low&quot; regime with similar momentum levels (~17%) had resulted in modest wins, and the broader regime favored long positions in major indices. However, the &quot;bear case&quot; was compelling. The current momentum (+21.7%) was more extended than historical analogs that subsequently reversed sharply (e.g., cases involving HD, JNJ, and UNH that dropped 4-4.5%). Furthermore, the reviewer flagged a same-day macro headwind: surging yields and a Dow drop of -600 points. Given the portfolio’s existing exposure to correlated financial assets, the reviewer issued a &quot;downsize&quot; verdict with a size scale of 0.5. This decision reduced the position size from its standard allocation to 50%, acknowledging the valid trend signal while mitigating the elevated risk of extension and macro shock.
+
+### Risk Plan and Outcome
+The trade was executed with a buy order for 64 shares at an entry price of $62.045. The risk plan included a hard stop-loss at $59.99, representing a risk of $2.05 per share, or approximately 3.31% of the entry price. The strategy utilized a trailing stop that ratchets upward based on the high-water mark minus 3.0 times the Average True Range (ATR), ensuring profits are protected if the trend continues, but allowing for normal volatility.
+
+The trade was invalidated shortly after entry. The price action turned against the position, and the share price closed below the $59.99 stop level. The position was exited at $60.5428, resulting in a loss of $96.14 (-2.42%). During this period, the benchmark (likely SPY or similar) lost -0.13%, resulting in an alpha of -2.29%.
+
+### Conclusion
+This outcome confirms a specific failure mode for extended momentum entries in the financial sector. The 63-bar momentum of +21.73% proved to be an end-of-trend signal rather than a continuation cue, particularly in the context of rising yields. The AI’s decision to downsize the position was appropriate; it prevented a larger loss given the eventual stop-out. However, the stop-loss level, while standard for the strategy, did not account for the specific volatility spike caused by the macro environment. This is a single data point (n=1) and does not prove the strategy is flawed, but it highlights the persistent risk of entering high-momentum financial positions during periods of macroeconomic stress. The strategy must continue to weigh the strength of the trend signal against the potential for sharp mean reversion.</div></article><article id="12993c94"><h2>CLOSE PFE — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-10 19:45 UTC · trade 12993c94</div><div class=body>### Trade Journal Entry: PFE tsmom (Paper)
 
 **Status:** CLOSED (Loss)
 **Date:** 2026-08-19
