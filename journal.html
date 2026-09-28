@@ -18,13 +18,47 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-28 13:38 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-28 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="5295f553"><h2>CLOSE JNJ — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-15 13:35 UTC · trade 5295f553</div><div class=body>**Date:** 2026-07-31
+<article id="9b05ebd9"><h2>BUY AMZN — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-28 19:47 UTC · trade 9b05ebd9</div><div class=body>### Paper Trade Log: AMZN Entry (Paper Trading)
+
+**Entry Date:** 2026-09-28
+**Symbol:** AMZN
+**Action:** BUY
+**Quantity:** 20 shares
+**Entry Price:** $246.06
+**Position Value:** ~$4,921.20
+**Strategy:** Mean Reversion (RSI2)
+**Status:** PAPER TRADING
+
+This entry is part of an automated **paper trading** system. No real capital is at risk. The following analysis reflects the deterministic logic and AI risk review executed at the time of the simulated order.
+
+#### 1. The Opportunity
+The deterministic strategy identified a classic mean-reversion setup. At the time of entry, AMZN closed at **$246.06**. The 2-day Relative Strength Index (RSI2) had dropped to **8.1**, well below the threshold of 10, indicating extreme short-term oversold conditions. Crucially, this dip occurred within an intact long-term uptrend, as the price remained above the 200-day Simple Moving Average (**$240.94**).
+
+The broader market context was volatile, with the 10-year Treasury yield breaking above 5.2% due to geopolitical tensions, causing a sell-off in equities. While the 5-day SMA (**$249.87**) was above the current price, confirming the recent pullback, the regime was classified as &quot;up/low&quot; (SPY above its SMA200), supporting the thesis that this was a temporary dislocation rather than a trend reversal.
+
+#### 2. Strategy Logic and Failure Modes
+The mean-reversion strategy targets oversold dips in established uptrends. The logic relies on the statistical tendency for prices to revert to the mean after sharp, irrational moves. In similar historical instances (e.g., CAT, GS, SPY), buying when RSI2 &lt; 10 in an uptrend has yielded positive returns, with wins ranging from +1.24% to +3.77%.
+
+However, this strategy has known failure modes. A &quot;dip&quot; can be the start of a sustained trend reversal, particularly if driven by idiosyncratic fundamental news rather than macro noise. A notable past loss occurred with LLY, which resulted in a **-3.278%** drawdown under nearly identical technical conditions. The primary risk here is that the oversold state persists or deepens because the underlying drivers of the sell-off are fundamental, not speculative.
+
+#### 3. The Judge&#x27;s View
+The AI risk-review agent flagged significant idiosyncratic risks that the technical model does not capture. Specifically, the review noted that AMZN faced fresh legal headwinds, including FTC and state lawsuits filed in the preceding 48 hours regarding alleged ad price manipulation. While the agent acknowledged the high win rate (7/10) of this specific setup, it also highlighted the bot&#x27;s poor recent &quot;approve accuracy&quot; (39%), suggesting a tendency to approve trades that subsequently failed.
+
+Consequently, the agent issued a **&quot;downsize&quot;** verdict with a scale factor of **0.5** and a confidence level of 0.55. The reasoning was that while the technical setup was strong, the combination of fresh legal news and the bot’s recent track record of bad approvals warranted reducing position size rather than a full approval. This reflects a cautious approach: trusting the technical signal enough to enter, but respecting the fundamental uncertainty enough to halve the exposure.
+
+#### 4. Risk Plan
+*   **Position Size:** 20 shares. This size reflects the 0.5 scale factor applied to the standard size, mitigating the idiosyncratic risk of the legal news.
+*   **Stop Loss:** **$235.24**. The stop is placed below the SMA200 ($240.94) and recent support levels. A close below this price would invalidate the &quot;uptrend intact&quot; thesis, proving the trade wrong.
+*   **Take Profit:** None specified. The exit will be determined by the strategy&#x27;s take-profit rules or a further deterioration in the RSI2/price structure.
+*   **Invalidation:** The trade is invalid if the price closes below the stop, or if the broader market regime shifts from &quot;up/low&quot; to &quot;down/low,&quot; breaking the long-term uptrend support.
+
+This is a single data point (n=1). The outcome of this paper trade will be monitored to update the bot&#x27;s calibration for similar mean-reversion setups under high-volatility, news-heavy conditions.</div></article><article id="5295f553"><h2>CLOSE JNJ — tsmom <span class="badge close">close</span></h2><div class=meta>2026-09-15 13:35 UTC · trade 5295f553</div><div class=body>**Date:** 2026-07-31
 **Trade ID:** 5295f553
 **Symbol:** JNJ
 **Type:** PAPER TRADE (Simulation)
