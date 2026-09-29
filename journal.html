@@ -18,13 +18,63 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-28 19:48 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-29 13:38 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="9b05ebd9"><h2>BUY AMZN — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-28 19:47 UTC · trade 9b05ebd9</div><div class=body>### Paper Trade Log: AMZN Entry (Paper Trading)
+<article id="6219a7f6"><h2>BUY SPY — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-29 13:37 UTC · trade 6219a7f6</div><div class=body>### Paper Trade Log: SPY Entry
+
+**Disclaimer:** This entry documents a **paper trade**. No real capital was at risk. The positions, profits, and losses described herein are simulated and serve only to test strategy mechanics in a risk-free environment.
+
+**The Opportunity**
+The deterministic `ma_crossover` strategy triggered a buy signal for SPY. The setup was identified when the 10-period Simple Moving Average (SMA10) at **764.89** crossed above the 30-period Simple Moving Average (SMA30) at **764.44**. At the time of the signal, the closing price was **765.61**. The system classified the current regime as &quot;up/low,&quot; noting that SPY is trading above its long-term trend (SMA 760.39) with moderate volatility (11%). The logic here is purely reactive to a short-term momentum shift, signaling that short-term price action has begun to decouple from the medium-term average in a bullish direction.
+
+**Strategy Logic and Failure Modes**
+Moving Average Crossovers (MAC) are a classic trend-following heuristic. The underlying assumption is that price momentum persists; once the faster average overtakes the slower one, the probability of continued upward movement increases. This setup is traded to capture the &quot;body&quot; of a trend move.
+
+However, MACs have well-known failure modes. They are lagging indicators, meaning the signal fires only *after* the price move has already occurred. In the &quot;up/low&quot; regime—characterized by higher volatility—the crossovers can be noisy. If the market is ranging or consolidating, the SMA10 will frequently cross above and below the SMA30, generating &quot;whipsaw&quot; signals that result in small, cumulative losses. This specific signal class is particularly vulnerable when the macro environment is unstable, as recent bond yield volatility has created high intraday noise that can trigger false breakouts.
+
+**The Judge’s View**
+The AI risk review did not veto the trade but issued a &quot;downsize&quot; verdict with a 0.5 scale factor and 0.55 confidence. The judge highlighted a critical recent history: the two most recent identical signals (META and GS) resulted in losses. Furthermore, the judge noted its own recent calibration shows only 39% accuracy on approvals, suggesting a tendency to force trades in unfavorable conditions. The &quot;bear case&quot; cited the hostile macro environment (rising yields, geopolitical risk) and the specific failure of recent similar setups. Conversely, the &quot;bull case&quot; argued that SPY offers lower idiosyncratic risk than the concentrated tech-heavy book (AAPL, AMZN, CRM, META). The judge concluded that while a full veto might be an over-correction, the elevated risk environment necessitated halving the position size.
+
+**Risk Plan**
+The system executed a buy of **5 shares** of SPY at **765.61**. This quantity reflects the 0.5 size scale applied by the judge.
+*   **Stop Loss:** Placed at **751.63**. This stop is volatility-scaled (ATR-based) to avoid being shaken out by normal daily noise. It represents a significant drawdown risk, acknowledging the high-volatility regime.
+*   **Invalidation:** The trade is proven wrong if SPY closes below the 751.63 level. This would indicate that the momentum shift was a false flag and the pullback is likely to continue.
+*   **Outcome Context:** This is n=1. A single win or loss does not validate or invalidate the strategy. The stop is a fixed boundary; the position is sized to ensure that a stop-out does not cause material damage to the paper portfolio. The trade is now open, subject to market forces.</div></article><article id="bc478dd5"><h2>BUY CRM — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-29 13:36 UTC · trade bc478dd5</div><div class=body># Paper Trade Journal: CRM Mean-Reversion Entry
+
+**Trade ID:** bc478dd5
+**Symbol:** CRM (Salesforce)
+**Action:** BUY 43 Shares @ $227.27
+**Status:** PAPER TRADING — No real capital at risk.
+
+## The Opportunity
+
+The deterministic strategy identified a mean-reversion setup based on extreme short-term oversold conditions within a preserved long-term uptrend. The trigger was the 2-period RSI (RSI2) falling to 7.1, a value well below the strategy&#x27;s threshold of 10. Crucially, this drop occurred while the stock price remained significantly above the 200-day Simple Moving Average (SMA200) of $200.20. With the close at $227.27, the stock is trading approximately 13.5% above its long-term baseline, indicating that the macro uptrend has not been structurally broken. The 5-day SMA sits at $234.07, showing that the recent dip has pulled the price away from its immediate mean, creating the statistical divergence required for the trade.
+
+## Strategy Logic and Failure Modes
+
+This strategy trades the premise that in a confirmed bull market, sharp short-term declines are often overreactions or temporary liquidity events that reverse toward the mean. The logic relies on the &quot;SMA200 filter&quot; to ensure we are not catching falling knives in a broader bear market.
+
+Known failure modes include:
+1.  **Regime Change:** If the stock breaks below the SMA200 after entry, the &quot;uptrend&quot; thesis is invalidated, and the mean-reversion target shifts lower.
+2.  **Fundamental Deterioration:** If the dip is caused by new negative fundamental news rather than noise, the price may never revert to the previous mean.
+3.  **Volatility Persistence:** In high-volatility regimes, RSI2 can remain oversold for extended periods, causing the stock to drift lower before reversing, potentially triggering the stop loss.
+
+## The Judge’s View
+
+The AI risk-review approved the trade with a scale of 1.0 and a confidence score of 0.65. The review cited a historical sample of similar trades (RSI2 &lt; 10 in uptrends) showing a 5-win-to-2-loss ratio. While the average upside in wins was strong (e.g., CAT +3.77%, GS +3.49%), the review explicitly noted the risk of a &quot;large loss&quot; scenario, referencing the prior LLY trade which lost -3.28%. The judge weighed the &quot;bear case&quot; that the stock might be experiencing heavy distribution due to skepticism about AI revenue growth, but concluded that the statistical edge of the specific regime (up/low) outweighed the risk of inaction.
+
+## Risk Plan
+
+*   **Position Size:** 43 shares. Given an equity base of ~$99,542 and a price of $227.27, this represents a notional value of approximately $9,772, or roughly 9.8% of total equity.
+*   **Stop Loss:** Placed at $210.30. This stop is volatility-scaled to invalidate the trade if the price fails to hold its support level, capping the maximum loss on this position at approximately $736 (roughly 7.5% of the position value).
+*   **Invalidation Condition:** The trade is proven wrong if the price closes below the stop at $210.30, or if the stock breaks below the 200-day SMA ($200.20), which would signal a transition from a &quot;dip in an uptrend&quot; to a potential trend reversal.
+*   **Time Horizon:** This is a swing trade, not a day trade. The plan assumes reversion over several days to weeks, not immediate reversal.
+
+This is a paper trading simulation. Results are for educational and strategy evaluation purposes only.</div></article><article id="9b05ebd9"><h2>BUY AMZN — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-28 19:47 UTC · trade 9b05ebd9</div><div class=body>### Paper Trade Log: AMZN Entry (Paper Trading)
 
 **Entry Date:** 2026-09-28
 **Symbol:** AMZN
