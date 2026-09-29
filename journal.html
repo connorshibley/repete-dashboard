@@ -18,13 +18,59 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-29 13:38 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-09-29 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="6219a7f6"><h2>BUY SPY — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-29 13:37 UTC · trade 6219a7f6</div><div class=body>### Paper Trade Log: SPY Entry
+<article id="816292c2"><h2>BUY KO — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-29 19:48 UTC · trade 816292c2</div><div class=body>### Paper Trade Entry: KO (Coca-Cola)
+
+This entry is part of a **paper trading** simulation. No real capital is at risk, but the discipline of risk management remains strict. The strategy identified a mean-reversion opportunity in KO, triggered by an RSI2 value of 7.0 (below the 10.0 threshold) while the price remained significantly above the 200-day Simple Moving Average (SMA) of 78.87. The closing price of 86.94 sits just below the 5-day SMA of 87.62, suggesting a short-term dip within a long-term uptrend.
+
+The core logic behind this class of setup is that high-quality assets often experience sharp, irrational sell-offs during broader market stress. Historically, when a stock with an intact uptrend (price &gt; SMA200) exhibits extreme short-term oversold conditions (RSI2 &lt; 10), it frequently reverts to the mean. However, this strategy has known failure modes. As seen in past closed trades, such as LLY (-3.278%) and XLK (-0.188%), a dip in an uptrend can sometimes mark the beginning of a deeper correction rather than a bounce. Furthermore, in the current macro environment—characterized by 30-year yields at their highest since 2002 and hawkish Fed signals—defensive stocks like KO may underperform as capital rotates toward higher-growth assets despite their safety profile.
+
+The AI risk-review approved the trade but applied a size scale of 0.8 and assigned a confidence level of 0.65. The judge acknowledged the strong historical win rate for this specific entry condition but noted that KO’s low-beta nature and the challenging interest rate backdrop warrant caution. The review correctly identified that while the RSI2 is extreme, the &quot;bull case&quot; of a mean-reversion bounce is not guaranteed in a rising-yield environment. This moderate confidence is reflected in the reduced position size, which caps the potential downside if the trade fails to reverse.
+
+The risk plan involves buying 91 shares at an entry price of $86.945. The stop-loss is placed at $84.63, a volatility-scaled level that sits below recent support and outside normal daily noise. A stop this close to the entry point is designed to invalidate the thesis quickly if the &quot;dip&quot; turns into a downtrend. There is no take-profit price set, as the strategy allows the trade to run until a mean-reversion exit signal or the stop is hit. What would prove this trade wrong is a sustained decline below $84.63, indicating that the oversold condition is not a buying opportunity but a sign of fundamental weakness or a broader sector rotation away from defensives. Given the current regime of &quot;up/low&quot; volatility and the hawkish macro backdrop, this trade is a bet on short-term sentiment correction rather than long-term momentum.</div></article><article id="ce38f88c"><h2>BUY IWM — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-29 19:46 UTC · trade ce38f88c</div><div class=body>### Paper Trade Log: IWM Mean Reversion Entry
+
+**Disclaimer:** This entry documents a simulated transaction. No real capital was risked.
+
+**The Opportunity**
+The deterministic strategy identified a mean-reversion setup in the Russell 2000 Index ETF (IWM). The technical trigger was a two-day Relative Strength Index (RSI2) reading of 5.6, a value well below the strategy’s 10-point threshold for &quot;oversold&quot; conditions. Crucially, this signal fired while the asset maintained a structural uptrend, with the closing price of $278.71 holding above the 200-day Simple Moving Average (SMA200) of $274.71. The short-term momentum was negative, as the price traded below the 5-day SMA of $280.86, indicating a recent pullback. The strategy interpreted this as a temporary deviation from the longer-term trend, statistically likely to revert toward the mean.
+
+**Strategy Logic and Failure Modes**
+Mean-reversion trading in uptrending regimes operates on the premise that sharp, short-term declines in fundamentally sound indices are often overreactions or noise. The logic is that price will snap back toward its equilibrium path. The primary failure mode is the &quot;dip that is actually a trend reversal.&quot; If the long-term uptrend breaks, the &quot;oversold&quot; condition persists, and the trade bleeds until the stop-loss is hit. Additionally, this strategy is vulnerable to regime changes where volatility expands and the spread between price and the SMA200 widens significantly, increasing the distance to the stop.
+
+**The Judge’s View**
+The AI risk-review acknowledged the strong historical win rate (~78%) for this specific setup. However, it flagged significant macro headwinds. The review noted that the 30-year Treasury yield had reached its highest level since 2002, a condition that structurally penalizes small-cap valuations and leveraged growth assets. Given that IWM is heavily weighted in the current book and the macro environment was hostile to the specific asset class, the judge issued a &quot;downsize&quot; verdict with a 0.5 scale factor. This reduced the position size from a standard allocation to 17 shares, balancing the technical edge against the macro tail risk.
+
+**The Risk Plan**
+The trade was executed as a buy order for 17 shares of IWM at an entry price of $278.71. To define invalidation, a hard stop-loss was placed at $271.50. This stop is set below the recent support levels and accounts for normal daily volatility; it is not placed inside the noise, but it is close enough to limit damage if the trend breaks. There is no defined take-profit price, meaning the trade will remain open until a subsequent sell signal from the strategy or the stop-loss is triggered. The trade is proven wrong if IWM closes below the $271.50 stop price, indicating that the &quot;dip&quot; has transformed into a broader downtrend. The success of this trade will be measured by whether the price reverts to the 5-day SMA or higher before hitting the stop.</div></article><article id="e97b6766"><h2>BUY CAT — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-29 19:45 UTC · trade e97b6766</div><div class=body>**Trade ID:** e97b6766
+**Asset:** CAT (Caterpillar Inc.)
+**Action:** BUY (Paper Trade)
+**Entry Price:** $825.29
+**Quantity:** 2 Shares
+**Strategy:** MA Crossover
+
+This entry documents a **paper trading** execution. No real capital is at risk, but the discipline of risk management is simulated with full fidelity.
+
+### The Opportunity
+The deterministic strategy identified a momentum shift in CAT based on a simple technical trigger: the 10-day Simple Moving Average (SMA10) at **$809.89** crossed above the 30-day Simple Moving Average (SMA30) at **$809.09**. At the time of entry, the stock price was **$825.29**, trading significantly above both moving averages. This configuration suggests that short-term momentum has recently outpaced medium-term trends, indicating a potential start of an uptrend or a continuation of strength.
+
+### Strategy Logic and Failure Modes
+Moving Average Crossover (MAC) strategies are traded because they aim to capture sustained trends by filtering out short-term noise. The logic posits that when a faster average crosses above a slower one, the probability of continued price appreciation increases. However, this strategy has well-documented failure modes in &quot;choppy&quot; or sideways markets, where prices oscillate around the averages, generating frequent false signals that result in stop-outs. Furthermore, in high-interest-rate environments, the cost of carrying positions and the sensitivity of high-multiple growth/industrial names to discount rates can suppress the price gains needed to offset the lag inherent in moving averages.
+
+### The Judge’s View
+The AI risk-review agent evaluated the setup and issued a **downsize** verdict with a scale factor of **0.3** and a confidence level of **0.55**. The reviewer’s bear case was grounded in recent history: similar SMA crossovers on GS and META resulted in losses or flat P&amp;L, indicating the signal was weak in the current regime. Additionally, the macro environment—specifically record 30-year Treasury yields and hawkish Fed signaling—poses a headwind for industrial valuations. The judge did not veto the trade entirely, citing CAT’s intact long-term uptrend and the low position size relative to total book exposure. This skepticism directly shaped the position size, reducing the standard allocation to 2 shares to limit exposure to a potentially fading signal.
+
+### Risk Plan
+**Stop Loss:** $783.95
+**Position Size:** 2 shares ($1,650.58 notional value)
+**Invalidation:** The thesis is proven wrong if the price closes below the stop of **$783.95**. This level is derived from ATR (Average True Range) calculations to ensure the stop is placed outside of normal daily volatility, preventing noise-induced exits while still capping the maximum loss.
+
+### Current Status
+The order is currently **PENDING**. If executed, the position is small enough that a complete stop-out would have a minimal impact on overall portfolio equity. This trade is a test of the crossover signal&#x27;s efficacy in the current high-yield regime. If the SMA10 holds above the SMA30 and price continues to trend, the strategy will hold until a reverse crossover or stop-out occurs. Until then, this remains a paper entry with no financial consequence, but it contributes to the statistical integrity of the strategy&#x27;s backtest and live paper performance.</div></article><article id="6219a7f6"><h2>BUY SPY — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-09-29 13:37 UTC · trade 6219a7f6</div><div class=body>### Paper Trade Log: SPY Entry
 
 **Disclaimer:** This entry documents a **paper trade**. No real capital was at risk. The positions, profits, and losses described herein are simulated and serve only to test strategy mechanics in a risk-free environment.
 
