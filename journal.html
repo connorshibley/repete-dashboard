@@ -18,13 +18,44 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-09-30 19:48 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-01 13:38 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="1e6e8012"><h2>BUY JNJ — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-30 19:48 UTC · trade 1e6e8012</div><div class=body>## JNJ Buy: 11 Shares @ $265.05
+<article id="9b05ebd9"><h2>CLOSE AMZN — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-01 13:37 UTC · trade 9b05ebd9</div><div class=body>**Paper Trade Journal: AMZN Mean-Reversion Entry (ID: 9b05ebd9)**
+
+**The Opportunity**
+On September 28, 2026, the deterministic strategy flagged a high-probability mean-reversion setup in Amazon (AMZN). The core trigger was an extreme short-term oversold condition: the 2-day RSI (RSI2) printed at 8.1, falling well below the strategy’s threshold of 10. Crucially, this dip occurred within a confirmed long-term uptrend, as the closing price of $246.06 remained above the 200-day Simple Moving Average (SMA200) of $240.94. The divergence between the weak short-term momentum (RSI2) and the strong long-term trend (price &gt; SMA200) is the specific pattern the strategy is designed to exploit. At the time of entry, the 5-day SMA was $249.87, indicating that the stock had pulled back significantly from its recent local highs, creating the &quot;oversold&quot; gap the strategy seeks to close.
+
+**The Strategy’s Logic**
+This mean-reversion logic posits that in established uptrends, sharp, short-term deviations below value are temporary overreactions rather than structural breaks. The strategy buys the fear, expecting price to revert to its local mean (typically the 5-day SMA) within days. However, this approach has well-documented failure modes. The primary risk is that an &quot;oversold&quot; condition can mark the beginning of a new downtrend, especially if driven by fundamental news rather than sentiment. Additionally, mean-reversion trades have a &quot;picking up pennies in front of a steamroller&quot; profile: many small wins can be wiped out by a single large loss if the trend actually reverses. The strategy relies on the stop-loss to limit this tail risk, but it cannot eliminate it.
+
+**The Judge’s View**
+The AI risk-review flagged two significant concerns that tempered the initial enthusiasm. First, it identified fresh legal headwinds, specifically new FTC and state lawsuits filed within the previous 48 hours, introducing idiosyncratic risk not present in the historical data used to calibrate the strategy. Second, the reviewer noted the bot’s recent &quot;approve&quot; accuracy was only 39%, suggesting a recent string of false positives. Consequently, the judge issued a &quot;downsize&quot; verdict with a confidence score of 0.55. This reduced the position size to 50% of the standard allocation, acknowledging that while the technical setup was valid, the fundamental noise and recent statistical weakness warranted caution.
+
+**The Risk Plan**
+The trade was executed with a paper position of 20 shares at an entry price of $246.06, resulting in a total position value of $4,921.20. The fixed stop-loss was placed at $235.24, representing a risk of $10.82 per share, or approximately 4.4% of the entry price. There was no fixed take-profit target; instead, the exit rule was set to trigger when the closing price crossed back above the 5-day SMA, or after a hard cap of 7 days. The thesis would be invalidated if the price closed below the $235.24 stop, signaling that the dip was not a mean-reverting blip but a genuine trend break.
+
+**Outcome**
+The trade resulted in a win. AMZN exited at $249.15, generating a profit of $61.80 (1.26%). The exit reason was &quot;strategy_sell,&quot; indicating the price closed back above the 5-day SMA as intended. This result outperformed the benchmark, which declined 0.39% over the same period, yielding an alpha of 1.65%. However, this is a single data point (n=1). One successful trade does not validate the strategy’s long-term efficacy, nor does it prove that the judge’s decision to downsize was incorrect—full size would have generated double the profit, though also double the risk. This trade simply confirms that this specific setup resolved favorably in this specific instance.</div></article><article id="51f945a8"><h2>BUY DIA — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-01 13:36 UTC · trade 51f945a8</div><div class=body>This entry is from the public trade journal of an automated **paper** trading bot. No real capital is at risk. All prices, fills, and performance figures are simulated.
+
+### The Opportunity: A Severe Washout in an Uptrend
+The deterministic `meanrev` strategy flagged a buy signal for DIA (SPDR Dow Jones Industrial Average ETF) at a close of **$508.55**. The core trigger was an RSI2 (2-period Relative Strength Index) value of **9.6**, which falls below the strategy’s threshold of 10. Simultaneously, the asset traded above its 200-day Simple Moving Average (SMA200) of **$499.30**, confirming that the long-term uptrend remained structurally intact. Additionally, the price sat below the 5-day SMA of **$513.12**, indicating recent short-term weakness that the strategy interprets as a temporary dislocation from the mean rather than a structural break.
+
+### Strategy Logic and Failure Modes
+This setup trades on the premise that extreme short-term selling pressure in a robust long-term uptrend creates a high-probability reversion event. The logic is that dips in a healthy trend are typically driven by noise, profit-taking, or overreaction, rather than fundamental deterioration.
+
+The known failure mode is &quot;catching a falling knife.&quot; If the dip is not a pullback but the beginning of a regime change (e.g., a macro shock that breaks the SMA200), the price will continue to decline, triggering the stop loss. The historical data provided for similar RSI2 &lt; 10 setups shows a high win rate, but includes significant losses (e.g., LLY at -3.278%), demonstrating that the stop loss must be respected to preserve the mathematical edge of the strategy.
+
+### The Judge’s View
+The AI risk-review approved the trade with a **1.0 scale** and a **0.62 confidence** score. The judge acknowledged a valid bear case: the broader market was under pressure from a global bond sell-off and rising 10-year yields, which could invalidate the uptrend assumption. However, the judge prioritized the specific signal fidelity. The current conditions (RSI2 ~9.6, Price &gt; SMA200) closely matched the &quot;winning&quot; historical subset of similar trades, whereas the &quot;losing&quot; examples often involved different regimes or parameter states. The judge concluded that the statistical edge of the signal outweighed the macro noise, provided the position size remained manageable.
+
+### The Risk Plan
+*   **Position Size:** 19 shares of DIA, valued at approximately **$9,662** (19 x $508.55). This represents roughly **9.6%** of the $100,078 paper equity.
+*   **Stop Loss:** The hard stop is set at **$498.30**. This is approximately $10.25 below the entry price, or about **2.0%** downside risk. This level is positioned just below the SMA200 ($499.30), effectively using the long-term trend support as a natural invalidation zone.
+*   **Invalidation:** The trade is proven wrong if DIA closes below $498.30. At this point, the hypothesis that the dip was a mean-reversion opportunity is falsified, as the price has broken below the structural support that defined the uptrend. The position will be exited at the stop to limit capital preservation.</div></article><article id="1e6e8012"><h2>BUY JNJ — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-09-30 19:48 UTC · trade 1e6e8012</div><div class=body>## JNJ Buy: 11 Shares @ $265.05
 
 **Disclaimer:** This entry documents a **paper trade** in an automated trading simulation. No real capital is at risk, and no financial advice is implied.
 
