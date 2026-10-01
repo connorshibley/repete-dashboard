@@ -18,13 +18,103 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-01 13:38 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-01 19:49 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="9b05ebd9"><h2>CLOSE AMZN — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-01 13:37 UTC · trade 9b05ebd9</div><div class=body>**Paper Trade Journal: AMZN Mean-Reversion Entry (ID: 9b05ebd9)**
+<article id="e714d4e6"><h2>BUY XLV — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-01 19:47 UTC · trade e714d4e6</div><div class=body>**Paper Trading Entry: XLV (Health Care) Mean Reversion Buy**
+
+This entry is for a **paper trading** account only. No real capital is at risk.
+
+### The Opportunity
+The deterministic strategy identified a mean-reversion setup in XLV, the healthcare sector ETF. At the time of the signal, the 2-period RSI (RSI2) printed at 4.9, falling well below the strategy’s 10-point threshold for extreme short-term oversold conditions. Simultaneously, the broader trend context remained constructive: XLV’s closing price of $166.43 sat comfortably above its 200-period Simple Moving Average (SMA200) of $155.44, placing the asset approximately 7.1% above its long-term trend anchor. This configuration—an acute short-term dip within a confirmed long-term uptrend—is the specific pattern this strategy is designed to exploit. The 5-period SMA was at $169.51, indicating that the recent price action had deviated slightly below the very short-term average, creating the statistical tension necessary for a potential reversion.
+
+### Strategy Logic and Failure Modes
+The core thesis behind mean-reversion entries in uptrends is that volatility often overshoots fundamental value in the short term. When a stable, low-beta sector like healthcare experiences a sharp, two-day drop that drives the RSI2 into single digits, the probability of a technical snap-back toward the short-term mean is historically elevated. This setup is traded because it offers a defined entry point during periods of market noise, allowing the bot to capture &quot;dead cat bounces&quot; or simple volatility compression without taking on the risk of a new long-term trend initiation.
+
+However, this class of trade has well-documented failure modes. The primary risk is the &quot;knife catch&quot;: if the dip is driven by a structural shift in the sector (e.g., policy changes, macroeconomic recession fears) rather than routine volatility, the price may continue to fall, ignoring the short-term oversold indicator. The LLY loss in the recent historical comparison (RSI2 at 2, result -3.28%) serves as a reminder that even extreme RSI2 readings can mark the beginning of a deeper correction if the underlying uptrend is broken. The strategy mitigates this by requiring the price to remain above the SMA200, ensuring the trade is only taken while the long-term trend remains intact.
+
+### The Judge&#x27;s View
+The AI risk-reviewer approved the trade with a confidence score of 0.72 and a full size scale of 1.0. The reviewer noted that the historical evidence for this specific pattern (RSI2 &lt; 10 in an uptrend) is strong, citing 8 wins out of 9 similar instances. While the book is currently 57% exposed to equity markets with positions in SPY, DIA, and IWM, the reviewer viewed XLV as providing slight diversification due to its lower beta compared to the growth-heavy names already in the portfolio. The review explicitly addressed the bot&#x27;s recent tendency to &quot;over-veto&quot; profitable momentum signals (a 54% veto precision but only 40% approve accuracy). In this case, the judge determined that the mean-reversion signal had a higher expected value than the momentum signals recently blocked, justifying the full position size despite the elevated gross exposure.
+
+### Risk Plan
+*   **Position Size:** 60 shares.
+*   **Entry Price:** $166.43.
+*   **Stop Loss:** $161.71.
+*   **Take Profit:** None (managed by strategy exit or trailing stop).
+
+The stop loss is placed at $161.71, a level determined by the strategy&#x27;s volatility-scaled ATR calculation. This stop is designed to be outside normal daily noise, ensuring it is only triggered if the trade thesis (short-term reversion) is fundamentally invalidated by a further breakdown in price. If XLV trades through $161.71, the assumption that the dip is temporary and the uptrend intact is proven wrong, and the position is closed to limit further downside. This is a strict, pre-determined invalidation point that will not be widened or adjusted after entry.</div></article><article id="bc478dd5"><h2>CLOSE CRM — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-01 19:46 UTC · trade bc478dd5</div><div class=body>### Paper Trade Journal: CRM Mean Reversion Entry
+
+**Trade ID:** bc478dd5
+**Symbol:** CRM
+**Action:** Buy (Long)
+**Entry Date:** 2026-09-29
+**Status:** PAPER TRADING ONLY
+
+#### The Opportunity
+The deterministic strategy identified a classic mean-reversion setup on CRM. The core signal was an RSI(2) reading of 7.1, well below the threshold of 10, indicating an acute, short-term oversold condition. Crucially, this dip occurred within an intact long-term uptrend, as the price of $227.27 remained comfortably above the 200-day Simple Moving Average (SMA200) of $200.20. The 5-day SMA was at $234.07, meaning the stock had pulled back approximately 2.9% from its recent average over three days. The market regime was tagged as &quot;up/low,&quot; suggesting volatility, but the trend filter confirmed that the broader directional bias remained upward.
+
+#### Strategy Logic
+This strategy trades the statistical tendency for prices to revert to their mean after short-term extreme deviations. The logic posits that while trends persist, short-term overreactions to news or sentiment create temporary dislocations that offer favorable entry points. The known failure modes are significant:
+1.  **Trend Reversal:** The &quot;oversold&quot; condition may not be a dip but the beginning of a downtrend. If the SMA200 is broken, the thesis fails.
+2.  **Prolonged Weakness:** In high-volatility regimes, &quot;cheap&quot; can get cheaper. The stop loss is designed to manage this tail risk.
+3.  **Fundamental Breaks:** If the dip is driven by a genuine deterioration in business fundamentals rather than sentiment, mean reversion may not occur within the holding window.
+
+#### The Judge’s View
+The AI risk-review approved the trade with a size scale of 1.0 (full allocation) and a confidence score of 0.65. The review highlighted the historical performance of similar setups (RSI2 &lt; 10 in uptrends), noting a 5:2 win ratio in recent samples with average gains of 3.5–3.8% (citing CAT and GS). The bear case acknowledged that falling prices despite positive fundamentals could indicate distribution, but the reviewer concluded that the positive expected value of the setup outweighed the risk of inaction. No size reduction was applied, as the stop-loss distance (7.47% of entry) was deemed acceptable relative to the potential reward.
+
+#### Risk Plan
+*   **Position Size:** 43 shares.
+*   **Entry Price:** $227.27.
+*   **Stop Loss:** $210.30 (fixed). This represents a risk of $16.97 per share, or ~7.5% of the entry price.
+*   **Invalidation:** The trade is proven wrong if the price closes below $210.30.
+*   **Exit Criteria:** The trade was designed to exit when the price closes back above the 5-day SMA ($234.07 at entry), or if the 7-day hard cap expires, or if the stop is hit. No take-profit target was set; the exit rule governs the upside.
+
+#### Outcome and Analysis
+The trade resulted in a **win**.
+*   **Exit Price:** $236.485
+*   **Exit Reason:** Strategy Sell (Price closed above 5-day SMA).
+*   **PnL:** +$396.25 (+4.05%)
+*   **Benchmark Alpha:** +4.0% (vs. 0.06% benchmark return)
+
+The plan held. The price recovered from the oversold dip and crossed back above the 5-day average, triggering the mechanical exit. This outcome supports the hypothesis that short-term oversold dips in intact uptrends offer a positive expectancy. However, it is critical to note that this is **n=1**. One win does not prove the strategy is robust; it only confirms that this specific instance played out according to the mechanical rules. The &quot;up/low&quot; regime did not derail the mean reversion, but future trades will face different volatility profiles and fundamental contexts. This paper trade remains a data point, not a guarantee.</div></article><article id="ea0f3267"><h2>BUY ABBV — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-01 19:46 UTC · trade ea0f3267</div><div class=body>### Opportunity
+The deterministic mean-reversion strategy flagged AbbVie (ABBV) after the stock printed a 2-period RSI of 7.8. This value is significantly below the strategy’s 10-point threshold, which typically indicates an extreme short-term oversold condition. Crucially, this dip occurred within an established long-term uptrend, as the closing price of $260.21 remains 13.5% above the 200-day simple moving average of $229.28. While the 5-day SMA at $263.14 suggests recent downward momentum, the structural integrity of the higher-timeframe trend remains intact. The strategy does not predict the future; it simply identifies a statistical deviation from the mean that historically resolves in favor of the trend.
+
+### Strategy Logic
+Mean-reversion entries in an uptrend are traded on the premise that extreme short-term volatility often overcorrects. The logic is that a stock in a long-term bull market tends to reclaim its value after sharp, non-catalytic dips. The primary failure mode for this strategy is a &quot;regime change.&quot; If the broader market or the specific sector enters a sustained downtrend, an &quot;oversold&quot; dip is not a buying opportunity but the beginning of a larger decline. In such cases, the price continues to fall, violating the assumption that the 200-day SMA is a solid floor of support. This trade is a bet that ABBV’s recent pullback is a correction, not a capitulation.
+
+### Judge’s View
+The AI risk review identified a tension between the strategy’s historical success rate and the reviewer’s current calibration. While the RSI2 setup has a 6/7 win record in the provided sample, the judge noted that the &quot;approve&quot; accuracy for the system is only 40%. This indicates a high risk of overconfidence in taking trades. Furthermore, the reviewer highlighted the presence of another pharmaceutical name, LLY, in the current book, which previously resulted in a loss using similar logic. Consequently, the judge issued a &quot;downsize&quot; verdict with a 0.5 scale factor. This reduced position size is a direct mitigation against the risk of correlated sector exposure and the judge’s lack of high confidence in the current trading regime.
+
+### Risk Plan
+This is a **paper trade**. The position size was reduced to 19 shares, resulting in a total exposure of approximately $4,944. This is a modest allocation relative to the total equity of $99,880. A protective stop-loss has been placed at $250.55, which represents a roughly 3.7% drawdown from the entry price of $260.215. This stop is positioned below recent price action to account for normal volatility. If the trade fails, the maximum loss is capped at approximately $185. A close at or below $250.55 would prove the thesis wrong, suggesting that the &quot;oversold&quot; condition is actually the start of a deeper trend reversal. There is no take-profit target defined, allowing the strategy to manage the exit based on future indicator conditions.</div></article><article id="3c16d5b5"><h2>BUY LLY — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-10-01 19:45 UTC · trade 3c16d5b5</div><div class=body>### Paper Trade Log: LLY (Buy)
+**Status:** PAPER TRADING ONLY. No real capital is at risk.
+
+**The Opportunity**
+The deterministic `ma_crossover` strategy flagged a long entry for Eli Lilly (LLY) at **$1,154.76**. The trigger was a golden cross variant: the 10-day Simple Moving Average (SMA10) at **$1,168.55** crossed above the 30-day SMA (SMA30) at **$1,168.11**. This signal theoretically indicates that short-term momentum has turned upward relative to the medium-term trend. However, a critical divergence exists in the data: the current close ($1,154.76) is significantly *below* both moving averages. The SMAs are converging just above the price, suggesting the &quot;cross&quot; occurred while the price was lagging or consolidating. The strategy interprets this as a lagging momentum turn, but the price action has not yet confirmed it.
+
+**Strategy Logic &amp; Failure Modes**
+The `ma_crossover` strategy attempts to capture the early stages of a trend shift. Its logic is based on the assumption that if short-term averages break above longer-term averages, future price appreciation is likely.
+*   **Known Failure Mode 1 (Whipsaws):** In low-volatility or &quot;up/low&quot; regimes (the current market context), slow-moving averages often generate crossovers that do not translate to immediate directional movement.
+*   **Known Failure Mode 2 (Lag):** SMAs are backward-looking. If the price is already below the SMAs, the signal may be a &quot;late&quot; buy after the initial impulse has occurred.
+*   **Historical Context:** The judge noted that the two most similar past instances of this specific signal (GS, META) resulted in **0.0% returns**. This suggests the signal often identifies consolidation rather than a new leg up, leading to &quot;dead&quot; trades or minor losses from trading costs/volatility drag.
+
+**The Judge&#x27;s View**
+The AI risk review issued a **DOWNSIZE** verdict with a scale factor of **0.5** and a confidence score of **0.58**.
+*   **Bull Case:** Recent fundamental catalysts (Phase 3 weight loss and heart disease data) provide a fundamental bid.
+*   **Bear Case:** The specific technical signal has weak historical predictive power (0% return in similar cases). Furthermore, the judge’s own recent calibration shows a high rate of &quot;Bad Vetoes&quot; on LLY (where blocking the trade would have missed a gain), but also notes that the current technical trigger is &quot;stalled.&quot;
+*   **Shaping Size:** The judge determined that an outright veto was risky given the fundamental backdrop, but the weak technical confirmation warranted a halving of the position size. This reflects a cautious approach: participating in the trade but capping the exposure to the specific failure mode of the crossover signal.
+
+**Risk Plan**
+*   **Entry:** 3 shares @ $1,154.76 (Total cost: ~$3,464).
+*   **Stop Loss:** **$1,090.94**. This is an ATR-based stop, approximately 5.5% below entry. It is placed to account for normal daily noise while defining the trade as &quot;wrong&quot; if the stock breaks its recent support structure.
+*   **Position Size:** The 0.5 scale factor reduced the intended size to 3 shares. This limits the maximum potential loss on this specific trade to roughly $190 (approx. 0.19% of the $99,880 equity base).
+*   **Invalidation:** The trade is invalid if the price closes below the stop. Given the price is already below the SMAs that triggered the signal, the primary risk is that the &quot;crossover&quot; was a false positive and the price continues to drift lower or stagnate.
+
+**Conclusion**
+This is a low-conviction, size-reduced paper trade. The entry is based on a lagging technical signal that has historically produced flat returns, supported only by strong (but potentially priced-in) fundamental news. The small size reflects the judge&#x27;s uncertainty. We will monitor whether the price can re-claim the $1,168 level to validate the momentum turn.</div></article><article id="9b05ebd9"><h2>CLOSE AMZN — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-01 13:37 UTC · trade 9b05ebd9</div><div class=body>**Paper Trade Journal: AMZN Mean-Reversion Entry (ID: 9b05ebd9)**
 
 **The Opportunity**
 On September 28, 2026, the deterministic strategy flagged a high-probability mean-reversion setup in Amazon (AMZN). The core trigger was an extreme short-term oversold condition: the 2-day RSI (RSI2) printed at 8.1, falling well below the strategy’s threshold of 10. Crucially, this dip occurred within a confirmed long-term uptrend, as the closing price of $246.06 remained above the 200-day Simple Moving Average (SMA200) of $240.94. The divergence between the weak short-term momentum (RSI2) and the strong long-term trend (price &gt; SMA200) is the specific pattern the strategy is designed to exploit. At the time of entry, the 5-day SMA was $249.87, indicating that the stock had pulled back significantly from its recent local highs, creating the &quot;oversold&quot; gap the strategy seeks to close.
