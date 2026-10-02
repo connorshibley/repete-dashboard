@@ -18,13 +18,41 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-01 19:49 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-02 13:37 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="e714d4e6"><h2>BUY XLV — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-01 19:47 UTC · trade e714d4e6</div><div class=body>**Paper Trading Entry: XLV (Health Care) Mean Reversion Buy**
+<article id="e185e239"><h2>BUY UNH — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-02 13:37 UTC · trade e185e239</div><div class=body>**PAPER TRADE JOURNAL: UNH Entry**
+
+**Disclaimer:** This is a simulated paper trading journal. No real capital is at risk. This entry documents a test of a deterministic strategy, not financial advice.
+
+### The Opportunity
+
+The deterministic mean-reversion strategy identified a setup in UnitedHealth Group (UNH) based on extreme short-term oversold conditions within a long-term uptrend. The specific trigger was a 2-period RSI (RSI2) of 5.4, which falls below the strategy’s 10.0 threshold. This signal indicates that price has dropped sharply over the last two sessions, potentially creating a temporary dislocation from fair value.
+
+Crucially, the strategy requires that this dip occurs in the context of a healthy long-term trend. UNH’s closing price of $365.20 sits comfortably above its 200-day Simple Moving Average (SMA200) of $352.37. This alignment confirms the &quot;uptrend intact&quot; condition, distinguishing this as a potential pullback rather than a breakdown. However, the price is also trading below the 5-day SMA ($372.33), confirming immediate short-term weakness.
+
+### Strategy Logic
+
+The logic behind this class of setup relies on the statistical tendency of highly liquid large-cap equities to revert to the mean after violent, short-term swings. When an uptrending asset becomes oversold (RSI2 &lt; 10), the strategy bets that selling pressure has been exhausted.
+
+The primary known failure mode is the &quot;falling knife.&quot; An oversold indicator does not guarantee a floor; it only indicates that recent selling was intense. If the fundamental trend is actually breaking, RSI2 can remain below 10 for extended periods as the price trends lower. Furthermore, this strategy is vulnerable to binary events, such as earnings reports, where price gaps can ignore technical levels entirely.
+
+### The Judge’s View
+
+The AI risk-reviewer acknowledged the strong historical win rate (7 out of 8) for similar RSI2 &lt; 10 setups in an up/low regime. However, the judge issued a &quot;downsize&quot; verdict with a scale factor of 0.3, reducing the position size to 8 shares.
+
+The core reason for the reduction was the &quot;Earnings within 14 days&quot; flag. The judge correctly identified that a standard ATR stop cannot protect against a gap-through event. While the dovish jobs report suggested a risk-on environment that might support a rebound, the specific risk of UNH’s upcoming earnings—combined with recent fundamental news regarding a shareholder lawsuit and restructuring—created an unacceptable binary risk for full sizing. The 0.3 scale transforms the trade from a core position into a small, high-risk lottery ticket, limiting the damage if the earnings gap breaches the stop.
+
+### Risk Plan
+
+**Entry:** 8 shares at $365.20.
+**Stop Loss:** $350.32.
+**Invalidation:** The trade is proven wrong if UNH closes below $350.32 or gaps through this level prior to the close.
+
+The stop is placed at a volatility-scaled distance below the entry, intended to filter out normal daily noise while capping the maximum loss. With the position downsized to 30% of the standard size, the potential loss on this trade is strictly contained. The primary risk is not the technical stop, but the binary earnings event. If UNH reports earnings that disappoint, the stock could gap down significantly, bypassing the $350.32 stop. This reduced size is the primary mitigation for that specific tail risk. We are entering with low conviction (0.58 confidence) and low exposure, waiting for the mean reversion to play out without jeopardizing the broader book’s stability.</div></article><article id="e714d4e6"><h2>BUY XLV — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-01 19:47 UTC · trade e714d4e6</div><div class=body>**Paper Trading Entry: XLV (Health Care) Mean Reversion Buy**
 
 This entry is for a **paper trading** account only. No real capital is at risk.
 
