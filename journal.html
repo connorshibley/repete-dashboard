@@ -18,13 +18,67 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-02 13:37 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-02 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="e185e239"><h2>BUY UNH — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-02 13:37 UTC · trade e185e239</div><div class=body>**PAPER TRADE JOURNAL: UNH Entry**
+<article id="ce38f88c"><h2>CLOSE IWM — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-02 19:46 UTC · trade ce38f88c</div><div class=body>**Paper Trading Log**
+*Trade ID: ce38f88c | Symbol: IWM | Date: 2026-09-29*
+
+**Status:** Closed (Win)
+**P&amp;L:** +$49.13 (+1.04%)
+**Benchmark P&amp;L:** +0.71%
+**Alpha:** +0.33%
+
+### The Opportunity
+The deterministic mean-reversion strategy identified a specific statistical setup in IWM. At the time of entry, the RSI(2) indicator read 5.6, a value well below the 10.0 threshold used to signal an oversold condition. Crucially, this signal occurred while the asset remained in a long-term uptrend, evidenced by the closing price of $278.71 sitting above the 200-day Simple Moving Average ($274.71). The strategy interpreted this divergence—a sharp short-term pullback within a structural uptrend—as a high-probability entry point for a quick bounce. The price was also trading below its 5-day SMA ($280.86), suggesting immediate momentum had stalled, which aligns with the &quot;buy the dip&quot; logic.
+
+### Strategy Logic and Failure Modes
+This strategy trades on the premise that in a healthy uptrend, sharp, short-term deviations from the mean are temporary overreactions. It seeks to profit from the reversion of price back toward the 5-day moving average. The expected holding period is short, typically 2 to 3 days, exiting as soon as the price closes back above the SMA5 or after a hard cap of 7 days.
+
+The primary failure mode for this setup is regime change. If the &quot;uptrend&quot; identified by the 200-day SMA is actually a distribution phase or if macro factors shift rapidly, the &quot;oversold&quot; dip can become the start of a sustained decline. In such cases, the price may never retest the 5-day average, triggering the stop-loss. Additionally, small-cap proxies like IWM are more sensitive to interest rate movements than large-cap benchmarks, making them vulnerable to valuation compression that technical indicators may not immediately reflect.
+
+### The Judge&#x27;s View
+The AI risk-review initially flagged a conflict between the strong technical signal and the broader macro environment. The reviewer noted that while the historical win rate for this RSI2/SMA200 combination is high (~78%), the current macro context—specifically spiking Treasury yields and hawkish Fed signals—posed a specific risk to small-cap valuations. The review highlighted that the account already had significant gross exposure (29%) and that recent similar setups had been vetoed due to these tail risks.
+
+Consequently, the judge issued a &quot;downsize&quot; verdict with a scale factor of 0.5. This decision halved the intended position size to balance the statistical edge of the entry against the potential macro-driven tail risk. The confidence level was recorded at 0.65, reflecting uncertainty about whether the technical setup would override the macro headwinds.
+
+### Risk Plan and Outcome
+**Entry:** 17 shares at $278.71 (Position Value: ~$4,738).
+**Stop Loss:** $271.50. This placed the stop 2.59% below the entry price, risking approximately $7.21 per share.
+**Exit Rule:** No fixed take-profit. The trade was designed to exit when the price closed above the 5-day SMA, or if the stop was hit, or after 7 days.
+
+**What Happened:**
+The trade proved the thesis correct in the short term. IWM recovered from the dip, and the position was closed via a &quot;strategy_sell&quot; signal. The exit price was $281.60, resulting in a profit of $49.13 (1.04%). This outperformed the benchmark return of 0.71% for the same period, generating 0.33% in alpha.
+
+**Analysis:**
+This was a successful execution of the mean-reversion playbook. The price retested and moved back above the relevant moving averages, validating the &quot;oversold dip&quot; hypothesis. The halved position size limited the downside exposure during the initial drop, though the move was favorable. However, this is a single data point (n=1). One winning trade does not prove the strategy is robust against all macro shifts, nor does it guarantee that the 0.5 size scale is optimal. It simply confirms that, in this specific instance, the technical signal overrode the macro headwinds for the duration of the hold.</div></article><article id="1e6e8012"><h2>CLOSE JNJ — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-02 19:45 UTC · trade 1e6e8012</div><div class=body>**Journal Entry: JNJ Mean Reversion Sell Attempt (Paper Trading)**
+
+*Note: This is a paper trade. No real capital was at risk. This entry documents a simulated loss for educational and algorithmic review purposes only.*
+
+**The Opportunity**
+On September 30, 2026, the deterministic mean-reversion strategy identified a potential entry in Johnson &amp; Johnson (JNJ). The core signal was an extreme short-term oversold condition: the 2-day RSI (RSI2) hit 6.9, well below the strategy’s threshold of 10. This occurred while the broader trend remained constructive, with the closing price of $265.05 sitting significantly above the 200-day Simple Moving Average (SMA200) at $239.25. The 5-day SMA (SMA5) was at $269.29, indicating that price had dipped just below its immediate average. The logic was straightforward: in an intact uptrend, such a sharp, short-term deviation is statistically likely to revert to the mean, offering a high-probability, short-duration entry.
+
+**Strategy Logic and Failure Modes**
+This setup trades the &quot;rubber band&quot; effect: prices do not fall in a straight line but oscillate around value. The strategy assumes that a dip below the 5-day average, confirmed by an RSI2 below 10, is a panic or exhaustion move rather than a fundamental shift. However, this approach has known failure modes. The primary risk is that the &quot;dip&quot; is actually the beginning of a structural trend reversal. If the underlying thesis for the uptrend (e.g., earnings, guidance) is broken, the price can continue to fall through the support levels, rendering the mean-reversion entry a &quot;catching a falling knife&quot; scenario. Additionally, mean-reversion strategies are inherently time-sensitive; if the price does not snap back quickly, the opportunity cost of capital increases, and the thesis weakens.
+
+**The Judge’s View**
+The AI risk-review (LLM Judge) acknowledged the strong historical win rate for RSI2 &lt; 10 setups but issued a &quot;downsize&quot; verdict with a scale factor of 0.3. The judge flagged two critical issues:
+1.  **Recent Blocks:** JNJ had been blocked by risk rails and vetoed six times in the preceding days, suggesting persistent volatility or structural issues that the deterministic signal might be overlooking.
+2.  **Binary Event Risk:** Earnings were scheduled within 14 days. The judge noted that ATR-based stops cannot bound the gap risk associated with earnings announcements.
+
+The judge concluded that while the probability of reversion was high, the risk of a binary gap-down event was asymmetric. Therefore, the position size was reduced to 30% of the standard calculation to mitigate exposure to the earnings event and the lack of recent successful execution history for this specific asset.
+
+**Risk Plan and Execution**
+The bot executed a buy for 11 shares at the entry price of $265.05, resulting in a position value of $2,915.55. The risk plan was strict:
+*   **Stop Loss:** A fixed stop was placed at $255.31, representing a risk of $9.74 per share (3.67% of the entry price).
+*   **Exit Rules:** The trade was designed to exit when price closed back above the 5-day SMA, if the 7-day hard cap was reached, or if the stop was hit. There was no fixed take-profit target.
+*   **Invalidation:** The trade was considered wrong if price closed below $255.31.
+
+**Outcome**
+The trade failed. Price did not revert to the mean before hitting the stop loss. The position was exited at $255.30, resulting in a realized loss of $107.25 (-3.68%). The benchmark for the period was up 0.92%, resulting in negative alpha of -4.6%. This single trade (n=1) confirms that while the RSI2 signal was statistically valid in a vacuum, the specific context of imminent earnings and recent volatility prevented the quick reversion required for the strategy to succeed. It does not prove the strategy is broken, but it highlights the danger of ignoring macro-event risk in high-probability technical setups.</div></article><article id="e185e239"><h2>BUY UNH — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-02 13:37 UTC · trade e185e239</div><div class=body>**PAPER TRADE JOURNAL: UNH Entry**
 
 **Disclaimer:** This is a simulated paper trading journal. No real capital is at risk. This entry documents a test of a deterministic strategy, not financial advice.
 
