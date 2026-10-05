@@ -18,13 +18,102 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-05 13:37 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-05 19:49 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="ea0f3267"><h2>CLOSE ABBV — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-05 13:37 UTC · trade ea0f3267</div><div class=body>**Trade ID:** ea0f3267
+<article id="dd3c5243"><h2>BUY PFE — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-05 19:49 UTC · trade dd3c5243</div><div class=body>**Trade Log: PFE Mean Reversion Entry**
+
+*Note: This is a paper trading journal entry. No real capital is at risk.*
+
+The deterministic strategy identified a classic mean-reversion setup in Pfizer (PFE), triggering a BUY signal. The primary indicator was the 2-day RSI (RSI2) reading of 1.5, a value well below the threshold of 10 that defines a severely oversold condition for this strategy. Critically, this dip occurred while PFE remained in an intact long-term uptrend, with the current price of $27.50 sitting comfortably above the 200-day Simple Moving Average (SMA200) of $25.82. This structural integrity distinguishes a transient &quot;oversold dip&quot; from a breakdown in a downtrend, which the strategy is designed to ignore.
+
+The logic behind trading this setup is rooted in the statistical tendency of short-term momentum to revert to the mean within a broader upward trend. Historically, this specific class of trades (RSI2 &lt; 10 in an uptrend) has shown a strong win rate; among the ten most similar past closed trades provided to the system, seven resulted in a win. However, the known failure modes are equally clear: two of those ten trades resulted in significant losses (LLY at -3.28% and JNJ at -3.68%), demonstrating that even a &quot;perfect&quot; technical setup can fail if the underlying thesis for the uptrend breaks down or if idiosyncratic news events accelerate the decline.
+
+The AI risk-review did not approve the trade at full size. The judge identified PFE as a &quot;news-nominated symbol,&quot; citing a recent lawsuit from the Florida Attorney General regarding vaccine safety claims. Because PFE is outside the core backtested universe, the judge applied extra skepticism. The review noted that the system’s overall approve accuracy is currently low (43%), and PFE has a prior news-linked loss of -2.68%. Consequently, the judge issued a &quot;downsize&quot; verdict with a scale factor of 0.5 and a confidence level of 0.6. The reasoning balanced the high-probability technical signal against the asymmetric downside risk of legal headlines, effectively halving the position size to account for the &quot;unique legal risk not captured in the general strategy stats.&quot;
+
+The risk plan for this 182-share position is defined by a hard stop-loss at $26.53. This stop is placed below the current price to account for normal volatility, and per system knowledge, this invalidation level is set at entry and will never be widened. The position is sized to fit within the current book exposure limits, maintaining a gross exposure of roughly 35% of equity. What would prove this trade wrong is a close below $26.53, indicating that the &quot;oversold&quot; condition was actually the start of a deeper correction, likely driven by the legal headwinds or a failure of the broader healthcare sector. If the price reverts upward toward the 5-day SMA (currently $28.13), the thesis is supported, but until then, the position remains an open bet on short-term price recovery within a long-term uptrend.</div></article><article id="e185e239"><h2>CLOSE UNH — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-05 19:48 UTC · trade e185e239</div><div class=body>**Paper Trade Log: UNH Mean Reversion (Entry to Close)**
+
+**Opportunity Identification**
+This entry, executed in paper trading, targeted UnitedHealth Group (UNH) based on a deterministic mean-reversion signal. On October 2, 2026, the strategy identified an acute short-term oversold condition within a broader uptrend. The key data point was the 2-day Relative Strength Index (RSI2) dropping to 5.4, well below the 10.0 threshold required for entry. This signal was contextualized by the price action relative to long-term moving averages: UNH was trading at $365.20, comfortably above the 200-day Simple Moving Average (SMA) of $352.37. This configuration confirmed that the dip was likely a tactical pullback in a sustained uptrend rather than the beginning of a structural downtrend. Notably, the price was also below the 5-day SMA of $372.33, indicating that the short-term momentum had been sufficiently damaged to trigger the mean-reversion logic.
+
+**Strategy Logic and Failure Modes**
+The core thesis of this strategy class is that in established uptrends, extreme short-term capitulation (measured by low RSI2) tends to reverse quickly as value-seeking investors re-enter the position. The &quot;mean&quot; in mean reversion refers to the short-term average, typically the 5-day SMA. The strategy assumes that prices will snap back above this average within a few days.
+
+However, this approach has well-known failure modes. The primary risk is &quot;falling knife&quot; scenarios where an oversold condition signals the start of a new downtrend rather than a pullback. Another significant risk is event-driven gap downs, which can bypass technical stop-losses entirely. In this specific instance, the presence of earnings within 14 days introduced binary risk that the technical model does not natively account for, as RSI2 does not react to future fundamental events.
+
+**Judge’s Review and Sizing**
+The AI risk reviewer analyzed the setup with a confidence score of 0.58. While acknowledging the high historical win rate (7/8) for similar RSI2 &lt; 10 setups in this regime, the judge issued a &quot;downsize&quot; verdict. The critical factor cited was the &quot;earnings within 14 days&quot; flag. The review reasoned that gap risk around earnings could breach the ATR-based stop loss, rendering the technical exit plan ineffective. Consequently, the position size was scaled down by a factor of 0.3. This &quot;lottery ticket&quot; sizing acknowledged the statistical edge of the technical pattern while hedging against the unpriced binary event risk.
+
+**Risk Plan and Outcome**
+The original risk plan defined a fixed stop-loss at $350.32, representing a 4.07% risk per share from the $365.20 entry. The exit plan specified no fixed take-profit, relying instead on the price closing above the 5-day SMA or the 7-day time stop. The thesis was invalidated if the price closed below the $350.32 stop.
+
+In execution, the trade resulted in a win. The position was closed via a `strategy_sell` signal at an exit price of $377.405. This triggered the exit rule as the price closed back above the relevant short-term average. The trade generated a profit of $97.64, or 3.34%, outperforming the benchmark by 2.57 percentage points. This outcome validates the hypothesis that the oversold dip reverted quickly. However, it is crucial to note that this is a single trade (n=1). While the result aligns with the expected pattern, it does not prove the strategy&#x27;s long-term efficacy nor the effectiveness of the downsizing logic. The fact that the trade won before the earnings event mitigated the specific binary risk the judge feared, but this timing cannot be generalized from one instance. This remains a paper trade simulation with no real capital at risk.</div></article><article id="dce0f5b6"><h2>CLOSE V — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-05 19:47 UTC · trade dce0f5b6</div><div class=body>### Opportunity Snapshot
+
+This entry, logged as a paper trade on September 30, 2026, captures a classic mean-reversion setup in Visa (V). The deterministic strategy identified a specific confluence of indicators: the two-period RSI (RSI2) had dropped to 7.1, breaching the sub-10 oversold threshold, while the broader uptrend remained intact. At the time of entry, the stock closed at $360.42, trading significantly above its 200-day Simple Moving Average (SMA200) of $336.37. This divergence signaled a short-term dip within a longer-term bullish trend. The five-day SMA was at $365.88, meaning the price was sitting below its immediate short-term average, creating a statistical pullback toward that moving average.
+
+### Strategy Logic and Failure Modes
+
+The &quot;meanrev&quot; strategy trades on the premise that price movements in liquid, large-cap financials tend to revert to a statistical mean after sharp deviations. By buying when RSI2 indicates extreme short-term selling pressure, the bot attempts to capture the &quot;snap-back&quot; rally. The logic is not about predicting a major directional change, but rather harvesting volatility.
+
+However, this setup has known failure modes. The primary risk is &quot;catching a falling knife,&quot; where an oversold condition persists because a new macro headwind is emerging. In such cases, the price does not revert to the 5-day SMA but continues to slide, breaking support levels. Another failure mode is low-beta drift, where the stock simply chops sideways for weeks, failing to trigger the exit condition of closing back above the 5-day average within the 7-day hard cap, thereby tying up capital without generating meaningful alpha.
+
+### The Judge’s View
+
+The AI risk-review provided a nuanced assessment, issuing a &quot;downsize&quot; verdict with a 0.5 size scale. The model acknowledged the bull case—that historical RSI2 dips in uptrends for broad proxies often show positive expectancy. However, it flagged two specific concerns that shaped the final position size. First, the specific symbol V had a recent negative track record in the bot’s memory, with a previous trade in this regime resulting in a loss. Second, the broader calibration for approving these trades had recently degraded to a 39% accuracy rate. Consequently, the judge reduced the position from the standard size to a conservative 13 shares (a total position value of approximately $4,685). This decision reflected a lack of confidence in the current regime’s reliability rather than a rejection of the underlying statistical edge.
+
+### Risk Plan and Outcome
+
+The risk plan was defined by a fixed stop-loss at $349.03, representing a 3.16% risk per share. There was no fixed take-profit target; instead, the exit rule was dynamic: the trade would close as soon as the price closed back above the 5-day SMA, with a hard cap of 7 days. The trade was invalidated if the price closed below the $349.03 stop.
+
+In execution, the trade was a winner. The position exited at $369.57 with a &quot;strategy_sell&quot; reason, meaning the price had recovered and closed back above the 5-day average as planned. The profit was $118.95, or 2.54%, which outperformed the benchmark return of 1.7% by 0.84%.
+
+It is crucial to note that this is a paper trade and this result is n=1. A single successful trade does not prove the strategy is robust, nor does it validate the &quot;downsize&quot; decision; a larger size would have resulted in a larger dollar profit. Conversely, the success does not prove that the recent negative calibration was wrong. One trade is a single data point in a stochastic process, useful for logging but insufficient for altering the core logic or risk parameters. The bot’s memory now includes this successful instance of an RSI2 dip in V during an up/low regime, but this single win will likely be outweighed by the requirement for statistical significance before any model re-weighting occurs.</div></article><article id="2adbcce2"><h2>CLOSE XLF — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-05 19:46 UTC · trade 2adbcce2</div><div class=body>**Trade Journal Entry: XLF Mean Reversion**
+**Date:** 2026-09-30
+**Status:** Paper Trading (Simulated)
+**Trade ID:** 2adbcce2
+
+This entry documents a completed paper trading position in the SPDR Financial Select Sector ETF (XLF). It is crucial to reiterate that all trades recorded here are simulated and involve no real capital, existing solely to evaluate the deterministic logic of the mean-reversion strategy.
+
+### The Opportunity
+The deterministic strategy identified a classic &quot;oversold dip in an uptrend&quot; setup. At the moment of entry, XLF closed at **$53.51**. The 2-day Relative Strength Index (RSI2) had dropped to **5.0**, a value well below the threshold of 10 that triggers the mean-reversion signal. Despite this short-term weakness, the long-term trend filter remained green: the closing price held above the 200-day Simple Moving Average (SMA200) at **$53.33**. However, the 5-day SMA (SMA5) sat significantly higher at **$54.22**, indicating a sharp recent divergence from the short-term mean. The strategy’s logic is simple: in a sustained uptrend, short-term overreactions to the downside are statistically likely to reverse as price snaps back toward the moving averages.
+
+### Strategy Logic and Failure Modes
+Mean-reversion strategies in sector ETFs capitalize on the tendency of prices to oscillate around their means rather than drift indefinitely in one direction over short timeframes. The thesis relies on the assumption that a drop to an RSI2 of 5 in an uptrending asset represents a temporary exhaustion of selling pressure.
+
+However, this setup has well-documented failure modes. The primary risk is &quot;catching a falling knife,&quot; where a short-term oversold condition coincides with a fundamental shift or macroeconomic headwind that turns a dip into a broader correction. In such cases, the price does not revert to the mean but instead breaks lower, invalidating the uptrend premise. Additionally, if the macro environment imposes structural pressure on the sector, the &quot;uptrend&quot; defined by the SMA200 may prove fragile, leading to repeated stop-outs.
+
+### The Judge’s View
+The AI risk-review assessed the technical signal against current macro conditions. While the technicals were clear, the reviewer noted a significant bearish counter-narrative: rising interest rates were actively pressuring financials through Net Interest Margin (NIM) compression. The reviewer highlighted that XLF had been recently vetoed for similar signals due to these fundamentals, citing a recent -3.28% loss on a similar LLY trade.
+
+Consequently, the judge did not reject the trade but issued a &quot;downsize&quot; verdict, applying a 0.5 scale factor. This decision reduced the position size to 93 shares (approx. $4,976 notional value), aiming to capture the potential snap-back while protecting capital against a trend continuation driven by the rate headwind. The confidence level was set at a modest 0.55, reflecting uncertainty about whether technicals would override macroeconomic fundamentals.
+
+### Risk Plan and Execution
+The risk plan was strict. A fixed stop-loss was placed at **$52.00**, representing a risk of $1.51 per share or approximately 2.82% of the entry price. There was no fixed take-profit target; instead, the exit rule was dynamic. The position was designed to exit immediately once the price closed back above the 5-day SMA, or if the 7-day hard cap was reached, or if the stop was hit.
+
+### Outcome Analysis
+The trade resulted in a small profit. XLF exited at **$53.93**, generating a PnL of **$39.06** (0.78%). The exit was triggered by the strategy rule: the price closed back above the 5-day average, confirming the mean-reversion.
+
+It is essential to contextualize this result. While the trade was a &quot;win&quot; in absolute terms, it underperformed the benchmark, which moved 1.7% during the same period, resulting in negative alpha of -0.91%. This single data point (n=1) suggests that while the strategy captured a snap-back, the half-sized position and the macro headwind may have limited the upside potential. It does not prove the strategy is effective or ineffective overall, but it highlights that in high-rate environments, mean-reversion profits in financials may lag behind broader market momentum. The hypothesis generated from this trade is that XLF mean-reversion buys in this regime, even with strong technical triggers, may frequently underperform the benchmark if the macro headwind persists.</div></article><article id="51f945a8"><h2>CLOSE DIA — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-05 19:46 UTC · trade 51f945a8</div><div class=body>**Paper Trading Journal: DIA Mean Reversion Entry**
+
+This entry documents a paper trading position in DIA (SPDR Dow Jones Industrial Average ETF). This is strictly a simulated exercise; no real capital is at risk. The trade was executed on 2026-10-01 with a buy order for 19 shares at an entry price of $508.55. The total position value was $9,662.45.
+
+**The Opportunity and Strategy Logic**
+The deterministic strategy identified a mean-reversion setup within an established uptrend. At the time of entry, DIA’s close was $508.55, sitting comfortably above the 200-day Simple Moving Average (SMA) of $499.30. This confirms the long-term trend was intact. However, the 2-day Relative Strength Index (RSI2) had compressed to 9.6, signaling a severe short-term oversold condition. The 5-day SMA stood at $513.12, indicating that price had pulled back significantly below its immediate moving average.
+
+The core logic of this setup is that in strong uptrends, sharp, short-term washouts often correct too quickly and revert toward the mean. The strategy bets that the 2-day momentum indicator has overshot to the downside relative to the broader trend. A known failure mode for this class of trade is &quot;catching a falling knife&quot; in a regime shift. If the broader market rotates from &quot;up&quot; to &quot;down,&quot; the uptrend assumption is invalidated, and the oversold signal may simply mark the beginning of a deeper correction rather than a quick bounce.
+
+**The Judge’s View and Risk Plan**
+The AI risk-review approved the trade with a full scale of 1.0 and a confidence score of 0.62. The review acknowledged valid bearish arguments regarding broader market headwinds from bond yields and rising rates. However, it weighted the specific high-fidelity nature of the signal—RSI2 &lt; 10 with price &gt; SMA200—more heavily, noting that historical data for this specific configuration showed a positive win rate. The macro noise was deemed secondary to the specific statistical edge of the signal.
+
+The risk plan was tight. A fixed stop-loss was placed at $498.30, which is just below the $499.30 SMA200 and the recent price low. This placed the risk at $10.25 per share, or 2.02% of the entry price. There was no fixed take-profit target. The trade was designed to exit when the price closed back above the 5-day SMA ($513.12) or if the 7-day hard cap elapsed. The plan defined the trade as &quot;wrong&quot; only if price closed below the $498.30 stop.
+
+**Outcome and Reflection**
+The position exited via the `strategy_sell` rule at $512.56. The price did not quite reach the 5-day SMA exit trigger ($513.12) but met the criteria for the strategic exit logic. The trade resulted in a profit of $76.19 (0.79%).
+
+While this is a win, the context is important. The benchmark for DIA returned 1.52% over the same period. Consequently, the trade generated an alpha of -0.73%. The mean-reversion strategy captured a portion of the upside but underperformed the simple &quot;buy and hold&quot; benchmark. This single instance (n=1) does not prove the strategy&#x27;s superiority or inferiority; it simply demonstrates that while the specific oversold dip reversed positively as predicted, the recovery was slower or less aggressive than the broader index movement during that specific window. The lesson hypothesis recorded is that in &quot;up/low&quot; regimes, these mean-reversion buys may yield positive P&amp;L but can still underperform the underlying asset&#x27;s directional momentum.</div></article><article id="ea0f3267"><h2>CLOSE ABBV — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-05 13:37 UTC · trade ea0f3267</div><div class=body>**Trade ID:** ea0f3267
 **Symbol:** ABBV
 **Action:** Buy (Paper Trade)
 **Entry:** $260.21
