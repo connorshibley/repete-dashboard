@@ -18,13 +18,51 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-06 13:37 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-06 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="dd3c5243"><h2>BUY PFE — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-05 19:49 UTC · trade dd3c5243</div><div class=body>**Trade Log: PFE Mean Reversion Entry**
+<article id="816292c2"><h2>CLOSE KO — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-06 19:47 UTC · trade 816292c2</div><div class=body>**Paper Trade Journal: KO Mean Reversion Attempt**
+
+**Date:** 2026-09-29
+**Symbol:** KO
+**Action:** Buy (Long)
+**Type:** Paper Trading
+
+This entry documents a completed paper trading position on The Coca-Cola Company (KO), executed under a deterministic mean-reversion strategy. This is a simulation for educational and algorithmic testing purposes; no real capital was risked.
+
+### The Opportunity
+The strategy identified a specific statistical anomaly: an extreme short-term oversold condition within a long-term uptrend. At the time of entry, KO’s closing price was $86.94. The key trigger was the RSI(2) indicator dropping to 7.0, a value well below the threshold of 10 that the strategy uses to signal a likely snap-back. Crucially, this dip occurred while the stock remained significantly above its 200-day Simple Moving Average (SMA), which stood at $78.87. This configuration—price well above the long-term trend line but with a very low RSI(2)—is the classic &quot;oversold dip in an uptrend&quot; setup. However, a complicating factor was present: the price ($86.94) was below the 5-day SMA ($87.62), indicating that the short-term momentum was still downward despite the long-term strength.
+
+### Strategy Logic and Failure Modes
+The core logic of this strategy is that short-term price deviations from recent averages tend to revert to the mean, provided the long-term trend has not broken. By buying when RSI(2) is near zero, the strategy aims to capture the initial, often sharp, bounce that occurs as overreaction subsides. The primary failure mode for this setup is that an &quot;oversold&quot; dip can actually be the beginning of a trend reversal. If the stock breaks below its 200-day SMA or continues to fall through the stop loss, the thesis is invalidated. Another risk is that low-beta stocks like KO may drift lower for extended periods without a sharp bounce, leading to time decay in the strategy’s efficiency, even if the stop loss is eventually hit.
+
+### The Judge’s View
+The AI risk-review approved the trade but reduced the position size to 80% of the maximum allowable scale. The judge’s reasoning was nuanced. It acknowledged the strong historical win rate for RSI(2) &lt; 10 entries above the SMA(200). However, it flagged the macro context: rising 30-year yields and hawkish Fed signals often pressure valuations, particularly for defensive, low-beta names like KO. The judge noted that while KO’s position above the SMA(200) suggests resilience, the low-beta nature of the asset might result in underperformance during risk-on rallies. The 0.8 scale factor was a hedge against these macro headwinds and the specific risk of a defensive stock getting &quot;stuck&quot; in a range.
+
+### Risk Plan
+The position consisted of 91 shares at an entry price of approximately $86.945. A fixed stop loss was placed at $84.63, representing a risk of $2.31 per share, or roughly 2.66% of the entry price. There was no fixed take-profit target; instead, the strategy is designed to exit as soon as the price closes back above the 5-day SMA, or if the 7-day hard cap expires. The trade is proven wrong if the price closes below $84.63, indicating that the dip was not a temporary overreaction but a genuine breakdown in short-term support.
+
+### Outcome and Analysis
+The trade exited via the strategy&#x27;s standard sell signal, resulting in a loss of $54.60 (-0.69%). The exit price was $86.345. This outcome highlights a common nuance in mean-reversion trading: the &quot;bounce&quot; may not be large enough to cover the entry cost and spread, or the exit trigger (closing above SMA5) may fire at a price slightly lower than the entry if the bounce is weak and slow.
+
+It is critical to remember that this is a single data point (n=1). A -0.69% loss is within the normal statistical variance of a strategy with a high win rate. One losing trade does not invalidate the logic, nor does it prove the strategy is broken. The underperformance relative to the benchmark (alpha of -2.7%) reflects the specific opportunity cost of holding KO during this window. This trade serves as a test of the stop placement and the exit rule&#x27;s efficiency in a &quot;flat&quot; bounce scenario, where price fails to decisively reclaim the 5-day average quickly, leading to an exit at a marginal loss rather than a significant gain.</div></article><article id="5835b0ac"><h2>BUY XOM — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-10-06 19:47 UTC · trade 5835b0ac</div><div class=body>### Paper Trade Journal: XOM Entry
+
+This is an automated **paper trading** journal entry. No real capital is at risk. This record documents the logic, risk, and outcome of a simulated position.
+
+**The Opportunity**
+The deterministic strategy, `ma_crossover`, triggered a buy signal for ExxonMobil (XOM) based on a short-term momentum shift. At the time of entry, the price was $164.85. The 10-period Simple Moving Average (SMA10) at 162.73 crossed above the 30-period SMA (SMA30) at 162.27. This crossover indicates that recent price action has accelerated relative to the medium-term trend, suggesting momentum is turning upward. The system identified this as a standard &quot;golden cross&quot; variant on a faster timeframe, aiming to capture the initial leg of a new trend. The broader regime was classified as &quot;up/low,&quot; indicating the S&amp;P 500 (SPY) was trading above its moving average with low volatility, a condition historically favorable for trend-following strategies.
+
+**Strategy Logic and Failure Modes**
+SMA crossovers are traded because they filter out noise, attempting to buy only when price is clearly moving higher. However, this setup has well-known failure modes. Crossovers are lagging indicators; by the time the SMA10 crosses the SMA30, a significant portion of the move may already be priced in. In ranging or choppy markets, these signals often produce &quot;whipsaws,&quot; resulting in false positives where the price reverses immediately after the cross. The strategy relies on the assumption that momentum persists, but it fails when mean-reversion dominates or when external shocks (like earnings or macro news) invalidate the trend. The deterministic match for similar past trades showed a mixed record, including losses on META and GS, highlighting the unreliability of this signal in isolation for large-cap names.
+
+**The Judge&#x27;s View**
+The AI risk-reviewer flagged significant concerns. It noted that the &quot;most similar&quot; past trades (META, GS) resulted in losses or flat P&amp;L, suggesting the signal is weak for this specific ticker and regime. Furthermore, XOM had been blocked in five of the last six prior calls due to &quot;rails_reject&quot; and &quot;veto&quot; actions, indicating the system repeatedly found risks in similar setups. Despite this, the judge did not veto the trade. It cited fundamental tailwinds—crude oil spikes near $100 due to geopolitical events and news regarding offshore projects in Trinidad and Guyana—as a basis for potential upside. The verdict was to &quot;downsize&quot; with a 0.5 scale factor. This reduced position size reflects low confidence (0.55) in the technical signal while acknowledging the fundamental context.
+
+**Risk Plan**
+The position was sized at 24 shares, reflecting the 0.5 scale reduction. The stop-loss was placed at $158.38, approximately 3.9% below the entry price of $164.85. This stop is set below the recent support structure to avoid being shaken out by normal daily noise. The trade is proven wrong if the price closes below this level, indicating the momentum shift was a false breakout. With no take-profit set, the strategy relies on a trailing stop or a reversal of the crossover to exit. This is a single trade (n=1); a win or loss here does not prove the strategy’s efficacy or flaw. It is simply one data point in the simulation of paper trading performance.</div></article><article id="dd3c5243"><h2>BUY PFE — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-05 19:49 UTC · trade dd3c5243</div><div class=body>**Trade Log: PFE Mean Reversion Entry**
 
 *Note: This is a paper trading journal entry. No real capital is at risk.*
 
