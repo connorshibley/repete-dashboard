@@ -18,13 +18,36 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-07 13:38 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-07 19:47 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="e714d4e6"><h2>CLOSE XLV — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-07 13:36 UTC · trade e714d4e6</div><div class=body>**Paper Trade Journal Entry**
+<article id="d5b55267"><h2>BUY COST — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-10-07 19:47 UTC · trade d5b55267</div><div class=body>### Paper Trading Journal: COST Entry
+
+**Trade ID:** d5b55267
+**Action:** BUY 4 shares of COST
+**Entry Price:** $941.61
+**Status:** PAPER TRADING
+
+#### The Opportunity
+This trade was initiated by the `ma_crossover` strategy based on a deterministic signal: the 10-day Simple Moving Average (SMA10) at $921.35 crossed above the 30-day SMA at $917.63. At the time of entry, the closing price was $941.61. The strategy interpreted this alignment as a confirmation of short-term momentum turning upward, suggesting that the immediate trajectory of the stock was shifting from consolidation or decline to recovery. The crossover is a classic trend-following trigger, intended to capture the initial leg of a new upward move before the broader market fully adjusts to the change in momentum.
+
+#### Strategy Logic and Failure Modes
+Moving Average Crossover strategies are traded because they provide a rule-based filter for trend identification, reducing emotional decision-making in favor of objective price action. The logic assumes that when shorter-term averages overtake longer-term averages, the market’s center of gravity is shifting upward.
+
+However, this setup has well-documented failure modes. Crossovers are lagging indicators; by the time the SMAs cross, a significant portion of the price move may have already occurred, leading to chasing highs. In ranging markets, whipsaws can occur where the averages cross back and forth, generating a series of small losses. Furthermore, the historical data provided for similar trades (GS and META SMA crossovers) showed 0.0% returns, indicating that while the technical trigger is valid, it does not guarantee immediate alpha. The specific risk here is that the momentum is already extended or that the crossover is a false start in a choppy environment.
+
+#### The Judge’s View
+The AI risk-reviewer assigned a verdict of &quot;downsize&quot; with a 0.5 scale factor and 55% confidence. The rationale highlighted a conflict between strong fundamentals and weak technical edge. While Costco’s recent Q4 earnings beat ($6.75 EPS) and membership growth provide a solid fundamental floor, the reviewer noted that the specific SMA10/30 crossover pattern had shown zero edge in comparable past trades for this bot. Additionally, the macro environment is hostile to risk assets; FOMC minutes indicating a potential further rate hike and rising inflation expectations (3.9%) are pressuring growth and defensive hybrids. The reviewer concluded that while the fundamental catalyst might eventually drive price up, the entry timing is uncertain. Therefore, the position was halved to mitigate the risk of the trade stalling or reversing, rather than vetoed entirely.
+
+#### Risk Plan
+**Position Size:** 4 shares. This is a reduced size (50% of standard) reflecting the moderate confidence and the &quot;no edge&quot; warning from historical patterns.
+**Stop Loss:** $910.55. This stop is placed below the SMA30 ($917.63) and accounts for recent volatility. If the price reclaims the area below the 30-day average, the thesis of &quot;momentum turning up&quot; is invalidated.
+**Invalidation:** The trade is proven wrong if COST trades below $910.55. This would indicate that the crossover was a failed breakout and that the selling pressure associated with the hawkish macro outlook is dominating the fundamental buy-side.
+
+**Note:** This is a paper trade. The outcome of this single position does not prove the efficacy or failure of the MA Crossover strategy. One trade is n=1. We are testing the hypothesis that fundamental strength can overcome a lack of historical technical edge when sized appropriately for macro risk.</div></article><article id="e714d4e6"><h2>CLOSE XLV — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-07 13:36 UTC · trade e714d4e6</div><div class=body>**Paper Trade Journal Entry**
 
 **Trade ID:** e714d4e6
 **Symbol:** XLV (Health Care Select Sector SPDR)
