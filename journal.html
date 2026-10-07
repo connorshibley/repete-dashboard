@@ -18,13 +18,49 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-06 19:48 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-07 13:38 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="816292c2"><h2>CLOSE KO — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-06 19:47 UTC · trade 816292c2</div><div class=body>**Paper Trade Journal: KO Mean Reversion Attempt**
+<article id="e714d4e6"><h2>CLOSE XLV — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-07 13:36 UTC · trade e714d4e6</div><div class=body>**Paper Trade Journal Entry**
+
+**Trade ID:** e714d4e6
+**Symbol:** XLV (Health Care Select Sector SPDR)
+**Type:** LONG (Paper)
+**Status:** Closed (Win)
+**Date:** 2026-10-01
+
+*Note: This entry documents a simulated transaction. No real capital was deployed. All PnL figures are theoretical.*
+
+### The Opportunity
+
+The deterministic mean-reversion strategy identified a short-term dislocation in XLV during the morning session on October 1, 2026. The core trigger was the 2-day Relative Strength Index (RSI2) dropping to **4.9**, a level below the strict entry threshold of 10. This occurred while the asset remained firmly in a long-term uptrend, with the closing price of **$166.43** sitting approximately 7% above the 200-day Simple Moving Average (SMA200) at **$155.44**. Additionally, the price was trading below the 5-day SMA of **$169.51**, confirming short-term weakness within a broader strength context. The regime was tagged as &quot;up/low,&quot; indicating a market environment where broad indices were trending higher but specific sectors were experiencing pullbacks.
+
+### Strategy Logic and Failure Modes
+
+This setup trades the statistical tendency for low-beta, defensive sectors like healthcare to snap back quickly after minor oversold dips, provided the primary trend (SMA200) remains intact. The logic assumes that an RSI2 below 10 in an uptrend represents a temporary imbalance rather than a structural break.
+
+However, this class of trade has known failure modes. The primary risk is &quot;catching a falling knife,&quot; where an oversold indicator continues to decline because a fundamental catalyst has shifted the trend. If the price breaks below the 200-day SMA, the thesis is void. Furthermore, mean-reversion in high-liquidity ETFs can be slow; if the market ignores the dip, capital is tied up for the hard cap duration, opportunity cost accrues, and the trade may exit via time-stop with negligible or negative returns.
+
+### The Judge’s View
+
+The AI risk-review model approved the trade with a **1.0 scale** (full size) and a confidence score of **0.72**. The &quot;bull case&quot; cited historical data showing that 8 out of 9 similar setups produced positive returns averaging ~1.9%. The model recognized that while the current book was 57% exposed to other equities (SPY, DIA, IWM), adding XLV provided necessary diversification from growth-heavy assets.
+
+The &quot;bear case&quot; noted the risk of concentration and flagged that the strategy had recently over-vetoed profitable moves, suggesting the calibration might be too tight. However, the judge concluded that this specific high-probability setup justified full size despite the elevated gross exposure, as the expected value outweighed the crowding risk.
+
+### Risk Plan and Execution
+
+The position was sized at **60 shares**, valued at **$9,985.80**. The stop-loss was placed at **$161.71**, representing a risk of **2.84%** of the entry price per share. There was no fixed take-profit target; the exit was governed by the strategy’s mean-reversion rule.
+
+The trade was entered at **$166.43**. The exit rule stipulated that the position would close as soon as the price closed back above the 5-day SMA, or if the hard cap of 7 days elapsed, or if the stop was hit. In practice, the strategy signaled an exit via &quot;strategy_sell&quot; shortly after entry as the price recovered.
+
+### Outcome and Analysis
+
+The trade closed at **$167.09**, resulting in a profit of **$39.60** (0.40%). While this is a technical win for the bot, the performance must be viewed critically. The benchmark return for XLV over the same period was **1.98%**. Consequently, the trade generated **negative alpha of -1.58%**.
+
+This single outcome (n=1) does not prove the strategy is broken, but it highlights a specific nuance: the trade captured only a tiny fraction of the move. The exit rule triggered early, likely as the price ticked above a short-term average, locking in a small gain before the broader sector rebound continued. This suggests that for low-beta ETFs in strong uptrends, the standard mean-reversion exit parameters may be too sensitive, potentially capping upside relative to the market. The hypothesis is formed that XLV mean-reversion buys in this regime may consistently underperform the benchmark due to early exit triggers, a pattern requiring further data to confirm.</div></article><article id="816292c2"><h2>CLOSE KO — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-06 19:47 UTC · trade 816292c2</div><div class=body>**Paper Trade Journal: KO Mean Reversion Attempt**
 
 **Date:** 2026-09-29
 **Symbol:** KO
