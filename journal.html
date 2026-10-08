@@ -18,13 +18,37 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-08 13:37 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-08 19:47 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="d5b55267"><h2>BUY COST — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-10-07 19:47 UTC · trade d5b55267</div><div class=body>### Paper Trading Journal: COST Entry
+<article id="dd3c5243"><h2>CLOSE PFE — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-08 19:47 UTC · trade dd3c5243</div><div class=body>**PAPER TRADE JOURNAL: PFE (Pfizer Inc.) – Mean Reversion Long**
+**Trade ID:** dd3c5243
+**Date:** 2026-10-05
+**Status:** Closed (Win)
+
+### The Opportunity
+The deterministic strategy identified a classic mean-reversion setup in PFE. The 2-day Relative Strength Index (RSI2) had compressed to 1.5, a value significantly below the 10-threshold trigger, indicating extreme short-term oversold conditions. Simultaneously, the broader trend remained intact, with the closing price of $27.50 sitting comfortably above the 200-day Simple Moving Average (SMA200) of $25.82. The 5-day SMA was at $28.13, placing the current price below its short-term average but within a larger uptrend structure. The strategy interpreted this divergence—deep oversold momentum within a long-term uptrend—as a statistical probability favoring a snap-back to the mean.
+
+### Strategy Logic and Failure Modes
+This class of setup is traded based on the statistical anomaly that prices rarely remain 2+ standard deviations from their recent mean without a corrective bounce. The logic relies on the reversion of panic selling or technical exhaustion. However, known failure modes include &quot;catching a falling knife&quot; where fundamental news creates a persistent downward drift, or regime shifts where the &quot;uptrend&quot; breaks and the SMA200 fails as support. In such cases, the mean-reversion signal becomes noise, and the price continues lower through the oversold zone.
+
+### The Judge’s View
+The AI risk-review noted a critical discrepancy between the technical setup and the symbol-specific risk profile. While the historical base rate for RSI2 &lt; 10 in an uptrend was strong (78% win rate), the system flagged PFE as a &quot;news-nominated&quot; symbol with active legal headwinds, specifically referencing the Florida AG lawsuit. The review noted that prior exposure to this specific legal narrative had resulted in a 2.68% loss. Furthermore, the system’s overall approve accuracy was only 43%, suggesting high noise in positive signals. Consequently, the judge issued a &quot;downsize&quot; verdict with a 0.5 scale factor and 0.6 confidence, arguing that the technical edge did not outweigh the asymmetric risk of headline-driven drops unique to this issuer.
+
+### Risk Plan
+*   **Position Size:** 182 shares (scaled down 50% from the standard allocation).
+*   **Entry Price:** $27.50.
+*   **Stop Loss:** $26.53 (Fixed stop, ~3.53% below entry).
+*   **Invalidation:** A close below $26.53 would prove the thesis wrong, indicating that the &quot;oversold&quot; condition was actually the start of a fundamental breakdown.
+*   **Exit Target:** No fixed take-profit. The plan was to hold until the price closed back above the 5-day SMA ($28.13) or the 7-day hard cap expired.
+
+### Outcome vs. Plan
+The trade closed as a **win**. PFE recovered, and the position was exited via the strategy’s sell rule at $27.855, realizing a P&amp;L of $64.61 (1.29%). The trade outperformed the benchmark, which was down -0.19% over the same period, generating 1.48% in alpha.
+
+The entry thesis proved correct in this instance: the extreme RSI2 of 1.5 did mark a local bottom, and the price reversed back toward the 5-day SMA. The downsized position limited the profit, but it also protected the account from the specific legal risks cited by the judge. It is important to note that this is a single trade (n=1). This result does not prove that the 0.5 size scale was optimal, nor does it validate the strategy against news-driven volatility in general. It simply demonstrates that, in this specific instance, the technical mean-reversion signal overcame the specific legal headwinds. This remains a paper trade; no real capital was deployed.</div></article><article id="d5b55267"><h2>BUY COST — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-10-07 19:47 UTC · trade d5b55267</div><div class=body>### Paper Trading Journal: COST Entry
 
 **Trade ID:** d5b55267
 **Action:** BUY 4 shares of COST
