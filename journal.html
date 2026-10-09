@@ -18,13 +18,42 @@ a{color:#2463eb;text-decoration:none}a:hover{text-decoration:underline}
 .buy{background:#d9f0e0}.close{background:#fdeec8}
 </style></head><body>
 <div class=wrap>
-<h1>trade journal <span class=small>[PAPER] — generated 2026-10-09 13:37 UTC</span></h1>
+<h1>trade journal <span class=small>[PAPER] — generated 2026-10-09 19:48 UTC</span></h1>
 <p class=small>Every trade this bot makes, explained: the opportunity, the
 strategy's logic, the AI judge's view, and the risk plan. Paper trading —
 nothing here is financial advice.
 <a href="index.html">← dashboard</a> ·
 <a href="blog.html">blog</a></p>
-<article id="dd3c5243"><h2>CLOSE PFE — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-08 19:47 UTC · trade dd3c5243</div><div class=body>**PAPER TRADE JOURNAL: PFE (Pfizer Inc.) – Mean Reversion Long**
+<article id="65aa0ef3"><h2>BUY AVGO — ma_crossover <span class="badge buy">buy</span></h2><div class=meta>2026-10-09 19:48 UTC · trade 65aa0ef3</div><div class=body>### Trade Journal: AVGO Buy (Paper Trading)
+
+This entry documents a **paper trading** position. No real capital was at risk. The bot opened a long position in Broadcom (AVGO) based on a deterministic moving average crossover signal, subject to AI risk review.
+
+#### The Opportunity
+The deterministic strategy triggered a buy signal when the 10-day Simple Moving Average (SMA10) at **359.11** crossed above the 30-day Simple Moving Average (SMA30) at **358.06**. At the time of execution, the closing price was **361.49**. This crossover indicates a short-term shift in momentum, suggesting that recent buying pressure has overcome the broader medium-term trend. The spread between the moving averages is narrow (approx. 0.3%), indicating the trend is in its early stages rather than fully established. The current market regime is classified as &quot;up/low&quot; (SPY above its trend, low volatility), which historically provides a supportive backdrop for momentum entries in large-cap technology stocks.
+
+#### Strategy Logic
+Trading momentum crossovers captures the statistical tendency of assets to continue in the direction of a confirmed short-term trend shift. In an &quot;up/low&quot; regime, pullbacks often find support, making re-entries after a dip more likely to succeed. However, this strategy has well-documented failure modes. Tight crossovers (&lt;0.5% spread) can result in &quot;whipsaw&quot; signals where price reverts quickly, leading to immediate stop-outs. Furthermore, momentum strategies are vulnerable to sudden regime changes or macroeconomic shocks that reverse the trend before the trade can reach a target.
+
+#### The Judge’s View
+The AI risk-review approved the trade with a 1.0 scale (full size) and 0.55 confidence. The judge noted that the bear case highlighted the tightness of the crossover and recent negative news regarding EU antitrust scrutiny and AI spending concerns. However, the judge cited recent calibration data showing that &quot;bad vetoes&quot; (blocking signals that would have profited) were a primary source of error, particularly in up/low regimes. The judge reasoned that over-vetoing momentum signals in a supportive market environment has cost the bot more than the occasional loss from a whipsaw. Consequently, the judge prioritized respecting the standard edge over blocking the trade based on unverified news headlines, which are typically priced in.
+
+#### Risk Plan
+*   **Entry:** 22 shares @ $361.485.
+*   **Stop Loss:** $340.87. This places the stop approximately 5.7% below the entry price. This width is intended to be outside normal daily noise, preventing the position from being stopped out by minor intraday fluctuations.
+*   **Position Size:** 22 shares represents approximately $7,952 notional value, or roughly 7.9% of the $100,648 paper equity.
+*   **Invalidation:** The trade is proven wrong if the price falls below $340.87. If the SMA10 crosses back below the SMA30 before a stop is hit, the strategy may trigger an early exit, though the hard stop remains the primary risk control.
+
+This is a single data point (n=1) and does not prove the effectiveness of the strategy in isolation. The outcome will be monitored against the stop and any subsequent strategy exits.</div></article><article id="b4abbb35"><h2>BUY NVDA — meanrev <span class="badge buy">buy</span></h2><div class=meta>2026-10-09 19:46 UTC · trade b4abbb35</div><div class=body>## NVDA Paper Trade: Mean Reversion Entry
+
+This is a **paper trading** entry for 21 shares of NVDA at $229.645. The deterministic strategy triggered a buy signal based on a classic mean-reversion setup: the RSI2 dropped to 9.6, well below the 10 threshold, indicating extreme short-term oversold conditions. Crucially, this dip occurred with the long-term uptrend intact, as price remained significantly above the SMA200 of $201.83. The divergence between the deeply oversold 2-day momentum and the healthy long-term trend structure defined the opportunity.
+
+The logic behind this class of setup is that in established uptrends, sharp short-term declines are frequently noise rather than trend reversals. Historically, this specific strategy has demonstrated a high win rate, with 7 out of 10 similar past trades resulting in profits. However, the known failure mode is the &quot;bull trap,&quot; where an oversold reading marks the beginning of a sustained downtrend rather than a temporary dip. Additionally, high-volatility macro events can cause price to gap through stop-loss levels, rendering the protective stop ineffective.
+
+The AI risk judge reviewed the signal and issued a &quot;downsize&quot; verdict with a confidence of 0.62. The judge acknowledged the strong historical performance but cited two specific risks that warranted reducing position size. First, recent analyst commentary explicitly warned of a &quot;bull trap&quot; on NVDA, predicting a drop to the $215–$220 range. Second, the immediate macro environment is turbulent, with Treasury yields at 24-year highs and critical data releases (FOMC and CPI) scheduled for the day. The judge applied a 0.5 scale factor to the base position size to mitigate the risk of a gap-down bypassing the stop. This decision reflects a balanced approach: acknowledging the statistical edge of the setup while respecting the elevated, near-term uncertainty.
+
+The risk plan centers on a hard stop placed at $219.25, which is approximately 4.5% below the entry price. This stop is designed to invalidate the thesis if the price falls back toward the recent consolidation zone, effectively capping the loss for this position at roughly 4.5%. The position size of 21 shares, representing a reduced risk profile, ensures that even if the stop is hit, the impact on the total paper equity remains manageable. The trade is considered wrong if NVDA fails to recover from this oversold condition and instead continues its descent toward the analyst-predicted $215–$220 support levels.
+
+This entry does not guarantee a profit. It is a single data point in a sequence of trades based on a probabilistic model. The outcome will be determined by whether the market respects the long-term uptrend structure in the face of short-term oversold conditions and macroeconomic noise. The primary objective is to maintain capital preservation while capturing the reversion potential of the dip. No further prediction is made beyond the execution of this predefined risk framework.</div></article><article id="dd3c5243"><h2>CLOSE PFE — meanrev <span class="badge close">close</span></h2><div class=meta>2026-10-08 19:47 UTC · trade dd3c5243</div><div class=body>**PAPER TRADE JOURNAL: PFE (Pfizer Inc.) – Mean Reversion Long**
 **Trade ID:** dd3c5243
 **Date:** 2026-10-05
 **Status:** Closed (Win)
